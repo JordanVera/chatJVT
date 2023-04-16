@@ -1,6 +1,8 @@
 import axios from 'axios';
 
-const chat = async (req, res) => {
+const chat = async (req, res, next) => {
+  let chatGptAnswer;
+
   const options = {
     method: 'POST',
     url: 'https://openai80.p.rapidapi.com/chat/completions',
@@ -9,22 +11,20 @@ const chat = async (req, res) => {
       'X-RapidAPI-Key': process.env.RAPID_API_KEY,
       'X-RapidAPI-Host': process.env.RAPID_API_HOST,
     },
-    data: '{"model":"gpt-3.5-turbo","messages":[{"role":"user","content":"what is javascript?"}]}',
+    data: `{"model":"gpt-3.5-turbo","messages":[{"role":"user","content":"${req.body.prompt}"}]}`,
   };
 
   await axios
     .request(options)
-    .then(function (res) {
-      console.log(res.data.choices[0].message);
+    .then(function (response) {
+      console.log(response.data.choices[0].message);
+      chatGptAnswer = response.data.choices;
     })
     .catch(function (error) {
       console.error(error);
     });
 
-  res.status(200).json({
-    success: true,
-    res,
-  });
+  return res.status(200).json({ success: true, chatGptAnswer });
 };
 
 export default chat;

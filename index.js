@@ -5,6 +5,7 @@ import morgan from 'morgan';
 import cors from 'cors';
 import chalk from 'chalk';
 import router from './server/index.js';
+import colors from 'colors';
 
 const app = express();
 
@@ -21,7 +22,11 @@ app.use(
 app.use(morgan('tiny'));
 app.use(bodyparser.json());
 app.use(cors());
+app.use((req, res, next) => {
+  console.log(req.body);
 
+  next()
+});
 
 app.listen(port, () => {
   console.log(chalk.bgBlueBright.black(`App listening on port ${port}`));
