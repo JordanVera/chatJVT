@@ -70,7 +70,7 @@ body {
   width: 100vw;
   display: grid; 
   grid-auto-columns: 1fr; 
-  grid-template-columns: 0.5fr 1.5fr; 
+  grid-template-columns: 1fr 4fr; 
   grid-template-rows: 1fr; 
   gap: 24px 24px; 
   grid-template-areas: 

@@ -1,4 +1,5 @@
 import SpinnerCustom from '../Spinner.jsx';
+import { Typewriter } from 'react-simple-typewriter';
 
 const Answer = ({ loading, answer }) => {
   return loading ? (
@@ -8,7 +9,13 @@ const Answer = ({ loading, answer }) => {
       {answer.map((res, i) => (
         <p key={i}>
           {`${i + 1}) `}
-          {res?.message.content || 'enter text'}{' '}
+          {(
+            <Typewriter
+              words={res?.message.content.split()}
+              typeSpeed={50}
+              cursor
+            />
+          ) || 'enter text'}{' '}
         </p>
       ))}
     </>

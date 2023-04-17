@@ -9,8 +9,9 @@ import Divider from '@mui/material/Divider';
 import InboxIcon from '@mui/icons-material/Inbox';
 import DeleteIcon from '@mui/icons-material/Delete';
 import DraftsIcon from '@mui/icons-material/Drafts';
+import AddIcon from '@mui/icons-material/Add';
 
-export default function Navigation({ setAnswer }) {
+export default function Navigation({ answer, setAnswer }) {
   return (
     <Box sx={{ width: '100%', height: '100%', bgcolor: 'background.paper' }}>
       <nav aria-label="main mailbox folders">
@@ -18,7 +19,7 @@ export default function Navigation({ setAnswer }) {
           <ListItem disablePadding>
             <ListItemButton>
               <ListItemIcon>
-                <InboxIcon />
+                <AddIcon />
               </ListItemIcon>
               <ListItemText primary="New Chat" />
             </ListItemButton>
@@ -44,16 +45,13 @@ export default function Navigation({ setAnswer }) {
       <Divider />
       <nav aria-label="secondary mailbox folders">
         <List>
-          <ListItem disablePadding>
-            <ListItemButton>
-              <ListItemText primary="Trash" />
-            </ListItemButton>
-          </ListItem>
-          <ListItem disablePadding>
-            <ListItemButton component="a" href="#simple-list">
-              <ListItemText primary="Spam" />
-            </ListItemButton>
-          </ListItem>
+          {answer.map((res, i) => (
+            <ListItem disablePadding>
+              <ListItemButton>
+                <ListItemText primary={res?.message.content} />
+              </ListItemButton>
+            </ListItem>
+          ))}
         </List>
       </nav>
     </Box>
