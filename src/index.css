@@ -13,12 +13,8 @@
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
 }
-
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+body {
+  margin: 0
 }
 
 .logo {
@@ -53,50 +49,63 @@
   padding: 2em;
 }
 
-.read-the-docs {
-  color: #888;
+
+/* CUSTOM */
+
+#navigation {
+  width: 500px !important;
 }
 
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
+.Navigation {
+  background-color: #fff;
 }
 
-body {
-  margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
+.Chat-Box input {
+  min-width: 100%;
+  max-width: 100%;
 }
 
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
+.container {
+  height: 100vh;
+  width: 100vw;
+  display: grid; 
+  grid-auto-columns: 1fr; 
+  grid-template-columns: 0.5fr 1.5fr; 
+  grid-template-rows: 1fr; 
+  gap: 24px 24px; 
+  grid-template-areas: 
+    "Navigation Chat-Box"; 
 }
 
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
+.chatBoxContainer {
+  height: 100vh;
+  display: grid; 
+  grid-auto-columns: 1fr; 
+  grid-template-columns: 1fr; 
+  grid-template-rows: 3fr 0.5fr; 
+  gap: 50px 50px; 
+  grid-template-areas: 
+    "chatgpt-responses"
+    "request-form"; 
+    position: relative;
 }
-button:hover {
-  border-color: #646cff;
+
+.request-form {
+  position: absolute;
+  bottom: 12px;
+  grid-area: request-form; 
+  width: 100% !important;
 }
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+
+.chatgpt-responses { 
+  grid-area: chatgpt-responses;
+  height: 100%; 
 }
+
+.chatInput {
+  width: 600px !important;
+}
+
 
 @media (prefers-color-scheme: light) {
   :root {

@@ -1,21 +1,12 @@
 import axios from 'axios';
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
-import {
-  TextField,
-  Select,
-  MenuItem,
-  InputLabel,
-  FormControl,
-  Box,
-  Button,
-} from '@mui/material';
-import Answer from './Answer';
+import { TextField, FormControl, InputAdornment, Button } from '@mui/material';
+import SendIcon from '@mui/icons-material/Send';
 
-const Prompt = () => {
+const Prompt = ({ answer, loading, setAnswer, setLoading }) => {
   const { register, handleSubmit } = useForm();
-  const [loading, setLoading] = useState(false);
-  const [answer, setAnswer] = useState([]);
+
   // const [imageURL, setImageURL] = useState('');
   // const [errorMessage, setErrorMessage] = useState('');
 
@@ -32,9 +23,9 @@ const Prompt = () => {
     await axios
       .post('http://localhost:5555/chat', { prompt }, { headers })
       .then((response) => {
-        const answer = [response.data.chatGptAnswer[0]];
-        setAnswer(answer);
-        console.log(answer);
+        const ans = response.data.chatGptAnswer[0];
+        setAnswer([...answer, ans]);
+        console.log(ans);
       })
       .finally(() => setLoading(false));
   };
@@ -45,22 +36,27 @@ const Prompt = () => {
 
   return (
     <div id="prompt">
-      <form onSubmit={handleSubmit(onSubmit, onError)}>
+      <form id="promptForm" onSubmit={handleSubmit(onSubmit, onError)}>
         <FormControl required>
           <TextField
-            className="input"
+            fullWidth
+            sx={{ width: '100%' }}
+            className="input chatInput"
             label="Enter text"
-            variant="outlined"
+            InputProps={{
+              startAdornment: (
+                <Button type="submit">
+                  <InputAdornment position="start">
+                    <SendIcon sx={{ color: '#fff' }} />
+                  </InputAdornment>
+                </Button>
+              ),
+            }}
+            variant="standard"
             {...register('prompt', { required: true })}
           />
         </FormControl>
-
-        <Button type="submit" variant="contained">
-          Generate
-        </Button>
       </form>
-
-      <Answer loading={loading} answer={answer} setAnswer={setAnswer} />
     </div>
   );
 };

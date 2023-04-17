@@ -1,34 +1,32 @@
 import { useState } from 'react';
-import reactLogo from '../assets/react.svg';
-import viteLogo from '/vite.svg';
-import Prompt from './Prompt.jsx';
+import Prompt from './chatbox/Prompt.jsx';
+import Answer from '../components/chatbox/Answer.jsx';
+import Navigation from './Navigation.jsx';
 
 function App() {
-  const [count, setCount] = useState(0);
+  const [loading, setLoading] = useState(false);
+  const [answer, setAnswer] = useState([]);
 
   return (
-    <div className="App">
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://reactjs.org" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+    <div className="App container">
+      <div className="Navigation">
+        <Navigation />
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
+      <div className="Chat-Box">
+        <div className="chatBoxContainer">
+          <div className="chatgpt-responses">
+            <Answer loading={loading} answer={answer} setAnswer={setAnswer} />
+          </div>
+          <div className="request-form">
+            <Prompt
+              answer={answer}
+              loading={loading}
+              setAnswer={setAnswer}
+              setLoading={setLoading}
+            />
+          </div>
+        </div>
       </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-      <Prompt />
     </div>
   );
 }
