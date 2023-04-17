@@ -22,11 +22,11 @@ app.use(
 app.use(morgan('tiny'));
 app.use(bodyparser.json());
 app.use(cors());
-app.use((req, res, next) => {
-  console.log(req.body);
+// app.use((req, res, next) => {
+//   console.log(req.body);
 
-  next()
-});
+//   next();
+// });
 
 app.listen(port, () => {
   console.log(chalk.bgBlueBright.black(`App listening on port ${port}`));
