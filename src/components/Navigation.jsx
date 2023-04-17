@@ -7,9 +7,10 @@ import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import Divider from '@mui/material/Divider';
 import InboxIcon from '@mui/icons-material/Inbox';
+import DeleteIcon from '@mui/icons-material/Delete';
 import DraftsIcon from '@mui/icons-material/Drafts';
 
-export default function Navigation() {
+export default function Navigation({ setAnswer }) {
   return (
     <Box sx={{ width: '100%', height: '100%', bgcolor: 'background.paper' }}>
       <nav aria-label="main mailbox folders">
@@ -19,7 +20,15 @@ export default function Navigation() {
               <ListItemIcon>
                 <InboxIcon />
               </ListItemIcon>
-              <ListItemText primary="Inbox" />
+              <ListItemText primary="New Chat" />
+            </ListItemButton>
+          </ListItem>
+          <ListItem disablePadding>
+            <ListItemButton onClick={() => setAnswer([])}>
+              <ListItemIcon>
+                <DeleteIcon />
+              </ListItemIcon>
+              <ListItemText primary="Trash" />
             </ListItemButton>
           </ListItem>
           <ListItem disablePadding>

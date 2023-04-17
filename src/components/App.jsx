@@ -10,7 +10,7 @@ function App() {
   return (
     <div className="App container">
       <div className="Navigation">
-        <Navigation />
+        <Navigation answer={answer} setAnswer={setAnswer} />
       </div>
       <div className="Chat-Box">
         <div className="chatBoxContainer">
