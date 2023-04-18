@@ -106,6 +106,10 @@ body {
   width: 600px !important;
 }
 
+.spinner {
+  margin: auto;
+}
+
 
 @media (prefers-color-scheme: light) {
   :root {

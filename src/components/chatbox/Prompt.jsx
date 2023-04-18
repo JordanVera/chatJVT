@@ -4,7 +4,7 @@ import { useForm } from 'react-hook-form';
 import { TextField, FormControl, InputAdornment, Button } from '@mui/material';
 import SendIcon from '@mui/icons-material/Send';
 
-const Prompt = ({ answer, loading, setAnswer, setLoading }) => {
+const Prompt = ({ answer, loading, setAnswer, setLoading, setQuestions }) => {
   const { register, handleSubmit } = useForm();
 
   // const [imageURL, setImageURL] = useState('');
@@ -25,7 +25,7 @@ const Prompt = ({ answer, loading, setAnswer, setLoading }) => {
       .then((response) => {
         const ans = response.data.chatGptAnswer[0];
         setAnswer([...answer, ans]);
-        console.log(ans);
+        setQuestions((questions) => [...questions, prompt]);
       })
       .finally(() => setLoading(false));
   };

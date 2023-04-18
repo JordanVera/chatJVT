@@ -1,17 +1,17 @@
 import * as React from 'react';
-import Box from '@mui/material/Box';
+import { Box } from '@mui/material';
 import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import Divider from '@mui/material/Divider';
-import InboxIcon from '@mui/icons-material/Inbox';
 import DeleteIcon from '@mui/icons-material/Delete';
 import DraftsIcon from '@mui/icons-material/Drafts';
 import AddIcon from '@mui/icons-material/Add';
+import { useState } from 'react';
 
-export default function Navigation({ answer, setAnswer }) {
+export default function Navigation({ answer, setAnswer, chats }) {
   return (
     <Box sx={{ width: '100%', height: '100%', bgcolor: 'background.paper' }}>
       <nav aria-label="main mailbox folders">
@@ -44,7 +44,7 @@ export default function Navigation({ answer, setAnswer }) {
       </nav>
       <Divider />
       <nav aria-label="secondary mailbox folders">
-        <List>
+        {/* <List>
           {answer.map((res, i) => (
             <ListItem disablePadding>
               <ListItemButton>
@@ -52,7 +52,7 @@ export default function Navigation({ answer, setAnswer }) {
               </ListItemButton>
             </ListItem>
           ))}
-        </List>
+        </List> */}
       </nav>
     </Box>
   );
