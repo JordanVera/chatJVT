@@ -5,6 +5,7 @@ import morgan from 'morgan';
 import cors from 'cors';
 import chalk from 'chalk';
 import router from './server/index.js';
+import path from 'path';
 import colors from 'colors';
 
 const app = express();
@@ -31,4 +32,14 @@ app.use((req, res, next) => {
 app.listen(port, () => {
   console.log(chalk.bgBlueBright.black(`App listening on port ${port}`));
 });
+
 app.use('/', router);
+
+if (process.env.NODE_ENV === 'production') {
+  app.use(express.static('./build'));
+  app.get('*', (req, res) => {
+    res.sendFile(
+      path.join(path.resolve(path.dirname('')), '/build/index.html')
+    );
+  });
+}
