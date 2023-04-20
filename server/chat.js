@@ -2,6 +2,16 @@ import axios from 'axios';
 
 const chat = async (req, res, next) => {
   let chatGptAnswer;
+  /*  messages=[
+        {"role": "system", "content": "You are a helpful assistant."},
+        {"role": "user", "content": "Who won the world series in 2020?"},
+        {"role": "assistant", "content": "The Los Angeles Dodgers won the World Series in 2020."},
+        {"role": "user", "content": "Where was it played?"}
+    ]*/
+  const data = {
+    model: 'gpt-3.5-turbo',
+    messages: req.body.messages,
+  };
 
   const options = {
     method: 'POST',
@@ -11,13 +21,13 @@ const chat = async (req, res, next) => {
       'X-RapidAPI-Key': process.env.RAPID_API_KEY,
       'X-RapidAPI-Host': process.env.RAPID_API_HOST,
     },
-    data: `{"model":"gpt-3.5-turbo","messages":[{"role":"user","content":"${req.body.prompt}"}]}`,
+    data: JSON.stringify(data),
   };
 
   await axios
     .request(options)
     .then(function (response) {
-      console.log(response.data.choices[0].message);
+      // console.log(response.data.choices[0].message);
       chatGptAnswer = response.data.choices;
     })
     .catch(function (error) {

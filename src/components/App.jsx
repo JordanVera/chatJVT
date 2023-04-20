@@ -7,6 +7,7 @@ function App() {
   const [loading, setLoading] = useState(false);
   const [answer, setAnswer] = useState([]);
   const [questions, setQuestions] = useState([]);
+  const [messages, setMessages] = useState([]);
   const [chats, setChats] = useState([]);
 
   return (
@@ -27,11 +28,13 @@ function App() {
           <div className="request-form">
             <Prompt
               answer={answer}
-              loading={loading}
               setAnswer={setAnswer}
+              loading={loading}
               setLoading={setLoading}
               questions={questions}
               setQuestions={setQuestions}
+              messages={messages}
+              setMessages={setMessages}
             />
           </div>
         </div>

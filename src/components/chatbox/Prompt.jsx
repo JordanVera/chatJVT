@@ -4,7 +4,16 @@ import { useForm } from 'react-hook-form';
 import { TextField, FormControl, InputAdornment, Button } from '@mui/material';
 import SendIcon from '@mui/icons-material/Send';
 
-const Prompt = ({ answer, loading, setAnswer, setLoading, setQuestions }) => {
+const Prompt = ({
+  questions,
+  messages,
+  answer,
+  loading,
+  setAnswer,
+  setLoading,
+  setQuestions,
+  setMessages,
+}) => {
   const { register, handleSubmit } = useForm();
 
   // const [imageURL, setImageURL] = useState('');
@@ -12,6 +21,9 @@ const Prompt = ({ answer, loading, setAnswer, setLoading, setQuestions }) => {
 
   const onSubmit = async (data) => {
     const { prompt } = data;
+    const promptMessage = { role: 'user', content: prompt };
+    const newMessages = [...messages, promptMessage];
+    setMessages(newMessages);
 
     const headers = {
       'Content-Type': 'Application/json',
@@ -20,12 +32,20 @@ const Prompt = ({ answer, loading, setAnswer, setLoading, setQuestions }) => {
     };
 
     setLoading(true);
+
     await axios
-      .post('http://localhost:5555/chat', { prompt }, { headers })
+      .post(
+        'http://localhost:5555/chat',
+        { messages: newMessages },
+        { headers }
+      )
       .then((response) => {
         const ans = response.data.chatGptAnswer[0];
+        const answerMessage = ans.message;
+
         setAnswer([...answer, ans]);
         setQuestions((questions) => [...questions, prompt]);
+        setMessages((messages) => [...messages, answerMessage]);
       })
       .finally(() => setLoading(false));
   };
