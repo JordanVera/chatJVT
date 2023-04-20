@@ -11,7 +11,7 @@ import DraftsIcon from '@mui/icons-material/Drafts';
 import AddIcon from '@mui/icons-material/Add';
 import { useState } from 'react';
 
-export default function Navigation({ answer, setAnswer, chats }) {
+export default function Navigation({ setMesssages }) {
   return (
     <Box sx={{ width: '100%', height: '100%', bgcolor: 'background.paper' }}>
       <nav aria-label="main mailbox folders">
@@ -25,7 +25,7 @@ export default function Navigation({ answer, setAnswer, chats }) {
             </ListItemButton>
           </ListItem>
           <ListItem disablePadding>
-            <ListItemButton onClick={() => setAnswer([])}>
+            <ListItemButton onClick={() => setMesssages([])}>
               <ListItemIcon>
                 <DeleteIcon />
               </ListItemIcon>

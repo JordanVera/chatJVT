@@ -4,16 +4,7 @@ import { useForm } from 'react-hook-form';
 import { TextField, FormControl, InputAdornment, Button } from '@mui/material';
 import SendIcon from '@mui/icons-material/Send';
 
-const Prompt = ({
-  questions,
-  messages,
-  answer,
-  loading,
-  setAnswer,
-  setLoading,
-  setQuestions,
-  setMessages,
-}) => {
+const Prompt = ({ messages, setLoading, setMessages, chats, setChats }) => {
   const { register, handleSubmit } = useForm();
 
   // const [imageURL, setImageURL] = useState('');
@@ -43,8 +34,6 @@ const Prompt = ({
         const ans = response.data.chatGptAnswer[0];
         const answerMessage = ans.message;
 
-        setAnswer([...answer, ans]);
-        setQuestions((questions) => [...questions, prompt]);
         setMessages((messages) => [...messages, answerMessage]);
       })
       .finally(() => setLoading(false));
@@ -65,9 +54,9 @@ const Prompt = ({
             label="Enter text"
             InputProps={{
               startAdornment: (
-                <Button type="submit">
+                <Button type="submit" className="mailIcon">
                   <InputAdornment position="start">
-                    <SendIcon sx={{ color: '#fff' }} />
+                    <SendIcon />
                   </InputAdornment>
                 </Button>
               ),

@@ -1,40 +1,36 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Prompt from './chatbox/Prompt.jsx';
 import Answer from '../components/chatbox/Answer.jsx';
 import Navigation from './Navigation.jsx';
 
 function App() {
   const [loading, setLoading] = useState(false);
-  const [answer, setAnswer] = useState([]);
-  const [questions, setQuestions] = useState([]);
   const [messages, setMessages] = useState([]);
   const [chats, setChats] = useState([]);
+
+  useEffect(() => {
+    setChats([...messages]);
+    console.log('This is mounted only not updated.');
+  }, [messages]);
 
   return (
     <div className="App container">
       <div className="Navigation">
-        <Navigation answer={answer} setAnswer={setAnswer} chats={chats} />
+        <Navigation setMesssages={setMessages} />
       </div>
       <div className="Chat-Box">
         <div className="chatBoxContainer">
           <div className="chatgpt-responses">
-            <Answer
-              loading={loading}
-              answer={answer}
-              setAnswer={setAnswer}
-              questions={questions}
-            />
+            <Answer loading={loading} messages={messages} setChats={setChats} />
           </div>
           <div className="request-form">
             <Prompt
-              answer={answer}
-              setAnswer={setAnswer}
               loading={loading}
               setLoading={setLoading}
-              questions={questions}
-              setQuestions={setQuestions}
               messages={messages}
               setMessages={setMessages}
+              chats={chats}
+              setChats={setChats}
             />
           </div>
         </div>
