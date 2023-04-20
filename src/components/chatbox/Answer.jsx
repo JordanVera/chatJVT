@@ -5,7 +5,7 @@ const Answer = ({ loading, messages }) => {
   function capitalizeFirstLetter(string) {
     return string.charAt(0).toUpperCase() + string.slice(1);
   }
-
+  console.log('messages', messages);
   return (
     <>
       {messages.map((message, i) => (
@@ -13,17 +13,12 @@ const Answer = ({ loading, messages }) => {
           {message.role === 'user' ? (
             <h3 key={i}>{capitalizeFirstLetter(message.content)}</h3>
           ) : (
-            <p key={i}>
-              {`- `}
-              {(
-                <Typewriter
-                  words={message?.content.split()}
-                  typeSpeed={30}
-                  cursor
-                  cursorStyle="_"
-                />
-              ) || 'enter text'}{' '}
-            </p>
+            <Typewriter
+              words={message?.content.split()}
+              typeSpeed={3}
+              cursor
+              cursorStyle="_"
+            />
           )}
         </>
       ))}

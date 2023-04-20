@@ -7,6 +7,9 @@ import './styles/main.scss';
 const darkTheme = createTheme({
   palette: {
     mode: 'dark',
+    primary: {
+      main: '#f9423a',
+    },
   },
 });
 

@@ -3,21 +3,32 @@ import { Box } from '@mui/material';
 import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
+import Button from '@mui/material/Button';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import Divider from '@mui/material/Divider';
 import DeleteIcon from '@mui/icons-material/Delete';
 import DraftsIcon from '@mui/icons-material/Drafts';
 import AddIcon from '@mui/icons-material/Add';
-import { useState } from 'react';
+import SendIcon from '@mui/icons-material/Send';
+import ChatBubbleOutlineIcon from '@mui/icons-material/ChatBubbleOutline';
 
-export default function Navigation({ setMesssages }) {
+export default function Navigation({
+  setMesssages,
+  chats,
+  setSelectedChat,
+  newChat,
+}) {
   return (
     <Box sx={{ width: '100%', height: '100%', bgcolor: 'background.paper' }}>
       <nav aria-label="main mailbox folders">
         <List>
           <ListItem disablePadding>
-            <ListItemButton>
+            <ListItemButton
+              onClick={() => {
+                newChat(window.prompt('Set Title for CHat'));
+              }}
+            >
               <ListItemIcon>
                 <AddIcon />
               </ListItemIcon>
@@ -44,15 +55,17 @@ export default function Navigation({ setMesssages }) {
       </nav>
       <Divider />
       <nav aria-label="secondary mailbox folders">
-        {/* <List>
-          {answer.map((res, i) => (
-            <ListItem disablePadding>
-              <ListItemButton>
-                <ListItemText primary={res?.message.content} />
-              </ListItemButton>
-            </ListItem>
+        <List>
+          {chats.map((chat, i) => (
+            <Button
+              className="chatButton"
+              variant="outlined"
+              startIcon={<ChatBubbleOutlineIcon />}
+            >
+              {chat.substring(0, 10)}
+            </Button>
           ))}
-        </List> */}
+        </List>
       </nav>
     </Box>
   );

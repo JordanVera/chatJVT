@@ -1,6 +1,6 @@
 let url = '';
 
-const apiUrl = process.env.REACT_APP_API_URL;
+const apiUrl = import.meta.env.REACT_APP_API_URL;
 if (apiUrl) {
   url = apiUrl;
 } else {

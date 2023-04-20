@@ -5,7 +5,7 @@ import { TextField, FormControl, InputAdornment, Button } from '@mui/material';
 import SendIcon from '@mui/icons-material/Send';
 import { url } from '../../config';
 
-const Prompt = ({ messages, setLoading, setMessages, chats, setChats }) => {
+const Prompt = ({ messages, setLoading, setMessages }) => {
   const { register, handleSubmit } = useForm();
 
   const onSubmit = async (data) => {
@@ -23,7 +23,11 @@ const Prompt = ({ messages, setLoading, setMessages, chats, setChats }) => {
     setLoading(true);
 
     await axios
-      .post(`${url}/chat`, { messages: newMessages }, { headers })
+      .post(
+        `http://localhost:5555/chat`,
+        { messages: newMessages },
+        { headers }
+      )
       .then((response) => {
         const ans = response.data.chatGptAnswer[0];
         const answerMessage = ans.message;

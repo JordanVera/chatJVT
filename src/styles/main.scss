@@ -6,6 +6,7 @@ $background-color_1: #242424;
 $background-color_2: #fff;
 $background-color_3: #ffffff;
 $background-color_4: #f9f9f9;
+$red: #f9423a;
 
 @keyframes logo-spin {
 	from {
@@ -66,10 +67,14 @@ body {
 	width: 100vw;
 	display: grid;
 	grid-auto-columns: 1fr;
-	grid-template-columns: 1fr 4fr;
+	grid-template-columns: 240px 1fr;
 	grid-template-rows: 1fr;
-	gap: 24px 24px;
+	
 	grid-template-areas: "Navigation Chat-Box";
+}
+.Chat-Box, .Prompt {
+	padding-left: 24px;
+	padding-right: 24px;
 }
 .chatBoxContainer {
 	height: 100vh;
@@ -77,7 +82,6 @@ body {
 	grid-auto-columns: 1fr;
 	grid-template-columns: 1fr;
 	grid-template-rows: 3fr 0.5fr;
-	gap: 50px 50px;
 	grid-template-areas: "chatgpt-responses" "request-form";
 	position: relative;
 }
@@ -96,6 +100,60 @@ body {
 }
 .spinner {
 	margin: auto;
+}
+
+.chatButton {
+	width: 100% !important;
+	text-align: left !important;
+}
+
+.hover\:bg-gray-800:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgba(52,53,65,var(--tw-bg-opacity));
+}
+.animate-flash {
+  -webkit-animation: flash 2s steps(60,start);
+  animation: flash 2s steps(60,start);
+}
+.pr-14 {
+  padding-right: 3.5rem;
+}
+.py-3 {
+  padding-bottom: .75rem;
+  padding-top: .75rem;
+}
+.px-3 {
+  padding-left: .75rem;
+  padding-right: .75rem;
+}
+.bg-gray-800 {
+  --tw-bg-opacity: 1;
+  background-color: rgba(52,53,65,var(--tw-bg-opacity));
+}
+.rounded-md {
+  border-radius: .375rem;
+}
+.break-all {
+  word-break: break-all;
+}
+.gap-3 {
+  gap: .75rem;
+}
+.items-center {
+  align-items: center;
+}
+.cursor-pointer {
+  cursor: pointer;
+}
+.flex {
+  display: flex;
+}
+.relative {
+  position: relative;
+}
+a {
+  color: inherit;
+  text-decoration: inherit;
 }
 @media (prefers-reduced-motion: no-preference) {
 	a {
