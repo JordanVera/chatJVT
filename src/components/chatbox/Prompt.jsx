@@ -3,12 +3,10 @@ import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { TextField, FormControl, InputAdornment, Button } from '@mui/material';
 import SendIcon from '@mui/icons-material/Send';
+import { url } from '../../config';
 
 const Prompt = ({ messages, setLoading, setMessages, chats, setChats }) => {
   const { register, handleSubmit } = useForm();
-
-  // const [imageURL, setImageURL] = useState('');
-  // const [errorMessage, setErrorMessage] = useState('');
 
   const onSubmit = async (data) => {
     const { prompt } = data;
@@ -25,11 +23,7 @@ const Prompt = ({ messages, setLoading, setMessages, chats, setChats }) => {
     setLoading(true);
 
     await axios
-      .post(
-        'http://localhost:5555/chat',
-        { messages: newMessages },
-        { headers }
-      )
+      .post(`${url}:5555/chat`, { messages: newMessages }, { headers })
       .then((response) => {
         const ans = response.data.chatGptAnswer[0];
         const answerMessage = ans.message;
