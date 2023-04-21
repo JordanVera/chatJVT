@@ -43,7 +43,6 @@ const Prompt = ({ messages, setLoading, setMessages }) => {
         <FormControl required>
           <TextField
             fullWidth
-            sx={{ width: '100%' }}
             className="input chatInput"
             label="Enter text"
             InputProps={{

@@ -20,7 +20,10 @@ export default function Navigation({
   newChat,
 }) {
   return (
-    <Box sx={{ width: '100%', height: '100%', bgcolor: 'background.paper' }}>
+    <Box
+      id="navigation"
+      sx={{ width: '240px', height: '100%', bgcolor: 'background.paper' }}
+    >
       <nav aria-label="main mailbox folders">
         <List>
           <ListItem disablePadding>
@@ -59,7 +62,6 @@ export default function Navigation({
           {chats.map((chat, i) => (
             <Button
               className="chatButton"
-              variant="outlined"
               startIcon={<ChatBubbleOutlineIcon />}
             >
               {chat.substring(0, 10)}
