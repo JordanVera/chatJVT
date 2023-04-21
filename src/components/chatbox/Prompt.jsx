@@ -23,11 +23,7 @@ const Prompt = ({ messages, setLoading, setMessages }) => {
     setLoading(true);
 
     await axios
-      .post(
-        `http://localhost:5555/chat`,
-        { messages: newMessages },
-        { headers }
-      )
+      .post(`${url}/chat`, { messages: newMessages }, { headers })
       .then((response) => {
         const ans = response.data.chatGptAnswer[0];
         const answerMessage = ans.message;
