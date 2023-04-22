@@ -20,6 +20,7 @@ import ChatBubbleOutlineIcon from '@mui/icons-material/ChatBubbleOutline';
 export default function Navigation({
   setMesssages,
   chats,
+  selectedChat,
   setSelectedChat,
   newChat,
 }) {
@@ -43,7 +44,7 @@ export default function Navigation({
             </ListItemButton>
           </ListItem>
           <ListItem disablePadding>
-            <ListItemButton onClick={() => setMesssages([])}>
+            <ListItemButton onClick={() => setMesssages([[]])}>
               <ListItemIcon>
                 <DeleteIcon />
               </ListItemIcon>

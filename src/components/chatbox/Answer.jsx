@@ -29,7 +29,7 @@ const Answer = ({ loading, messages, chats }) => {
               {message.role === 'user' ? (
                 <h3 key={i}>{capitalizeFirstLetter(message.content)}</h3>
               ) : (
-                <p key={i}>
+                <p key={i} style={{ whiteSpace: 'pre-wrap' }}>
                   <Typewriter
                     words={message?.content.split()}
                     typeSpeed={3}

@@ -38,13 +38,10 @@ const Prompt = ({ messages, setLoading, setMessages, loading }) => {
 
   return (
     <div id="prompt">
-      <form
-        id="promptForm"
-        onSubmit={handleSubmit(onSubmit, onError)}
-        disabled={loading}
-      >
+      <form id="promptForm" onSubmit={handleSubmit(onSubmit, onError)}>
         <FormControl required>
           <TextField
+            disabled={loading}
             fullWidth
             className="chatInput"
             placeholder="Send a message..."

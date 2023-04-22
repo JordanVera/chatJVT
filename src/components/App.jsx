@@ -38,6 +38,7 @@ function App() {
           <Navigation
             setMesssages={setMessages}
             chats={chats}
+            selectedChat={selectedChat}
             setSelectedChat={setSelectedChat}
             newChat={newChat}
           />
