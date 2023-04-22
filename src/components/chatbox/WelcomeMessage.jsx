@@ -3,7 +3,7 @@ import { Box, Grid } from '@mui/material';
 const WelcomeMessage = () => {
   return (
     <Box id="welcomeMessage">
-      <h1>Welcome to ChatJVT</h1>
+      <h1>Welcome to JordanGPT</h1>
       <Grid container spacing={2}>
         <Grid item sm={4}>
           {' '}

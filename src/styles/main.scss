@@ -5,7 +5,11 @@ $grey: #242424;
 $grey2: #535353;
 $grey3: #121212;
 $blue: #30BCED;
-
+$orange: #ff9800;
+$blueGlow: 0 0 1px hsla(0, 0%, 100%, 0.667), 0 0 2px $blue,
+0 0 4px $blue, 0 0 6px $blue;
+$orangeGlow: 0 0 1px hsla(0, 0%, 100%, 0.667), 0 0 2px $orange,
+0 0 4px $orange, 0 0 6px $orange;
 $lora: 'Lora', serif;
 $roboto: 'Roboto', sans-serif;
 
@@ -72,7 +76,11 @@ a {
 .Chat-Box {
   display: grid;
   grid-template-columns: 1fr;
-  grid-template-rows: calc(100vh - 82px) 80px;
+  grid-template-rows: calc(100vh - 95px) 95px;
+
+  h3 {
+    margin-bottom: 0;
+  }
 
   #welcomeMessage {
     margin-top: 1rem;
@@ -95,17 +103,34 @@ a {
   }
 
   #prompt {
+    background-color: $grey2;
+
+    a {
+      text-shadow: $blueGlow;
+
+      &:hover{
+        text-shadow: $orangeGlow !important;
+      }
+    }
+
     #promptForm {
       max-width: 100%;
       min-width: auto;
-      background-color: $grey2;
-      padding: 1rem 2rem;
-      margin-left: auto;
       border-top: 1px black solid;
-
-			.MuiFormControl-root {
-				width: 100%;
+      padding: 1rem 2rem;
+      padding-bottom: 0;
+      margin-left: auto;
+      
+      .MuiFormControl-root {
+        width: 100%;
 			}
+    }
+
+    .warning {
+      font-size: 12px;
+      padding-left: 2rem;
+      padding-right: 2rem;
+      padding-bottom: 1rem;
     }
   }
 
@@ -153,7 +178,7 @@ a {
 @media screen and (max-width: 900px) {
   .Chat-Box {
     width: 100vw;
-    grid-template-rows: calc(100vh - 138px); // prompt input height + mobile navigation height
+    grid-template-rows: calc(100vh - 151px) 151px; // prompt input height + mobile navigation height
   }
 
   .Navigation {

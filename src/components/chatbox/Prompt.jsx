@@ -43,9 +43,9 @@ const Prompt = ({ messages, setLoading, setMessages, loading }) => {
           <TextField
             fullWidth
             className="chatInput"
-            label="Enter text"
+            placeholder="Send a message..."
             InputProps={{
-              startAdornment: (
+              endAdornment: (
                 <Button type="submit" className="mailIcon" disabled={loading}>
                   <InputAdornment position="start">
                     <SendIcon />
@@ -58,6 +58,23 @@ const Prompt = ({ messages, setLoading, setMessages, loading }) => {
           />
         </FormControl>
       </form>
+
+      <p className="warning">
+        Powered by{' '}
+        <a href="https://openai.com/" target="_blank" rel="noreferrer">
+          OpenAI
+        </a>{' '}
+        using{' '}
+        <a
+          href="https://platform.openai.com/docs/guides/chat"
+          target="_blank"
+          rel="noreferrer"
+        >
+          gpt-3.5-turbo
+        </a>
+        . JordanGPT may produce inaccurate information aboout people, places, or
+        facts
+      </p>
     </div>
   );
 };
