@@ -11,17 +11,18 @@ const Answer = ({ loading, messages, chats }) => {
   return (
     <Box id="infiniteScroll">
       {messages.length === 0 ? (
-        <WelcomeMessage />
+        <InfiniteScroll
+          dataLength={messages.length} //This is important field to render the next data
+          // next={fetchData}
+          hasMore={true}
+        >
+          <WelcomeMessage />
+        </InfiniteScroll>
       ) : (
         <InfiniteScroll
           dataLength={messages.length} //This is important field to render the next data
           // next={fetchData}
           hasMore={true}
-          endMessage={
-            <p style={{ textAlign: 'center' }}>
-              <b>Yay! You have seen it all</b>
-            </p>
-          }
         >
           {messages.map((message, i) => (
             <div className="responses">
