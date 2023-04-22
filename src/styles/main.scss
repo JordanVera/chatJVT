@@ -62,12 +62,17 @@ a {
   position: fixed;
 }
 
+#mobileNavigation {
+  .MuiToolbar-root  {
 
+    background-color: $grey3 !important;
+  }
+}
 
 .Chat-Box {
   display: grid;
   grid-template-columns: 1fr;
-  grid-template-rows: calc(100vh - 80px) 80px;
+  grid-template-rows: calc(100vh - 82px) 80px;
 
   #welcomeMessage {
     margin-top: 1rem;
@@ -137,13 +142,14 @@ a {
 }
 
 
-.chatgpt-responses {
-  padding: 0 2rem;
+.responses {
+  margin: 2rem;
 }
 
 @media screen and (max-width: 900px) {
   .Chat-Box {
     width: 100vw;
+    grid-template-rows: calc(100vh - 138px); // prompt input height + mobile navigation height
   }
 
   .Navigation {
@@ -151,4 +157,8 @@ a {
   }
 }
 
-//900px
+@media screen and (min-width: 900px) {
+  .mobileNavigation {
+    display: none;
+  }
+}

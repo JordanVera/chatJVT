@@ -24,7 +24,7 @@ const Answer = ({ loading, messages, chats }) => {
           }
         >
           {messages.map((message, i) => (
-            <>
+            <div className="responses">
               {message.role === 'user' ? (
                 <h3 key={i}>{capitalizeFirstLetter(message.content)}</h3>
               ) : (
@@ -37,7 +37,7 @@ const Answer = ({ loading, messages, chats }) => {
                   />
                 </p>
               )}
-            </>
+            </div>
           ))}
           {loading && <SpinnerCustom />}
         </InfiniteScroll>
