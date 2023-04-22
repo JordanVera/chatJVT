@@ -38,22 +38,25 @@ const Prompt = ({ messages, setLoading, setMessages, loading }) => {
 
   return (
     <div id="prompt">
-      <form id="promptForm" onSubmit={handleSubmit(onSubmit, onError)}>
+      <form
+        id="promptForm"
+        onSubmit={handleSubmit(onSubmit, onError)}
+        disabled={loading}
+      >
         <FormControl required>
           <TextField
             fullWidth
             className="chatInput"
             placeholder="Send a message..."
+            variant="outlined"
+            size="small"
             InputProps={{
               endAdornment: (
-                <Button type="submit" className="mailIcon" disabled={loading}>
-                  <InputAdornment position="start">
-                    <SendIcon />
-                  </InputAdornment>
-                </Button>
+                <InputAdornment position="start">
+                  <SendIcon />
+                </InputAdornment>
               ),
             }}
-            variant="standard"
             {...register('prompt', { required: true })}
           />
         </FormControl>
