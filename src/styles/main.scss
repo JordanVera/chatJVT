@@ -1,18 +1,19 @@
+@import url('https://fonts.googleapis.com/css2?family=Lora&family=Roboto&display=swap');
+
 $white: #fff;
 $grey: #242424;
 $grey2: #535353;
-$green: #1dc95b;
-$font-family_1: Inter,
-system-ui,
-Avenir,
-Helvetica,
-Arial,
-sans-serif;
+$grey3: #121212;
+$blue: #30BCED;
+
+$lora: 'Lora', serif;
+$roboto: 'Roboto', sans-serif;
+
 
 
 /* CUSTOM */
 :root {
-  font-family: $font-family_1;
+  font-family: $roboto;
   line-height: 1.5;
   font-weight: 400;
   color-scheme: light dark;
@@ -27,6 +28,16 @@ sans-serif;
 
 body {
   margin: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: $lora;
+
 }
 
 .container {
@@ -49,25 +60,49 @@ a {
 
 #navigation {
   position: fixed;
-	
 }
+
+
 
 .Chat-Box {
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: calc(100vh - 80px) 80px;
-	
 
-	#prompt {
-		#promptForm {
-			max-width: 100%;
-			min-width: auto;
-			background-color: $grey2;	
-			padding: 12px 24px;
-			margin-left: auto;
-			border-top: 1px black solid;
-		}
-	}
+  #welcomeMessage {
+    margin-top: 1rem;
+
+    h1 {
+      margin: 0;
+    }
+
+    .card {
+      background-color: $grey2;
+      padding: 1.2rem;
+      border-radius: 1rem;
+      text-align: center;
+      margin: 1.2rem;
+
+      p {
+        margin: 0 !important;
+      }
+    }
+  }
+
+  #prompt {
+    #promptForm {
+      max-width: 100%;
+      min-width: auto;
+      background-color: $grey2;
+      padding: 1rem 2rem;
+      margin-left: auto;
+      border-top: 1px black solid;
+
+			.MuiFormControl-root {
+				width: 100%;
+			}
+    }
+  }
 
   #infiniteScroll,
   // [class*=infinite-scroll-component],
@@ -78,8 +113,7 @@ a {
 }
 
 .Prompt {
-  padding-left: 24px;
-  padding-right: 24px;
+  padding: 0 2rem;
 }
 
 .chatBoxContainer {
@@ -93,7 +127,8 @@ a {
 }
 
 .chatInput {
-  width: 600px !important;
+	min-width: auto;
+  max-width: 600px !important;
 }
 
 .chatButton {
@@ -103,7 +138,17 @@ a {
 
 
 .chatgpt-responses {
-	padding: 0 24px;
+  padding: 0 2rem;
 }
 
+@media screen and (max-width: 900px) {
+  .Chat-Box {
+    width: 100vw;
+  }
 
+  .Navigation {
+    display: none;
+  }
+}
+
+//900px

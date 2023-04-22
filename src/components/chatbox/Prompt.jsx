@@ -42,7 +42,7 @@ const Prompt = ({ messages, setLoading, setMessages, loading }) => {
         <FormControl required>
           <TextField
             fullWidth
-            className="input chatInput"
+            className="chatInput"
             label="Enter text"
             InputProps={{
               startAdornment: (

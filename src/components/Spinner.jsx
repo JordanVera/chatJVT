@@ -1,7 +1,7 @@
 import { RingLoader } from 'react-spinners';
 
 const Spinner = () => {
-  return <RingLoader color="#f9423a" className="spinner" />;
+  return <RingLoader color="#30BCED" className="spinner" />;
 };
 
 export default Spinner;

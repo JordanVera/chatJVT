@@ -43,6 +43,7 @@ function App() {
             loading={loading}
             messages={messages[selectedChat]}
             setChats={setChats}
+            chats={chats}
           />
         </div>
         <div className="request-form">
