@@ -1,11 +1,10 @@
 import axios from 'axios';
-import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { TextField, FormControl, InputAdornment, Button } from '@mui/material';
 import SendIcon from '@mui/icons-material/Send';
 import { url } from '../../config';
 
-const Prompt = ({ messages, setLoading, setMessages }) => {
+const Prompt = ({ messages, setLoading, setMessages, loading }) => {
   const { register, handleSubmit } = useForm();
 
   const onSubmit = async (data) => {
@@ -47,7 +46,7 @@ const Prompt = ({ messages, setLoading, setMessages }) => {
             label="Enter text"
             InputProps={{
               startAdornment: (
-                <Button type="submit" className="mailIcon">
+                <Button type="submit" className="mailIcon" disabled={loading}>
                   <InputAdornment position="start">
                     <SendIcon />
                   </InputAdornment>

@@ -1,12 +1,16 @@
 import * as React from 'react';
-import { Box } from '@mui/material';
-import List from '@mui/material/List';
-import ListItem from '@mui/material/ListItem';
-import ListItemButton from '@mui/material/ListItemButton';
-import Button from '@mui/material/Button';
-import ListItemIcon from '@mui/material/ListItemIcon';
-import ListItemText from '@mui/material/ListItemText';
-import Divider from '@mui/material/Divider';
+import { useEffect } from 'react';
+import {
+  Box,
+  List,
+  ListItem,
+  ListItemButton,
+  Button,
+  ListItemIcon,
+  ListItemText,
+  Divider,
+} from '@mui/material';
+
 import DeleteIcon from '@mui/icons-material/Delete';
 import DraftsIcon from '@mui/icons-material/Drafts';
 import AddIcon from '@mui/icons-material/Add';
@@ -61,10 +65,14 @@ export default function Navigation({
         <List>
           {chats.map((chat, i) => (
             <Button
+              key={i}
               className="chatButton"
               startIcon={<ChatBubbleOutlineIcon />}
+              onClick={() => setSelectedChat(i)}
             >
-              {chat.substring(0, 10)}
+              {chat.length < 15
+                ? chat.substring(0, 15)
+                : chat.substring(0, 15) + '...'}
             </Button>
           ))}
         </List>

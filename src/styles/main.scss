@@ -53,13 +53,20 @@ body {
 #navigation {
 	position: fixed;
 }
-.Navigation {
-	background-color: $background-color_2;
-}
+
 .Chat-Box {
-	input {
-		min-width: 100%;
-		max-width: 100%;
+	display: grid;
+	grid-template-columns: 1fr;
+	grid-template-rows: calc(100vh - 80px) 80px;
+	#prompt {
+		margin: auto;
+	}
+
+	#infiniteScroll,
+	// [class*=infinite-scroll-component],
+	.infinite-scroll-component__outerdiv,
+	.infinite-scroll-component {
+		height: 100% !important;
 	}
 }
 .container {
@@ -86,20 +93,15 @@ body {
 	position: relative;
 }
 .request-form {
-	position: absolute;
-	bottom: 12px;
-	grid-area: request-form;
-	width: 100% !important;
+/*	position: absolute;
+	bottom: 12px;*/
 }
 .chatgpt-responses {
-	grid-area: chatgpt-responses;
-	height: 100%;
+	/*grid-area: chatgpt-responses;
+	height: 100%;*/
 }
 .chatInput {
 	width: 600px !important;
-}
-.spinner {
-	margin: auto;
 }
 
 .chatButton {
