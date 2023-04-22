@@ -142,8 +142,12 @@ a {
 }
 
 
-.responses {
+.responses, #welcomeMessage {
   margin: 2rem;
+}
+
+.spinner {
+  margin-left: 2rem !important;
 }
 
 @media screen and (max-width: 900px) {
