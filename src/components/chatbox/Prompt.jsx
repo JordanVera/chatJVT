@@ -33,7 +33,7 @@ const Prompt = ({ messages, setLoading, setMessages, loading }) => {
   };
 
   const onError = () => {
-    console.log('error');
+    console.log('errorrr');
   };
 
   return (
