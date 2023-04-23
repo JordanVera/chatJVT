@@ -4,7 +4,7 @@ import InfiniteScroll from 'react-infinite-scroll-component';
 import { Box } from '@mui/material';
 import WelcomeMessage from './WelcomeMessage.jsx';
 import MobileNavigation from '../Navigation/MobileNavigation.jsx';
-const Answer = ({ loading, messages, open, setOpen }) => {
+const Answer = ({ loading, messages, open, setOpen, newChat }) => {
   function capitalizeFirstLetter(string) {
     return string.charAt(0).toUpperCase() + string.slice(1);
   }
@@ -12,7 +12,7 @@ const Answer = ({ loading, messages, open, setOpen }) => {
   return (
     <>
       <div className="mobileNavigation">
-        <MobileNavigation open={open} setOpen={setOpen} />
+        <MobileNavigation open={open} setOpen={setOpen} newChat={newChat} />
       </div>
 
       <Box id="infiniteScroll">

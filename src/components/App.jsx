@@ -47,6 +47,7 @@ function App() {
               loading={loading}
               messages={messages[selectedChat]}
               setChats={setChats}
+              newChat={newChat}
               open={open}
               setOpen={setOpen}
             />

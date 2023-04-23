@@ -8,7 +8,7 @@ import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
 import AddIcon from '@mui/icons-material/Add';
 
-export default function ButtonAppBar({ open, setOpen }) {
+export default function ButtonAppBar({ open, setOpen, newChat }) {
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static" id="mobileNavigation">
@@ -26,7 +26,12 @@ export default function ButtonAppBar({ open, setOpen }) {
             component="div"
             sx={{ flexGrow: 1 }}
           ></Typography>
-          <Button color="inherit">
+          <Button
+            color="inherit"
+            onClick={() => {
+              newChat(window.prompt('Set Title for CHat'));
+            }}
+          >
             <AddIcon
               className="navIcon"
               size="large"
