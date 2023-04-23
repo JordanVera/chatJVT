@@ -195,13 +195,6 @@ a {
     grid-template-rows: calc(100vh - 93px) 93px; // prompt input height + mobile navigation height
   }
 
-  #infiniteScroll,
-  // [class*=infinite-scroll-component],
-  .infinite-scroll-component__outerdiv,
-  .infinite-scroll-component {
-   margin-top: -56px;
-  }
-
   .Navigation {
     display: none;
   }
