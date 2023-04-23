@@ -119,6 +119,8 @@ a {
   #prompt {
     background-color: $grey3;
     border-top: 1px $white solid;
+    position: relative;
+    z-index: 999;
 
     .warning a {
       text-shadow: $blueGlow;
@@ -138,13 +140,6 @@ a {
       .MuiFormControl-root {
         width: 100%;
       }
-
-      .submitMessageBtn {
-
-        &:hover {
-          color: $blue
-        }
-      }
     }
 
     .warning {
@@ -157,12 +152,12 @@ a {
   }
 
   #infiniteScroll,
+  // [class*=infinite-scroll-component],
   .infinite-scroll-component__outerdiv,
   .infinite-scroll-component {
     height: 100% !important;
   }
 }
-
 
 .Prompt {
   padding: 0 2rem;
@@ -212,6 +207,10 @@ a {
 
   .Navigation {
     display: none;
+  }
+
+  #infiniteScroll {
+    height: calc(100% - 56px) !important;
   }
 }
 
