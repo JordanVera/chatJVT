@@ -63,6 +63,7 @@ a {
 
 #navigation {
   position: fixed;
+  border-right: 1px solid $white;
 }
 
 #mobileNavigation {
@@ -110,9 +111,10 @@ a {
   }
 
   #prompt {
-    background-color: $grey2;
+    background-color: $grey3; 
+    border-top: 1px $white solid;
 
-    a {
+    .warning a {
       text-shadow: $blueGlow;
 
       &:hover{
@@ -123,9 +125,9 @@ a {
     #promptForm {
       max-width: 100%;
       min-width: auto;
-      border-top: 1px $grey3 solid;
       padding: 0 2rem;
       padding-top: 6px;
+      background-color: $grey3;
       
       .MuiFormControl-root {
         width: 100%;
