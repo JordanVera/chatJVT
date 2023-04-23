@@ -66,8 +66,12 @@ a {
 }
 
 #mobileNavigation {
-  .MuiToolbar-root  {
 
+  .navIcon {
+    color: $white
+  }
+
+  .MuiToolbar-root  {
     background-color: $grey3 !important;
   }
 }
@@ -99,6 +103,10 @@ a {
         margin: 0 !important;
       }
     }
+  }
+
+  #drawer {
+    z-index: 999;
   }
 
   #prompt {

@@ -1,14 +1,15 @@
 import { useState, useEffect } from 'react';
 import Prompt from './chatbox/Prompt.jsx';
 import Answer from '../components/chatbox/Answer.jsx';
-import Navigation from './Navigation.jsx';
-import MobileNavigation from './MobileNavigation.jsx';
+import Navigation from './Navigation/Navigation.jsx';
+import MobileDrawer from './Navigation/MobileDrawer.jsx';
 
 function App() {
   const [loading, setLoading] = useState(false);
   const [messages, setMessages] = useState([[]]);
   const [chats, setChats] = useState(['My First Chat']);
   const [selectedChat, setSelectedChat] = useState(0);
+  const [open, setOpen] = useState(false);
 
   const _setMessages = (newMessages) =>
     setMessages((messages) => {
@@ -29,35 +30,45 @@ function App() {
   };
 
   return (
-    <div className="App container">
-      <div className="Navigation">
-        <Navigation
-          setMesssages={setMessages}
-          chats={chats}
-          selectedChat={selectedChat}
-          setSelectedChat={setSelectedChat}
-          newChat={newChat}
-        />
-      </div>
-      <div className="Chat-Box">
-        <div className="chatgpt-responses">
-          <Answer
-            loading={loading}
-            messages={messages[selectedChat]}
-            setChats={setChats}
+    <>
+      <div className="App container">
+        <div className="Navigation">
+          <Navigation
+            setMesssages={setMessages}
             chats={chats}
+            selectedChat={selectedChat}
+            setSelectedChat={setSelectedChat}
+            newChat={newChat}
           />
         </div>
-        <div className="request-form">
-          <Prompt
-            messages={messages[selectedChat]}
-            setMessages={_setMessages}
-            setLoading={setLoading}
-            loading={loading}
-          />
+        <div className="Chat-Box">
+          <div className="chatgpt-responses">
+            <Answer
+              loading={loading}
+              messages={messages[selectedChat]}
+              setChats={setChats}
+              open={open}
+              setOpen={setOpen}
+            />
+          </div>
+          <div className="request-form">
+            <Prompt
+              messages={messages[selectedChat]}
+              setMessages={_setMessages}
+              setLoading={setLoading}
+              loading={loading}
+            />
+          </div>
         </div>
       </div>
-    </div>
+      <MobileDrawer
+        open={open}
+        setOpen={setOpen}
+        newChat={newChat}
+        setSelectedChat={setSelectedChat}
+        chats={chats}
+      />
+    </>
   );
 }
 

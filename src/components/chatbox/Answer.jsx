@@ -3,8 +3,8 @@ import { Typewriter } from 'react-simple-typewriter';
 import InfiniteScroll from 'react-infinite-scroll-component';
 import { Box } from '@mui/material';
 import WelcomeMessage from './WelcomeMessage.jsx';
-import MobileNavigation from '../MobileNavigation.jsx';
-const Answer = ({ loading, messages, chats }) => {
+import MobileNavigation from '../Navigation/MobileNavigation.jsx';
+const Answer = ({ loading, messages, open, setOpen }) => {
   function capitalizeFirstLetter(string) {
     return string.charAt(0).toUpperCase() + string.slice(1);
   }
@@ -12,7 +12,7 @@ const Answer = ({ loading, messages, chats }) => {
   return (
     <>
       <div className="mobileNavigation">
-        <MobileNavigation />
+        <MobileNavigation open={open} setOpen={setOpen} />
       </div>
 
       <Box id="infiniteScroll">
