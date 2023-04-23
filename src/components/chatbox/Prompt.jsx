@@ -1,6 +1,11 @@
 import axios from 'axios';
 import { useForm } from 'react-hook-form';
-import { TextField, FormControl, InputAdornment, Button } from '@mui/material';
+import {
+  TextField,
+  FormControl,
+  InputAdornment,
+  IconButton,
+} from '@mui/material';
 import SendIcon from '@mui/icons-material/Send';
 import { url } from '../../config';
 
@@ -49,9 +54,14 @@ const Prompt = ({ messages, setLoading, setMessages, loading }) => {
             size="small"
             InputProps={{
               endAdornment: (
-                <InputAdornment position="start">
-                  <SendIcon />
-                </InputAdornment>
+                <IconButton
+                  className="submitMessageBtn"
+                  onClick={handleSubmit(onSubmit, onError)}
+                >
+                  <InputAdornment position="start">
+                    <SendIcon />
+                  </InputAdornment>
+                </IconButton>
               ),
             }}
             {...register('prompt', { required: true })}

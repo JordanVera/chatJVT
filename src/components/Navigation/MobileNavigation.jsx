@@ -13,20 +13,20 @@ export default function ButtonAppBar({ open, setOpen, newChat }) {
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static" id="mobileNavigation">
         <Toolbar>
-          <Button onClick={() => setOpen(!open)}>
+          <IconButton onClick={() => setOpen(!open)}>
             <MenuIcon
               className="navIcon"
               size="large"
               edge="start"
               aria-label="menu"
             />
-          </Button>
+          </IconButton>
           <Typography
             variant="h6"
             component="div"
             sx={{ flexGrow: 1 }}
           ></Typography>
-          <Button
+          <IconButton
             color="inherit"
             onClick={() => {
               newChat(window.prompt('Set Title for CHat'));
@@ -38,7 +38,7 @@ export default function ButtonAppBar({ open, setOpen, newChat }) {
               edge="start"
               aria-label="new_chat"
             />
-          </Button>
+          </IconButton>
         </Toolbar>
       </AppBar>
     </Box>

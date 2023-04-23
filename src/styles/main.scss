@@ -6,12 +6,18 @@ $grey2: #535353;
 $grey3: #121212;
 $blue: #30BCED;
 $orange: #ff9800;
-$blueGlow: 0 0 1px hsla(0, 0%, 100%, 0.667), 0 0 2px $blue,
-0 0 4px $blue, 0 0 6px $blue;
-$orangeGlow: 0 0 1px hsla(0, 0%, 100%, 0.667), 0 0 2px $orange,
-0 0 4px $orange, 0 0 6px $orange;
-$lora: 'Lora', serif;
-$roboto: 'Roboto', sans-serif;
+$blueGlow: 0 0 1px hsla(0, 0%, 100%, 0.667),
+0 0 2px $blue,
+0 0 4px $blue,
+0 0 6px $blue;
+$orangeGlow: 0 0 1px hsla(0, 0%, 100%, 0.667),
+0 0 2px $orange,
+0 0 4px $orange,
+0 0 6px $orange;
+$lora: 'Lora',
+serif;
+$roboto: 'Roboto',
+sans-serif;
 
 
 
@@ -72,7 +78,7 @@ a {
     color: $white
   }
 
-  .MuiToolbar-root  {
+  .MuiToolbar-root {
     background-color: $grey3 !important;
   }
 }
@@ -111,13 +117,15 @@ a {
   }
 
   #prompt {
-    background-color: $grey3; 
+    background-color: $grey3;
     border-top: 1px $white solid;
+    position: relative;
+    z-index: 999;
 
     .warning a {
       text-shadow: $blueGlow;
 
-      &:hover{
+      &:hover {
         text-shadow: $orangeGlow !important;
       }
     }
@@ -128,10 +136,17 @@ a {
       padding: 0 2rem;
       padding-top: 6px;
       background-color: $grey3;
-      
+
       .MuiFormControl-root {
         width: 100%;
-			}
+      }
+
+      .submitMessageBtn {
+
+        &:hover {
+          color: $blue
+        }
+      }
     }
 
     .warning {
@@ -143,16 +158,13 @@ a {
     }
   }
 
-  #infiniteScroll {
-    height: calc(100% - 56px) !important;
-
-    
-    .infinite-scroll-component__outerdiv,
-    .infinite-scroll-component {
-      height: 100% !important;
-    }
+  #infiniteScroll,
+  .infinite-scroll-component__outerdiv,
+  .infinite-scroll-component {
+    height: 100% !important;
   }
 }
+
 
 .Prompt {
   padding: 0 2rem;
@@ -169,7 +181,7 @@ a {
 }
 
 .chatInput {
-	min-width: auto;
+  min-width: auto;
   max-width: 100%;
   margin: 0 !important;
 }
@@ -179,7 +191,8 @@ a {
   text-align: left !important;
 }
 
-.responses, #welcomeMessage {
+.responses,
+#welcomeMessage {
   margin: 2rem;
 }
 
@@ -192,6 +205,7 @@ a {
   .container {
     height: calc(100vh - 56px);
   }
+
   .Chat-Box {
     width: 100vw;
     height: calc(100vh - 56px);
@@ -201,11 +215,18 @@ a {
   .Navigation {
     display: none;
   }
+
+
+  #infiniteScroll {
+    height: calc(100% - 56px) !important;
+  }
 }
+
 @media screen and (max-width: 600px) {
   .container {
     height: calc(100vh - 56px);
   }
+
   .Chat-Box {
     width: 100vw;
     height: calc(100vh - 129px);
@@ -222,4 +243,3 @@ a {
     display: none;
   }
 }
-
