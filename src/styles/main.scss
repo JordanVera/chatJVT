@@ -143,11 +143,14 @@ a {
     }
   }
 
-  #infiniteScroll,
-  // [class*=infinite-scroll-component],
-  .infinite-scroll-component__outerdiv,
-  .infinite-scroll-component {
-    height: 100% !important;
+  #infiniteScroll {
+    height: calc(100% - 56px) !important;
+
+    
+    .infinite-scroll-component__outerdiv,
+    .infinite-scroll-component {
+      height: 100% !important;
+    }
   }
 }
 

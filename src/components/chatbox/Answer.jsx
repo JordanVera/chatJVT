@@ -9,6 +9,8 @@ const Answer = ({ loading, messages, open, setOpen, newChat }) => {
     return string.charAt(0).toUpperCase() + string.slice(1);
   }
 
+  console.log({ messages });
+
   return (
     <>
       <div className="mobileNavigation">
@@ -33,9 +35,14 @@ const Answer = ({ loading, messages, open, setOpen, newChat }) => {
             {messages.map((message, i) => (
               <div className="responses">
                 {message.role === 'user' ? (
-                  <h3 key={i}>{capitalizeFirstLetter(message.content)}</h3>
+                  <h3 key={message.content.slice(0, 10)}>
+                    {capitalizeFirstLetter(message.content)}
+                  </h3>
                 ) : (
-                  <p key={i} style={{ whiteSpace: 'pre-wrap' }}>
+                  <p
+                    key={message.content.slice(0, 10)}
+                    style={{ whiteSpace: 'pre-wrap' }}
+                  >
                     <Typewriter
                       words={message?.content.split()}
                       typeSpeed={3}
