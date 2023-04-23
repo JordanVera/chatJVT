@@ -115,7 +115,7 @@ a {
     #promptForm {
       max-width: 100%;
       min-width: auto;
-      border-top: 1px black solid;
+      border-top: 1px $grey3 solid;
       padding: 0 2rem;
       padding-top: 6px;
       
@@ -176,19 +176,28 @@ a {
 }
 
 @media screen and (max-width: 900px) {
-
   .container {
     height: calc(100vh - 56px);
   }
   .Chat-Box {
     width: 100vw;
     height: calc(100vh - 56px);
-    grid-template-rows: calc(100vh - 185px) 129px; // prompt input height + mobile navigation height
+    grid-template-rows: calc(100vh - 93px) 93px; // prompt input height + mobile navigation height
   }
 
-  // .chatgpt-responses {
-  //   margin-top: -65px;
-  // }
+  .Navigation {
+    display: none;
+  }
+}
+@media screen and (max-width: 600px) {
+  .container {
+    height: calc(100vh - 56px);
+  }
+  .Chat-Box {
+    width: 100vw;
+    height: calc(100vh - 56px);
+    grid-template-rows: calc(100vh - 129px) 129px; // prompt input height + mobile navigation height
+  }
 
   .Navigation {
     display: none;

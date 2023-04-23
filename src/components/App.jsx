@@ -29,40 +29,35 @@ function App() {
   };
 
   return (
-    <>
-      <div className="mobileNavigation">
-        <MobileNavigation />
+    <div className="App container">
+      <div className="Navigation">
+        <Navigation
+          setMesssages={setMessages}
+          chats={chats}
+          selectedChat={selectedChat}
+          setSelectedChat={setSelectedChat}
+          newChat={newChat}
+        />
       </div>
-      <div className="App container">
-        <div className="Navigation">
-          <Navigation
-            setMesssages={setMessages}
+      <div className="Chat-Box">
+        <div className="chatgpt-responses">
+          <Answer
+            loading={loading}
+            messages={messages[selectedChat]}
+            setChats={setChats}
             chats={chats}
-            selectedChat={selectedChat}
-            setSelectedChat={setSelectedChat}
-            newChat={newChat}
           />
         </div>
-        <div className="Chat-Box">
-          <div className="chatgpt-responses">
-            <Answer
-              loading={loading}
-              messages={messages[selectedChat]}
-              setChats={setChats}
-              chats={chats}
-            />
-          </div>
-          <div className="request-form">
-            <Prompt
-              messages={messages[selectedChat]}
-              setMessages={_setMessages}
-              setLoading={setLoading}
-              loading={loading}
-            />
-          </div>
+        <div className="request-form">
+          <Prompt
+            messages={messages[selectedChat]}
+            setMessages={_setMessages}
+            setLoading={setLoading}
+            loading={loading}
+          />
         </div>
       </div>
-    </>
+    </div>
   );
 }
 
