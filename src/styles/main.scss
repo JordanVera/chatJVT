@@ -119,8 +119,6 @@ a {
   #prompt {
     background-color: $grey3;
     border-top: 1px $white solid;
-    position: relative;
-    z-index: 999;
 
     .warning a {
       text-shadow: $blueGlow;
