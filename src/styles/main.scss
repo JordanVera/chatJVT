@@ -69,7 +69,7 @@ a {
 
 #navigation {
   position: fixed;
-  border-right: 1px solid $white;
+  border-right: 1px solid $grey2;
 }
 
 #mobileNavigation {
@@ -80,6 +80,7 @@ a {
 
   .MuiToolbar-root {
     background-color: $grey3 !important;
+    border-bottom: 1px solid $grey2;
   }
 }
 
@@ -118,7 +119,7 @@ a {
 
   #prompt {
     background-color: $grey3;
-    border-top: 1px $white solid;
+    border-top: 1px solid $grey2;
     position: relative;
     z-index: 999;
 
@@ -152,7 +153,6 @@ a {
   }
 
   #infiniteScroll,
-  // [class*=infinite-scroll-component],
   .infinite-scroll-component__outerdiv,
   .infinite-scroll-component {
     height: 100% !important;
@@ -202,7 +202,7 @@ a {
   .Chat-Box {
     width: 100vw;
     height: calc(100vh - 56px);
-    grid-template-rows: calc(100vh - 93px) 93px; // prompt input height + mobile navigation height
+    grid-template-rows: calc(100vh - 93px) 93px; // prompt input height + mobileNavigation navigation height
   }
 
   .Navigation {
@@ -233,5 +233,9 @@ a {
 @media screen and (min-width: 901px) {
   .mobileNavigation {
     display: none;
+  }
+
+  #prompt {
+    border-left: 1px solid $grey2;
   }
 }

@@ -3,6 +3,7 @@ import Prompt from './chatbox/Prompt.jsx';
 import Answer from '../components/chatbox/Answer.jsx';
 import Navigation from './Navigation/Navigation.jsx';
 import MobileDrawer from './Navigation/MobileDrawer.jsx';
+import RegisterOrLoginModal from './RegisterOrLoginModal.jsx';
 
 function App() {
   const [loading, setLoading] = useState(false);
@@ -10,6 +11,7 @@ function App() {
   const [chats, setChats] = useState(['My First Chat']);
   const [selectedChat, setSelectedChat] = useState(0);
   const [open, setOpen] = useState(false);
+  const [modalOpen, setModalOpen] = useState(false);
 
   const _setMessages = (newMessages) =>
     setMessages((messages) => {
@@ -36,9 +38,9 @@ function App() {
           <Navigation
             setMesssages={setMessages}
             chats={chats}
-            selectedChat={selectedChat}
             setSelectedChat={setSelectedChat}
             newChat={newChat}
+            setModalOpen={setModalOpen}
           />
         </div>
         <div className="Chat-Box">
@@ -62,12 +64,14 @@ function App() {
           </div>
         </div>
       </div>
+      <RegisterOrLoginModal modalOpen={modalOpen} setModalOpen={setModalOpen} />
       <MobileDrawer
         open={open}
         setOpen={setOpen}
         newChat={newChat}
         setSelectedChat={setSelectedChat}
         chats={chats}
+        setModalOpen={setModalOpen}
       />
     </>
   );

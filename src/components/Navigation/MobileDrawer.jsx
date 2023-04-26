@@ -10,6 +10,7 @@ const MobileDrawer = ({
   newChat,
   setSelectedChat,
   chats,
+  setModalOpen,
 }) => {
   return (
     <Drawer open={open} onClose={() => setOpen(false)} id="drawer">
@@ -17,6 +18,7 @@ const MobileDrawer = ({
         newChat={newChat}
         setMesssages={setMesssages}
         chats={chats}
+        setModalOpen={setModalOpen}
         setSelectedChat={setSelectedChat}
       />
     </Drawer>

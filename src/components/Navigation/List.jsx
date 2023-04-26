@@ -10,11 +10,19 @@ import {
 } from '@mui/material';
 
 import DeleteIcon from '@mui/icons-material/Delete';
-import DraftsIcon from '@mui/icons-material/Drafts';
+import LoginIcon from '@mui/icons-material/Login';
 import AddIcon from '@mui/icons-material/Add';
 import ChatBubbleOutlineIcon from '@mui/icons-material/ChatBubbleOutline';
 
-const ListForNav = ({ newChat, setMesssages, chats, setSelectedChat }) => {
+const ListForNav = ({
+  newChat,
+  setMesssages,
+  chats,
+  setSelectedChat,
+  setModalOpen,
+}) => {
+  const handleOpen = () => setModalOpen(true);
+
   return (
     <>
       <nav aria-label="main mailbox folders">
@@ -32,19 +40,23 @@ const ListForNav = ({ newChat, setMesssages, chats, setSelectedChat }) => {
             </ListItemButton>
           </ListItem>
           <ListItem disablePadding>
+            <ListItemButton
+              onClick={() => {
+                setModalOpen(true);
+              }}
+            >
+              <ListItemIcon>
+                <LoginIcon />
+              </ListItemIcon>
+              <ListItemText primary="Login/Register" />
+            </ListItemButton>
+          </ListItem>
+          <ListItem disablePadding>
             <ListItemButton onClick={() => setMesssages([[]])}>
               <ListItemIcon>
                 <DeleteIcon />
               </ListItemIcon>
               <ListItemText primary="Trash" />
-            </ListItemButton>
-          </ListItem>
-          <ListItem disablePadding>
-            <ListItemButton>
-              <ListItemIcon>
-                <DraftsIcon />
-              </ListItemIcon>
-              <ListItemText primary="Drafts" />
             </ListItemButton>
           </ListItem>
         </List>

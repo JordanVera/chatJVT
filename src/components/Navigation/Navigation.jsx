@@ -1,28 +1,14 @@
 import * as React from 'react';
-import { useEffect } from 'react';
-import {
-  Box,
-  List,
-  ListItem,
-  ListItemButton,
-  Button,
-  ListItemIcon,
-  ListItemText,
-  Divider,
-} from '@mui/material';
 
-import DeleteIcon from '@mui/icons-material/Delete';
-import DraftsIcon from '@mui/icons-material/Drafts';
-import AddIcon from '@mui/icons-material/Add';
-import ChatBubbleOutlineIcon from '@mui/icons-material/ChatBubbleOutline';
+import { Box } from '@mui/material';
 import ListForNav from './List';
 
 export default function Navigation({
   setMesssages,
   chats,
-  selectedChat,
   setSelectedChat,
   newChat,
+  setModalOpen,
 }) {
   return (
     <Box
@@ -34,6 +20,7 @@ export default function Navigation({
         setMesssages={setMesssages}
         chats={chats}
         setSelectedChat={setSelectedChat}
+        setModalOpen={setModalOpen}
       />
     </Box>
   );

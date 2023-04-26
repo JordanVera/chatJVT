@@ -8,7 +8,7 @@ import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
 import AddIcon from '@mui/icons-material/Add';
 
-export default function ButtonAppBar({ open, setOpen, newChat }) {
+export default function ButtonAppBar({ open, setOpen, newChat, setModalOpen }) {
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static" id="mobileNavigation">
