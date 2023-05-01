@@ -11,6 +11,8 @@ import router from './server/index.js';
 import cookieParser from 'cookie-parser';
 import passport from 'passport';
 import initilizePassport from './server/passportConfig.js';
+import MongoStore from 'connect-mongo';
+import helmet from 'helmet';
 
 const app = express();
 
@@ -18,6 +20,11 @@ dotenv.config();
 
 const db = process.env.MONGODB_URI;
 const port = process.env.PORT || 5555;
+
+// const mongoStore = MongoStore.create({
+//   mongoUrl: db,
+//   ttl: 14 * 24 * 60 * 60, // session will expire in 14 days
+// });
 
 app.use(bodyparser.json());
 app.use(
@@ -27,28 +34,30 @@ app.use(
 );
 
 app.use(morgan('tiny'));
-app.use(cors());
+app.use(cors({ origin: '*', credentials: true }));
+app.use(helmet());
 
 app.use(
   session({
     secret: 'secretcode',
     resave: true,
     saveUninitialized: true,
+    // store: mongoStore,
   })
 );
 
 app.use(cookieParser('secretcode'));
+
 app.use(passport.initialize());
 app.use(passport.session());
-
 initilizePassport(passport);
 
-app.use((req, res, next) => {
-  console.log('req.body'.green);
-  console.log(req.body);
+// app.use((req, res, next) => {
+//   console.log('req.body'.green);
+//   console.log(req.body);
 
-  next();
-});
+//   next();
+// });
 
 app.use('/', router);
 

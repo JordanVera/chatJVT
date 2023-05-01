@@ -41,7 +41,7 @@ const login = (req, res, next) => {
         if (err) throw err;
         const msg = { msg: 'User logged in succesfull' };
         console.log(msg);
-        console.log(req.user);
+        console.log(user);
         return res.status(200).json(msg);
       });
     }
@@ -49,7 +49,9 @@ const login = (req, res, next) => {
 };
 
 const getMe = (req, res) => {
-  return res.status(200).send(req.user);
+  console.log(req.isAuthenticated());
+  console.log(req.user);
+  return res.status(200).json({ user: req.user });
 };
 
 export { register, login, getMe };

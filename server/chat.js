@@ -25,6 +25,11 @@ const chat = async (req, res, next) => {
       chatGptAnswer = response.data.choices;
     })
     .catch(function (error) {
+      if (error.status === 429) {
+        console.log('TOO MANY REQUESTS');
+        chatGptAnswer = error.data.message;
+        return res.status(429).json({ success: false, chatGptAnswer });
+      }
       console.error(error);
     });
 

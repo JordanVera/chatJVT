@@ -29,7 +29,7 @@ export default function initilizePassport(passport) {
   });
 
   passport.deserializeUser((id, cb) => {
-    User.findOne({ _id: id }, (err, user) => {
+    User.findById(id, (err, user) => {
       cb(err, user);
     });
   });

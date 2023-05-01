@@ -45,9 +45,15 @@ export default function RegisterOrLoginModal({ modalOpen, setModalOpen }) {
     await axios
       .post(`${url}/login`, { username, password }, { headers })
       .then((response) => {
-        console.log('response');
         console.log(response);
       });
+  };
+
+  const getMe = async () => {
+    await axios.get(`${url}/user`).then((response) => {
+      console.log('response.fdata');
+      console.log(response.data.user);
+    });
   };
 
   const onError = (err) => {
@@ -63,70 +69,73 @@ export default function RegisterOrLoginModal({ modalOpen, setModalOpen }) {
         aria-labelledby="modal-modal-title"
         aria-describedby="modal-modal-description"
       >
-        {!loginOrRegister ? (
-          <Box sx={style}>
-            <Button onClick={() => setLoginOrRegister(true)}>Change</Button>
-            <h2>register</h2>
-            <form
-              onSubmit={handleSubmit(registerNewUser, onError)}
-              method="POST"
-            >
-              <Box>
-                <TextField
-                  label="username"
-                  variant="outlined"
-                  id="username"
-                  required
-                  {...register('username', { required: true })}
-                />
-                <TextField
-                  type="email"
-                  label="email"
-                  variant="outlined"
-                  id="email"
-                  required
-                  {...register('email', { required: true })}
-                />
-                <TextField
-                  type="password"
-                  label="Password"
-                  variant="outlined"
-                  id="password"
-                  required
-                  {...register('password', { required: true })}
-                />
-              </Box>
-              <Button type="submit">Register</Button>
-            </form>
-          </Box>
-        ) : (
-          <Box sx={style}>
-            <Button onClick={() => setLoginOrRegister(false)}>Change</Button>
-            <h2>login</h2>
-            <form onSubmit={handleSubmit(loginUser, onError)} method="POST">
-              <Box>
-                <TextField
-                  label="username"
-                  variant="outlined"
-                  id="username"
-                  required
-                  {...register('username', { required: true })}
-                />
+        <Box>
+          {!loginOrRegister ? (
+            <Box sx={style}>
+              <Button onClick={() => setLoginOrRegister(true)}>Change</Button>
+              <h2>register</h2>
+              <form
+                onSubmit={handleSubmit(registerNewUser, onError)}
+                method="POST"
+              >
+                <Box>
+                  <TextField
+                    label="username"
+                    variant="outlined"
+                    id="username"
+                    required
+                    {...register('username', { required: true })}
+                  />
+                  <TextField
+                    type="email"
+                    label="email"
+                    variant="outlined"
+                    id="email"
+                    required
+                    {...register('email', { required: true })}
+                  />
+                  <TextField
+                    type="password"
+                    label="Password"
+                    variant="outlined"
+                    id="password"
+                    required
+                    {...register('password', { required: true })}
+                  />
+                </Box>
+                <Button type="submit">Register</Button>
+              </form>
+            </Box>
+          ) : (
+            <Box sx={style}>
+              <Button onClick={() => setLoginOrRegister(false)}>Change</Button>
+              <h2>login</h2>
+              <form onSubmit={handleSubmit(loginUser, onError)} method="POST">
+                <Box>
+                  <TextField
+                    label="username"
+                    variant="outlined"
+                    id="username"
+                    required
+                    {...register('username', { required: true })}
+                  />
 
-                <TextField
-                  type="password"
-                  label="password"
-                  variant="outlined"
-                  id="password"
-                  required
-                  {...register('password', { required: true })}
-                />
-              </Box>
-              <Button type="submit">Login</Button>
-            </form>
-          </Box>
-        )}
+                  <TextField
+                    type="password"
+                    label="password"
+                    variant="outlined"
+                    id="password"
+                    required
+                    {...register('password', { required: true })}
+                  />
+                </Box>
+                <Button type="submit">Login</Button>
+              </form>
+            </Box>
+          )}
+        </Box>
       </Modal>
+      <Button onClick={getMe}>Get Me</Button>
     </div>
   );
 }
