@@ -83,7 +83,10 @@ const Prompt = ({ messages, setLoading, setMessages, loading }) => {
           gpt-3.5-turbo
         </a>
         . JordanGPT may produce inaccurate information aboout people, places, or
-        facts
+        facts. Made by{' '}
+        <a href="https://www.jordanvera.com" target="_blank" rel="noreferrer">
+          Jordan Vera
+        </a>
       </p>
     </div>
   );
