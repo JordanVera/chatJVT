@@ -39,11 +39,11 @@ const ListForNav = ({
               <ListItemText primary="New Chat" />
             </ListItemButton>
           </ListItem>
-          <ListItem disablePadding>
+          <ListItem disablePadding disabled>
             <ListItemButton
-              onClick={() => {
-                setModalOpen(true);
-              }}
+            // onClick={() => {
+            //   setModalOpen(true);
+            // }}
             >
               <ListItemIcon>
                 <LoginIcon />

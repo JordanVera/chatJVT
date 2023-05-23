@@ -135,7 +135,7 @@ export default function RegisterOrLoginModal({ modalOpen, setModalOpen }) {
           )}
         </Box>
       </Modal>
-      <Button onClick={getMe}>Get Me</Button>
+      {/* <Button onClick={getMe}>Get Me</Button> */}
     </div>
   );
 }

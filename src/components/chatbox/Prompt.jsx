@@ -20,8 +20,7 @@ const Prompt = ({ messages, setLoading, setMessages, loading }) => {
 
     const headers = {
       'Content-Type': 'Application/json',
-      'X-RapidAPI-Key': import.meta.env.RAPID_API_KEY,
-      'X-RapidAPI-Host': import.meta.env.RAPID_API_HOST,
+      'X-RapidAPI-Key': import.meta.env.OPENAI_API_KEY,
     };
 
     setLoading(true);
@@ -29,10 +28,11 @@ const Prompt = ({ messages, setLoading, setMessages, loading }) => {
     await axios
       .post(`${url}/chat`, { messages: newMessages }, { headers })
       .then((response) => {
-        const ans = response.data.chatGptAnswer[0];
-        const answerMessage = ans.message;
+        const ans = response.data.chatGptAnswer;
 
-        setMessages((messages) => [...messages, answerMessage]);
+        console.log('ans');
+        console.log(ans);
+        setMessages((messages) => [...messages, ans]);
       })
       .finally(() => setLoading(false));
   };

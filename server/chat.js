@@ -1,37 +1,19 @@
 import axios from 'axios';
+import openai from 'openai';
+import { Configuration, OpenAIApi } from 'openai';
 
 const chat = async (req, res, next) => {
-  let chatGptAnswer;
-  const data = {
+  const configuration = new Configuration({
+    apiKey: process.env.OPENAI_API_KEY,
+  });
+  const openai = new OpenAIApi(configuration);
+
+  const completion = await openai.createChatCompletion({
     model: 'gpt-3.5-turbo',
     messages: req.body.messages,
-  };
-
-  const options = {
-    method: 'POST',
-    url: 'https://openai80.p.rapidapi.com/chat/completions',
-    headers: {
-      'content-type': 'application/json',
-      'X-RapidAPI-Key': process.env.RAPID_API_KEY,
-      'X-RapidAPI-Host': process.env.RAPID_API_HOST,
-    },
-    data: JSON.stringify(data),
-  };
-
-  await axios
-    .request(options)
-    .then(function (response) {
-      // console.log(response.data.choices[0].message);
-      chatGptAnswer = response.data.choices;
-    })
-    .catch(function (error) {
-      if (error.status === 429) {
-        console.log('TOO MANY REQUESTS');
-        chatGptAnswer = error.data.message;
-        return res.status(429).json({ success: false, chatGptAnswer });
-      }
-      console.error(error);
-    });
+  });
+  const chatGptAnswer = completion.data.choices[0].message;
+  console.log(chatGptAnswer);
 
   return res.status(200).json({ success: true, chatGptAnswer });
 };

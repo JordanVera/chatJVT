@@ -5,6 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
+    "chat": "nodemon ./server/chat2.js",
     "server": "nodemon ./index.js",
     "start": "node ./index.js",
     "build": "vite build",
@@ -33,6 +34,7 @@
     "mongoose": "^7.0.4",
     "morgan": "^1.10.0",
     "nodemon": "^2.0.22",
+    "openai": "^3.2.1",
     "passport": "^0.6.0",
     "passport-local": "^1.0.0",
     "react": "^18.2.0",
