@@ -15,6 +15,13 @@ const chat = async (req, res, next) => {
   const chatGptAnswer = completion.data.choices[0].message;
   console.log(chatGptAnswer);
 
+  if (res.status === 503) {
+    return res.status(503).json({
+      success: false,
+      chatGptAnswer: 'Chat servers are temporarily down for maintenance',
+    });
+  }
+
   return res.status(200).json({ success: true, chatGptAnswer });
 };
 
