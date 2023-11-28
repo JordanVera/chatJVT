@@ -1,3 +1,4 @@
+import { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useForm } from 'react-hook-form';
 import {
@@ -9,13 +10,28 @@ import {
 import SendIcon from '@mui/icons-material/Send';
 import { url } from '../../config';
 
-const Prompt = ({ messages, setLoading, setMessages, loading }) => {
+const Prompt = ({
+  loading,
+  setLoading,
+  setMessages,
+  messages,
+  open,
+  setOpen,
+  newChat,
+}) => {
+  // const [messages, setLocalMessages] = useState(initialMessages || []);
+
+  // useEffect(() => {
+  //   setLocalMessages(initialMessages || []);
+  // }, [initialMessages]);
+
   const { register, handleSubmit } = useForm();
 
   const onSubmit = async (data) => {
     const { prompt } = data;
     const promptMessage = { role: 'user', content: prompt };
     const newMessages = [...messages, promptMessage];
+    // setLocalMessages(newMessages);
     setMessages(newMessages);
 
     const headers = {
@@ -32,6 +48,7 @@ const Prompt = ({ messages, setLoading, setMessages, loading }) => {
 
         console.log('ans');
         console.log(ans);
+        // setLocalMessages((messages) => [...messages, ans]);
         setMessages((messages) => [...messages, ans]);
       })
       .finally(() => setLoading(false));
@@ -42,53 +59,31 @@ const Prompt = ({ messages, setLoading, setMessages, loading }) => {
   };
 
   return (
-    <div id="prompt">
-      <form id="promptForm" onSubmit={handleSubmit(onSubmit, onError)}>
-        <FormControl required>
-          <TextField
-            disabled={loading}
-            fullWidth
-            className="chatInput"
-            placeholder="Send a message..."
-            variant="outlined"
-            size="small"
-            InputProps={{
-              endAdornment: (
-                <IconButton
-                  className="submitMessageBtn"
-                  onClick={handleSubmit(onSubmit, onError)}
-                >
-                  <InputAdornment position="start">
-                    <SendIcon />
-                  </InputAdornment>
-                </IconButton>
-              ),
-            }}
-            {...register('prompt', { required: true })}
-          />
-        </FormControl>
-      </form>
-
-      <p className="warning">
-        Powered by{' '}
-        <a href="https://openai.com/" target="_blank" rel="noreferrer">
-          OpenAI
-        </a>{' '}
-        using{' '}
-        <a
-          href="https://platform.openai.com/docs/guides/chat"
-          target="_blank"
-          rel="noreferrer"
-        >
-          gpt-3.5-turbo
-        </a>
-        . JordanGPT may produce inaccurate information aboout people, places, or
-        facts. Made by{' '}
-        <a href="https://www.jordanvera.com" target="_blank" rel="noreferrer">
-          Jordan Vera
-        </a>
-      </p>
-    </div>
+    <form onSubmit={handleSubmit(onSubmit, onError)} className="px-10">
+      <FormControl required className="w-full">
+        <TextField
+          disabled={loading}
+          className="w-full"
+          fullWidth
+          placeholder="Send a message..."
+          variant="outlined"
+          size="small"
+          InputProps={{
+            endAdornment: (
+              <IconButton
+                className="submitMessageBtn"
+                onClick={handleSubmit(onSubmit, onError)}
+              >
+                <InputAdornment position="start">
+                  <SendIcon />
+                </InputAdornment>
+              </IconButton>
+            ),
+          }}
+          {...register('prompt', { required: true })}
+        />
+      </FormControl>
+    </form>
   );
 };
 export default Prompt;

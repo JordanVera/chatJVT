@@ -1,9 +1,14 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 @import url('https://fonts.googleapis.com/css2?family=Lora&family=Roboto&display=swap');
+
 
 $white: #fff;
 $grey: #242424;
 $grey2: #535353;
 $grey3: #121212;
+$black: #000;
 $blue: #30BCED;
 $orange: #ff9800;
 $blueGlow: 0 0 1px hsla(0, 0%, 100%, 0.667),
@@ -55,9 +60,8 @@ h6 {
   width: 100vw;
   display: grid;
   grid-auto-columns: 1fr;
-  grid-template-columns: 240px 1fr;
+  grid-template-columns: 260px 1fr;
   grid-template-rows: 1fr;
-
   grid-template-areas: "Navigation Chat-Box";
 }
 
@@ -67,9 +71,34 @@ a {
   text-decoration: inherit;
 }
 
+.App {
+  width: 100vw;
+}
+
 #navigation {
   position: fixed;
   border-right: 1px solid $grey2;
+  height: 100%;
+
+  .navList {
+    background-color: $black;
+    height: 100%;
+  }
+
+  .active {
+    background-color: $blue;
+    color: $white;
+  }
+
+  .MuiPaper-root {
+    background-color: $grey3 !important;
+    width: 260px;
+    background-color: $grey3 !important;
+  }
+}
+
+.black-bg {
+  background-color: #000;
 }
 
 #mobileNavigation {
@@ -118,30 +147,6 @@ a {
   }
 
   #prompt {
-    background-color: $grey3;
-    border-top: 1px solid $grey2;
-    position: relative;
-    z-index: 999;
-
-    .warning a {
-      text-shadow: $blueGlow;
-
-      &:hover {
-        text-shadow: $orangeGlow !important;
-      }
-    }
-
-    #promptForm {
-      max-width: 100%;
-      min-width: auto;
-      padding: 0 2rem;
-      padding-top: 6px;
-      background-color: $grey3;
-
-      .MuiFormControl-root {
-        width: 100%;
-      }
-    }
 
     .warning {
       font-size: 12px;
@@ -159,25 +164,6 @@ a {
   }
 }
 
-.Prompt {
-  padding: 0 2rem;
-}
-
-.chatBoxContainer {
-  height: 100vh;
-  display: grid;
-  grid-auto-columns: 1fr;
-  grid-template-columns: 1fr;
-  grid-template-rows: 3fr 0.5fr;
-  grid-template-areas: "chatgpt-responses""request-form";
-  position: relative;
-}
-
-.chatInput {
-  min-width: auto;
-  max-width: 100%;
-  margin: 0 !important;
-}
 
 .chatButton {
   width: 100% !important;

@@ -1,5 +1,3 @@
-import axios from 'axios';
-import openai from 'openai';
 import { Configuration, OpenAIApi } from 'openai';
 
 const chat = async (req, res, next) => {
