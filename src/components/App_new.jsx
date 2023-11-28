@@ -66,39 +66,28 @@ function App_New() {
       </div>
 
       {/* Answers Area */}
-      <div className="flex h-full flex-col">
-        <div className="flex-1 overflow-hidden h-full">
-          <div className="relative h-full">
-            {/* Header */}
-            <div className="absolute left-0 right-0">
-              <div className="sticky top-0 mb-1.5 flex items-center justify-between z-10 h-14 bg-white/95 p-2 font-semibold dark:bg-gray-800/90">
-                <div className="flex items-center gap-2">JordanGPT</div>
-                <div className="flex gap-2 pr-1">YOYO</div>
-                <Button onClick={toggleDrawer}>
-                  {openDrawer.left ? 'Close Drawer' : 'Open Drawer'}
-                </Button>
-              </div>
-            </div>
-
-            <div className="flex flex-col items-center justify-center">
-              <Answer
-                loading={loading}
-                messages={messages[selectedChat]}
-                setChats={setChats}
-                newChat={newChat}
-                open={open}
-                setOpen={setOpen}
-              />
-            </div>
-          </div>
-        </div>
-
-        <div className="w-full pt-2 md:pt-0 border-t md:border-t-0 gizmo:border-t-0 dark:border-white/20 md:border-transparent md:dark:border-transparent md:pl-2 gizmo:pl-0 gizmo:md:pl-0 md:w-[calc(100%-.5rem)] bg-red-800">
-          <Prompt
+      <div className="Chat-Box">
+        <div className="chatgpt-responses">
+          <Button onClick={toggleDrawer}>
+            {openDrawer.left ? 'Close Drawer' : 'Open Drawer'}
+          </Button>
+          <Answer
             loading={loading}
             setLoading={setLoading}
             messages={messages[selectedChat]}
+            setChats={setChats}
+            newChat={newChat}
+            open={open}
+            setOpen={setOpen}
             setMessages={setMessages}
+          />
+        </div>
+        <div className="request-form">
+          <Prompt
+            messages={messages[selectedChat]}
+            setMessages={_setMessages}
+            setLoading={setLoading}
+            loading={loading}
           />
         </div>
       </div>
