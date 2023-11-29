@@ -1,7 +1,7 @@
 import * as React from 'react';
 
 import { Drawer } from '@mui/material';
-import ListForNav from './List';
+import ListForNav from './ListForNav';
 
 const MobileDrawer = ({
   open,

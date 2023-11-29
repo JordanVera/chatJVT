@@ -49,6 +49,7 @@ function App_New() {
             <div className="scrollbar-trigger relative h-full w-full flex-1 items-start border-white/20">
               <div className="flex h-full w-full flex-col p-2 gizmo:px-3 gizmo:pb-3.5 gizmo:pt-0">
                 <Navigation
+                  messages={messages}
                   setMessages={setMessages} // Corrected prop name
                   chats={chats}
                   selectedChat={selectedChat}

@@ -1,7 +1,8 @@
 import { Drawer, Button } from '@mui/material';
-import ListForNav from './List';
+import ListForNav from './ListForNav';
 
 export default function Navigation({
+  messages,
   setMesssages,
   chats,
   selectedChat,
@@ -23,6 +24,7 @@ export default function Navigation({
       >
         <ListForNav
           newChat={newChat}
+          messages={messages}
           setMesssages={setMesssages}
           chats={chats}
           selectedChat={selectedChat}

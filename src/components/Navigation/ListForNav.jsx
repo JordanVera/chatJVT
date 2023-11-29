@@ -13,6 +13,7 @@ import {
 import ChatList from './ChatList';
 
 const ListForNav = ({
+  messages,
   newChat,
   setMesssages,
   chats,
@@ -20,8 +21,6 @@ const ListForNav = ({
   setSelectedChat,
   setModalOpen,
 }) => {
-  const handleOpen = () => setModalOpen(true);
-
   return (
     <div className="w-full h-full bg-black px-2">
       <nav aria-label="main mailbox folders">
@@ -80,7 +79,11 @@ const ListForNav = ({
           </ListItemButton>
         </ListItem> */}
         </List>
-        <ChatList />
+
+        <ChatList messages={messages} />
+
+        <p className="text-white text-2xl">{messages[0]?.content}</p>
+        {/* <p className="text-white text-2xl">HELLOOOOOOOO</p> */}
       </nav>
       <Divider />
       <nav aria-label="secondary mailbox folders">
