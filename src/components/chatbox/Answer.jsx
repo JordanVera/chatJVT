@@ -13,10 +13,6 @@ const Answer = ({ loading, messages, open, setOpen, newChat }) => {
 
   return (
     <>
-      <div className="mobileNavigation">
-        <MobileNavigation open={open} setOpen={setOpen} newChat={newChat} />
-      </div>
-
       <Box id="infiniteScroll">
         {messages.length === 0 ? (
           <InfiniteScroll dataLength={messages.length} hasMore={true}>

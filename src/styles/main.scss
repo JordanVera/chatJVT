@@ -55,17 +55,6 @@ h6 {
 
 }
 
-.container {
-  height: 100vh;
-  width: 100vw;
-  display: grid;
-  grid-auto-columns: 1fr;
-  grid-template-columns: 260px 1fr;
-  grid-template-rows: 1fr;
-  grid-template-areas: "Navigation Chat-Box";
-}
-
-
 a {
   color: inherit;
   text-decoration: inherit;
@@ -113,64 +102,6 @@ a {
   }
 }
 
-.Chat-Box {
-  display: grid;
-  grid-template-columns: 1fr;
-  grid-template-rows: calc(100vh - 93px) 93px;
-
-  h3 {
-    margin-bottom: 0;
-  }
-
-  #welcomeMessage {
-    margin-top: 1rem;
-
-    h1 {
-      margin: 0;
-    }
-
-    .card {
-      background-color: $grey2;
-      padding: 1.2rem;
-      border-radius: 1rem;
-      text-align: center;
-      margin: 1.2rem;
-
-      p {
-        margin: 0 !important;
-      }
-    }
-  }
-
-  #drawer {
-    z-index: 999;
-  }
-
-  #prompt {
-
-    .warning {
-      font-size: 12px;
-      padding-left: 2rem;
-      padding-right: 2rem;
-      padding-bottom: 1rem;
-      margin-bottom: 0;
-    }
-  }
-
-  #infiniteScroll,
-  .infinite-scroll-component__outerdiv,
-  .infinite-scroll-component {
-    height: 100% !important;
-  }
-}
-
-
-.chatButton {
-  width: 100% !important;
-  text-align: left !important;
-}
-
-.responses,
 #welcomeMessage {
   margin: 2rem;
 }
