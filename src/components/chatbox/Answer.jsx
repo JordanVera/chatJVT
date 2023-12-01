@@ -14,34 +14,32 @@ const Answer = ({ loading, messages, open, setOpen, newChat }) => {
   return (
     <>
       <Box id="infiniteScroll">
-        {messages.length === 0 ? (
+        {!messages || messages.length === 0 ? (
           <InfiniteScroll dataLength={messages.length} hasMore={true}>
             <WelcomeMessage />
           </InfiniteScroll>
         ) : (
           <InfiniteScroll dataLength={messages.length} hasMore={true}>
-            {Array.isArray(messages) &&
-              messages.map((message, i) => (
-                <div className="responses" key={i}>
-                  {message.role === 'user' ? (
-                    <h3 key={message.content.slice(0, 10)}>
-                      {capitalizeFirstLetter(message.content)}
-                    </h3>
-                  ) : (
-                    <p
-                      key={message.content.slice(0, 10)}
-                      style={{ whiteSpace: 'pre-wrap' }}
-                    >
+            {messages.map((message, i) => (
+              <div className="responses" key={i}>
+                {message.role === 'user' ? (
+                  <h3 key={i}>
+                    {message.content && capitalizeFirstLetter(message.content)}
+                  </h3>
+                ) : (
+                  <p key={i} style={{ whiteSpace: 'pre-wrap' }}>
+                    {message.content && (
                       <Typewriter
-                        words={message?.content.split()}
+                        words={message.content.split()}
                         typeSpeed={3}
                         cursor
                         cursorStyle="_"
                       />
-                    </p>
-                  )}
-                </div>
-              ))}
+                    )}
+                  </p>
+                )}
+              </div>
+            ))}
             {loading && <SpinnerCustom />}
           </InfiniteScroll>
         )}

@@ -1,14 +1,5 @@
 import * as React from 'react';
-import {
-  List,
-  ListItem,
-  ListItemButton,
-  Button,
-  ListItemIcon,
-  ListItemText,
-  Divider,
-  Avatar,
-} from '@mui/material';
+import { List, Divider, Avatar } from '@mui/material';
 
 import ChatList from './ChatList';
 
@@ -22,22 +13,24 @@ const ListForNav = ({
   setModalOpen,
 }) => {
   return (
-    <div className="w-full h-full bg-black px-2">
+    <div className="w-full h-full bg-black px-3">
       <nav aria-label="main mailbox folders">
         <List disablePadding>
           <div className="w-full pt-3.5 rounded-md">
             <button
               // className="group flex items-center gap-2 rounded-lg px-2 font-medium hover:bg-token-surface-primary rounded-md"
-              className="rounded-lg w-full hover:bg-zinc-800 py-1 "
+              className="rounded-lg w-full hover:bg-zinc-800 py-1 mb-1.5"
             >
-              <div className="group py-0 flex p-0 items-center gap-2 rounded-lg px-2 font-medium hover:bg-token-surface-primary rounded-md">
+              <button
+                onClick={() => newChat(window.prompt('Set Title for CHat'))}
+                className="group py-0 flex p-0 items-center gap-2 rounded-lg px-2 font-medium hover:bg-token-surface-primary rounded-md"
+              >
                 <Avatar
                   alt="Remy Sharp"
                   src="/static/images/avatar/1.jpg"
                   sx={{
                     width: '1.75rem',
                     height: '1.75rem',
-                    marginRight: 0.5,
                   }}
                 />
                 <div className="text-left grow text-white overflow-hidden text-ellipsis whitespace-nowrap text-sm text-token-text-primary">
@@ -66,7 +59,7 @@ const ListForNav = ({
                     </svg>
                   </span>
                 </div>
-              </div>
+              </button>
             </button>
           </div>
 
@@ -80,7 +73,7 @@ const ListForNav = ({
         </ListItem> */}
         </List>
 
-        <ChatList messages={messages} />
+        <ChatList chats={chats} setSelectedChat={setSelectedChat} />
 
         <p className="text-white text-2xl">{messages[0]?.content}</p>
         {/* <p className="text-white text-2xl">HELLOOOOOOOO</p> */}

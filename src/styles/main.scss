@@ -1,7 +1,8 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-@import url('https://fonts.googleapis.com/css2?family=Lora&family=Roboto&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lora');
 
 
 $white: #fff;
@@ -51,7 +52,7 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: $lora;
+  font-family: $roboto;
 
 }
 
@@ -98,7 +99,6 @@ a {
 
   .MuiToolbar-root {
     background-color: $grey3 !important;
-    border-bottom: 1px solid $grey2;
   }
 }
 
