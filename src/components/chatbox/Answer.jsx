@@ -15,11 +15,17 @@ const Answer = ({ loading, messages, open, setOpen, newChat }) => {
     <>
       <Box id="infiniteScroll">
         {!messages || messages.length === 0 ? (
-          <InfiniteScroll dataLength={messages.length} hasMore={true}>
+          <InfiniteScroll
+            dataLength={messages ? messages.length : 0}
+            hasMore={true}
+          >
             <WelcomeMessage />
           </InfiniteScroll>
         ) : (
-          <InfiniteScroll dataLength={messages.length} hasMore={true}>
+          <InfiniteScroll
+            dataLength={messages ? messages.length : 0}
+            hasMore={true}
+          >
             {messages.map((message, i) => (
               <div className="responses" key={i}>
                 {message.role === 'user' ? (

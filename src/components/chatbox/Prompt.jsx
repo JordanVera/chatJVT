@@ -30,8 +30,12 @@ const Prompt = ({
   const onSubmit = async (data) => {
     const { prompt } = data;
     const promptMessage = { role: 'user', content: prompt };
-    const newMessages = [...messages, promptMessage];
-    // setLocalMessages(newMessages);
+
+    // Check if messages is defined, otherwise initialize it as an empty array
+    const newMessages = messages
+      ? [...messages, promptMessage]
+      : [promptMessage];
+
     setMessages(newMessages);
 
     const headers = {
@@ -41,17 +45,19 @@ const Prompt = ({
 
     setLoading(true);
 
-    await axios
-      .post(`${url}/chat`, { messages: newMessages }, { headers })
-      .then((response) => {
-        const ans = response.data.chatGptAnswer;
+    try {
+      const response = await axios.post(
+        `${url}/chat`,
+        { messages: newMessages },
+        { headers }
+      );
+      const ans = response.data.chatGptAnswer;
 
-        console.log('ans');
-        console.log(ans);
-        // setLocalMessages((messages) => [...messages, ans]);
-        setMessages((messages) => [...messages, ans]);
-      })
-      .finally(() => setLoading(false));
+      // Check if messages is defined before updating it
+      setMessages((messages) => (messages ? [...messages, ans] : [ans]));
+    } finally {
+      setLoading(false);
+    }
   };
 
   const onError = () => {

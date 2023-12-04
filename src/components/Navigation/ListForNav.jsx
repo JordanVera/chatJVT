@@ -21,7 +21,7 @@ const ListForNav = ({
               // className="group flex items-center gap-2 rounded-lg px-2 font-medium hover:bg-token-surface-primary rounded-md"
               className="rounded-lg w-full hover:bg-zinc-800 py-1 mb-1.5"
             >
-              <button
+              <div
                 onClick={() => newChat(window.prompt('Set Title for CHat'))}
                 className="group py-0 flex p-0 items-center gap-2 rounded-lg px-2 font-medium hover:bg-token-surface-primary rounded-md"
               >
@@ -33,9 +33,9 @@ const ListForNav = ({
                     height: '1.75rem',
                   }}
                 />
-                <div className="text-left grow text-white overflow-hidden text-ellipsis whitespace-nowrap text-sm text-token-text-primary">
+                <h4 className="text-left grow text-white overflow-hidden text-ellipsis whitespace-nowrap text-sm text-token-text-primary">
                   New chat
-                </div>
+                </h4>
 
                 <div className="flex gap-3">
                   <span
@@ -59,7 +59,7 @@ const ListForNav = ({
                     </svg>
                   </span>
                 </div>
-              </button>
+              </div>
             </button>
           </div>
 
@@ -76,20 +76,9 @@ const ListForNav = ({
         <ChatList chats={chats} setSelectedChat={setSelectedChat} />
 
         <p className="text-white text-2xl">{messages[0]?.content}</p>
-        {/* <p className="text-white text-2xl">HELLOOOOOOOO</p> */}
       </nav>
       <Divider />
-      <nav aria-label="secondary mailbox folders">
-        {/* <List>
-          {answer.map((res, i) => (
-            <ListItem disablePadding>
-              <ListItemButton>
-                <ListItemText primary={res?.message.content} />
-              </ListItemButton>
-            </ListItem>
-          ))}
-        </List> */}
-      </nav>
+      <nav aria-label="secondary mailbox folders"></nav>
     </div>
   );
 };
