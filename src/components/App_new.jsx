@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import Answer from '../components/chatbox/Answer.jsx';
 import Prompt from './chatbox/Prompt.jsx';
 import Navigation from './Navigation/Navigation.jsx';
+import Topbar from './chatbox/Topbar.jsx';
 import MobileDrawer from './Navigation/MobileDrawer.jsx';
 import RegisterOrLoginModal from './RegisterOrLoginModal.jsx';
 import { Button, IconButton, Box } from '@mui/material';
@@ -73,13 +74,15 @@ function App_New() {
         </div>
       </div>
 
-      {/* Chatbox Area */}
       <div
         id="chatbox"
-        className={`grid grid-rows-[calc(100vh-93px) 93px] h-[100vh] bg-[#343541] transition-width ${
+        className={`flex flex-col h-screen bg-[#343541] transition-width ${
           openDrawer.left ? 'w-[calc(100vw-260px)]' : 'w-full'
         }`}
       >
+        {/* Topbar */}
+        <Topbar />
+
         <div
           className="responses h-[calc(100vh-180px)]"
           style={{ position: 'relative' }}
@@ -106,7 +109,9 @@ function App_New() {
             setMessages={_setMessages}
           />
         </div>
-        <div className="h-[88]">
+
+        {/* Prompt Section */}
+        <div className="h-88">
           <Prompt
             messages={messages[selectedChat]}
             setMessages={_setMessages}
