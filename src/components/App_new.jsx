@@ -40,7 +40,7 @@ function App_New() {
 
   const newChat = () => {
     setChats([...chats, 'new chat']);
-    _setMessages((prevMessages) => [...prevMessages, []]);
+    setMessages((prevMessages) => [...prevMessages, []]);
   };
 
   return (
@@ -101,13 +101,10 @@ function App_New() {
 
           <Answer
             loading={loading}
-            setLoading={setLoading}
+            selectedChat={selectedChat}
+            chats={chats}
             messages={messages[selectedChat]}
-            setChats={setChats}
-            newChat={newChat}
-            open={open}
-            setOpen={setOpen}
-            setMessages={setMessages}
+            setMessages={_setMessages}
           />
         </div>
         <div className="h-[88]">
@@ -116,6 +113,7 @@ function App_New() {
             setMessages={_setMessages}
             setLoading={setLoading}
             loading={loading}
+            selectedChat={selectedChat}
           />
         </div>
       </div>

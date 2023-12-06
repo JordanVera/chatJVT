@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import axios from 'axios';
 import { useForm } from 'react-hook-form';
 import {
@@ -19,42 +19,39 @@ const Prompt = ({
   setOpen,
   newChat,
 }) => {
-  // const [messages, setLocalMessages] = useState(initialMessages || []);
-
-  // useEffect(() => {
-  //   setLocalMessages(initialMessages || []);
-  // }, [initialMessages]);
-
   const { register, handleSubmit } = useForm();
 
+  useEffect(() => {
+    console.log('_____________M__________________');
+    console.log(messages);
+  }, [messages]);
+
   const onSubmit = async (data) => {
-    const { prompt } = data;
-    const promptMessage = { role: 'user', content: prompt };
-
-    // Check if messages is defined, otherwise initialize it as an empty array
-    const newMessages = messages
-      ? [...messages, promptMessage]
-      : [promptMessage];
-
-    setMessages(newMessages);
-
-    const headers = {
-      'Content-Type': 'Application/json',
-      'X-RapidAPI-Key': import.meta.env.OPENAI_API_KEY,
-    };
-
-    setLoading(true);
-
     try {
+      const { prompt } = data;
+      const promptMessage = { role: 'user', content: prompt };
+
+      console.log('ON SUBMIT TRIG');
+      console.log(promptMessage);
+
+      setMessages((prevMessages) => [...prevMessages, promptMessage]);
+
+      const headers = {
+        'Content-Type': 'Application/json',
+        'X-RapidAPI-Key': import.meta.env.OPENAI_API_KEY,
+      };
+
+      setLoading(true);
+
       const response = await axios.post(
         `${url}/chat`,
-        { messages: newMessages },
+        { messages: [...messages, promptMessage] },
         { headers }
       );
       const ans = response.data.chatGptAnswer;
 
-      // Check if messages is defined before updating it
-      setMessages((messages) => (messages ? [...messages, ans] : [ans]));
+      // Update messages with the API response
+      setMessages((prevMessages) => [...prevMessages, ans]);
     } finally {
       setLoading(false);
     }

@@ -1,10 +1,10 @@
 import { useEffect } from 'react';
 
 const ChatList = ({ chats, setSelectedChat }) => {
-  useEffect(() => {
-    console.log('_____________M____________');
-    console.log(chats);
-  }, [chats]);
+  // useEffect(() => {
+  //   console.log('_____________M____________');
+  //   console.log(chats);
+  // }, [chats]);
 
   return (
     <div id="chatList" className="mt-[20px]">
@@ -13,10 +13,11 @@ const ChatList = ({ chats, setSelectedChat }) => {
       </h3>
 
       {chats.map((title, i) => (
-        <h5 className="text-white truncate p-2 rounded-lg text-sm hover:bg-zinc-800">
-          <button onClick={() => setSelectedChat(i)} key={i}>
-            {title}
-          </button>
+        <h5
+          key={i}
+          className="text-white truncate p-2 rounded-lg text-sm hover:bg-zinc-800"
+        >
+          <button onClick={() => setSelectedChat(i)}>{title}</button>
         </h5>
       ))}
     </div>
