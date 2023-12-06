@@ -6,12 +6,6 @@ import { Box } from '@mui/material';
 import WelcomeMessage from './WelcomeMessage.jsx';
 
 const Answer = ({ loading, chats, selectedChat, messages, setMessages }) => {
-  // useEffect(() => {
-  //   console.log('_____________M__________________');
-  //   console.log(messages);
-
-  //   setMessages(messages[selectedChat]?.messages);
-  // }, [messages]);
 
   function capitalizeFirstLetter(string) {
     return string.charAt(0).toUpperCase() + string.slice(1);

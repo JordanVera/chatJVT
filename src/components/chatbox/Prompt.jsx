@@ -21,10 +21,10 @@ const Prompt = ({
 }) => {
   const { register, handleSubmit } = useForm();
 
-  useEffect(() => {
-    console.log('_____________M__________________');
-    console.log(messages);
-  }, [messages]);
+  // useEffect(() => {
+  //   console.log('_____________M__________________');
+  //   console.log(messages);
+  // }, [messages]);
 
   const onSubmit = async (data) => {
     try {

@@ -38,8 +38,8 @@ function App_New() {
     setOpenDrawer({ ...openDrawer, left: !openDrawer.left });
   };
 
-  const newChat = () => {
-    setChats([...chats, 'new chat']);
+  const newChat = (title) => {
+    setChats([...chats, title]);
     setMessages((prevMessages) => [...prevMessages, []]);
   };
 
@@ -65,7 +65,6 @@ function App_New() {
                   newChat={newChat}
                   setModalOpen={setModalOpen}
                   openDrawer={openDrawer}
-                  setOpenDrawer={setOpenDrawer}
                   toggleDrawer={toggleDrawer}
                 />
               </div>

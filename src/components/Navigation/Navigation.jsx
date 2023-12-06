@@ -10,7 +10,6 @@ export default function Navigation({
   newChat,
   setModalOpen,
   openDrawer,
-  setOpenDrawer,
   toggleDrawer,
 }) {
   return (
