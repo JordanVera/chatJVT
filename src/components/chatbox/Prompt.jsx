@@ -1,6 +1,6 @@
 import { useState, useEffect, useCallback } from 'react';
 import axios from 'axios';
-import { useForm } from 'react-hook-form';
+import { useForm, useFormContext } from 'react-hook-form';
 import {
   TextField,
   FormControl,
@@ -20,6 +20,7 @@ const Prompt = ({
   newChat,
 }) => {
   const { register, handleSubmit } = useForm();
+  const formContext = useFormContext();
 
   // useEffect(() => {
   //   console.log('_____________M__________________');
@@ -61,6 +62,17 @@ const Prompt = ({
     console.log('errorrr');
   };
 
+  const handleKeyDown = (event) => {
+    // Check if the pressed key is Enter (key code 13)
+    if (event.key === 'Enter' && !event.shiftKey) {
+      // Prevent the default behavior of the Enter key (e.g., new line in textarea)
+      event.preventDefault();
+
+      // Trigger the form submission
+      formContext.handleSubmit(onSubmit, onError)();
+    }
+  };
+
   return (
     <form
       onSubmit={handleSubmit(onSubmit, onError)}
@@ -80,6 +92,7 @@ const Prompt = ({
                 overflowY: 'hidden',
               }}
               rows="1"
+              onKeyDown={handleKeyDown}
               placeholder="Message ChatGPT…"
               className="m-0 w-full resize-none border-0 py-[10px] pr-10 focus:ring-0 focus-visible:ring-0 dark:bg-transparent md:py-3.5 md:pr-12 placeholder-black/50 dark:placeholder-white/50 pl-3 md:pl-4"
             />
@@ -94,7 +107,7 @@ const Prompt = ({
                   height="24"
                   viewBox="0 0 24 24"
                   fillRule="none"
-                  className="text-white dark:text-gray-400"
+                  className="text-white dark:text-gray-500"
                 >
                   <path
                     d="M7 11L12 6L17 11M12 18V7"
