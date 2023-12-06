@@ -83,10 +83,7 @@ function App_New() {
         {/* Topbar */}
         <Topbar />
 
-        <div
-          className="responses h-[calc(100vh-180px)]"
-          style={{ position: 'relative' }}
-        >
+        <div className="flex-grow relative">
           {/* IconButton added for the sidebar toggle */}
           <IconButton
             style={{
@@ -111,7 +108,7 @@ function App_New() {
         </div>
 
         {/* Prompt Section */}
-        <div className="h-88">
+        <div className="mt-auto">
           <Prompt
             messages={messages[selectedChat]}
             setMessages={_setMessages}

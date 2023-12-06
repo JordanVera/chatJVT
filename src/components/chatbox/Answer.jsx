@@ -6,13 +6,12 @@ import { Box } from '@mui/material';
 import WelcomeMessage from './WelcomeMessage.jsx';
 
 const Answer = ({ loading, chats, selectedChat, messages, setMessages }) => {
-
   function capitalizeFirstLetter(string) {
     return string.charAt(0).toUpperCase() + string.slice(1);
   }
 
   return (
-    <Box id="infiniteScroll">
+    <div id="infiniteScroll" className="max-w-[768px] mx-auto">
       {!messages || messages.length === 0 ? (
         <InfiniteScroll dataLength={messages.length} hasMore={true}>
           <WelcomeMessage />
@@ -46,10 +45,11 @@ const Answer = ({ loading, chats, selectedChat, messages, setMessages }) => {
                 </div>
               ))
             : null}
+
           {loading && <SpinnerCustom />}
         </InfiniteScroll>
       )}
-    </Box>
+    </div>
   );
 };
 
