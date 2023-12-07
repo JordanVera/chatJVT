@@ -4,19 +4,27 @@ const Typewriter = ({ text }) => {
   const [displayedText, setDisplayedText] = useState('');
 
   useEffect(() => {
-    setDisplayedText(''); // this prevents the bug of the messagess upating when the selectedChat is changed
+    setDisplayedText(''); // Reset displayedText when text changes
+
     let currentIndex = 0;
 
-    const intervalId = setInterval(() => {
+    const typeNextCharacter = () => {
       setDisplayedText((prevText) => prevText + text[currentIndex]);
       currentIndex++;
+    };
 
-      if (currentIndex === text.length) {
+    const intervalId = setInterval(() => {
+      if (currentIndex < text.length) {
+        typeNextCharacter();
+      } else {
         clearInterval(intervalId);
       }
     }, 10); // Adjust the interval speed as needed
 
-    return () => clearInterval(intervalId); // Cleanup on component unmount
+    return () => {
+      // Cleanup on component unmount
+      clearInterval(intervalId);
+    };
   }, [text]);
 
   return <h3 className="text-white">{displayedText}</h3>;

@@ -3,6 +3,7 @@ import Answer from '../components/chatbox/Answer.jsx';
 import Prompt from './chatbox/Prompt.jsx';
 import Navigation from './Navigation/Navigation.jsx';
 import Topbar from './chatbox/Topbar.jsx';
+import Typewriter from './chatbox/Typewriter.jsx';
 import MobileDrawer from './Navigation/MobileDrawer.jsx';
 import RegisterOrLoginModal from './RegisterOrLoginModal.jsx';
 import { Button, IconButton, Box } from '@mui/material';
