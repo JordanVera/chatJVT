@@ -8,14 +8,14 @@ const Typewriter = ({ text }) => {
 
     let currentIndex = 0;
 
-    const typeNextCharacter = () => {
-      setDisplayedText((prevText) => prevText + text[currentIndex]);
-      currentIndex++;
+    const typeNextCharacter = (index) => {
+      setDisplayedText((prevText) => prevText + text[index]);
     };
 
     const intervalId = setInterval(() => {
       if (currentIndex < text.length) {
-        typeNextCharacter();
+        typeNextCharacter(currentIndex);
+        currentIndex++;
       } else {
         clearInterval(intervalId);
       }
