@@ -25,7 +25,7 @@ const Answer = ({ loading, chats, selectedChat, messages, setMessages }) => {
                 <div className="responses " key={i}>
                   {/* USER MESSAGE */}
                   {message.role === 'user' ? (
-                    <div className="mb-10 flex flex-1 text-base mx-auto gap-3 md:px-5 lg:px-1 xl:px-5 md:max-w-3xl lg:max-w-[40rem] xl:max-w-[48rem] } group">
+                    <div className="mb-8 py-2 flex flex-1 text-base mx-auto gap-3 md:px-5 lg:px-1 xl:px-5 md:max-w-3xl lg:max-w-[40rem] xl:max-w-[48rem] } group">
                       <div className="flex-shrink-0 flex flex-col relative items-end">
                         <Avatar
                           alt="Vera"
@@ -49,7 +49,7 @@ const Answer = ({ loading, chats, selectedChat, messages, setMessages }) => {
                     </div>
                   ) : (
                     // CHATGPT RESPONSE MSG
-                    <div className="mb-10 flex flex-1 text-base mx-auto gap-3 md:px-5 lg:px-1 xl:px-5 md:max-w-3xl lg:max-w-[40rem] xl:max-w-[48rem] } group">
+                    <div className="mb-8 py-2 flex flex-1 text-base mx-auto gap-3 md:px-5 lg:px-1 xl:px-5 md:max-w-3xl lg:max-w-[40rem] xl:max-w-[48rem] } group">
                       <div className="flex-shrink-0 flex flex-col relative items-end">
                         <Avatar
                           alt="Vera"

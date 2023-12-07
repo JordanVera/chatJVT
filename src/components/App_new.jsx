@@ -81,7 +81,7 @@ function App_New() {
         }`}
       >
         {/* Topbar */}
-        <Topbar />
+        <Topbar messages={messages} selectedChat={selectedChat} />
 
         <div className="flex-grow relative">
           {/* IconButton added for the sidebar toggle */}
