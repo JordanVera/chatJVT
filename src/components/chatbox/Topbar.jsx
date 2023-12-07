@@ -1,6 +1,6 @@
 const Topbar = ({ messages, selectedChat }) => {
   return (
-    <div className="flex flex-row items-center justify-between bg-[#343541] h-[56px] p-2 mb-1.5">
+    <div className="flex flex-row items-center justify-between bg-[#34354299] h-[56px] p-2 mb-1.5 sticky top-0 z-50">
       <button className="hover:bg-black/10 rounded-xl py-2 ">
         <div className="text-white text-lg font-bold px-3 flex flex-row items-center">
           <div>

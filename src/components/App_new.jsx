@@ -80,9 +80,21 @@ function App_New() {
           openDrawer.left ? 'w-[calc(100vw-260px)]' : 'w-full'
         }`}
       >
-        <Topbar messages={messages} selectedChat={selectedChat} />
+        <div className="flex-grow relative overflow-y-auto">
+          <Topbar messages={messages} selectedChat={selectedChat} />
+          <IconButton
+            style={{
+              position: 'absolute',
+              left: 0,
+              top: '50%',
+              transform: 'translateY(-55%)',
+              marginLeft: 10,
+            }}
+            onClick={toggleDrawer}
+          >
+            {openDrawer.left ? <ArrowBackIosIcon /> : <ArrowForwardIosIcon />}
+          </IconButton>
 
-        <div className="flex-grow relative overflow-hidden">
           <Answer
             loading={loading}
             selectedChat={selectedChat}

@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import SpinnerCustom from '../Spinner.jsx';
 import Typewriter from './Typewriter.jsx';
-import InfiniteScroll from 'react-infinite-scroll-component';
 import { Avatar } from '@mui/material';
 import WelcomeMessage from './WelcomeMessage.jsx';
 
@@ -11,10 +10,7 @@ const Answer = ({ loading, chats, selectedChat, messages, setMessages }) => {
   }
 
   return (
-    <div
-      id="infiniteScroll"
-      className="max-w-[768px] h-full mx-auto overflow-y-auto"
-    >
+    <div id="infiniteScroll" className="max-w-[768px]  mx-auto ">
       {!messages || messages.length === 0 ? (
         <WelcomeMessage />
       ) : (
