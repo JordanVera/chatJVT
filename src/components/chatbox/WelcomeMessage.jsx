@@ -3,7 +3,7 @@ import { Avatar } from '@mui/material';
 const WelcomeMessage = () => {
   return (
     <div className="flex flex-col items-center justify-center h-[calc(100vh-150px)]">
-      <div className="flex flex-col items-center h-full justify-center">
+      <div className="flex flex-col items-center h-full justify-center mb-12">
         <div className="mb-3">
           <Avatar
             alt="Remy Sharp"

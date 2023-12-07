@@ -78,9 +78,9 @@ const Prompt = ({
       onSubmit={handleSubmit(onSubmit, onError)}
       className="max-w-[768px] mx-auto"
     >
-      <div className="relative flex h-full flex-1 items-stretch md:flex-col">
-        <div className="flex w-full items-center">
-          <div className="overflow-hidden  flex flex-col w-full  flex-grow relative border border-gray-600 dark:text-white rounded-2xl bg-transparent shadow-[0_0_0_2px_rgba(255,255,255,0.95)] dark:shadow-[0_0_0_2px_rgba(52,53,65,0.95)]">
+      <div className="relative flex flex-col items-stretch">
+        <div className="relative flex w-full items-center md:flex-col">
+          <div className="overflow-hidden  flex flex-col w-full  flex-grow relative border border-gray-600 dark:text-white rounded-2xl bg-transparent">
             <textarea
               id="prompt-textarea"
               tabIndex="0"
