@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import SpinnerCustom from '../Spinner.jsx';
-import { Typewriter } from 'react-simple-typewriter';
+import Typewriter from './Typewriter.jsx';
 import InfiniteScroll from 'react-infinite-scroll-component';
 import { Avatar } from '@mui/material';
 import WelcomeMessage from './WelcomeMessage.jsx';
@@ -82,16 +82,10 @@ const Answer = ({ loading, chats, selectedChat, messages, setMessages }) => {
                       </div>
                       <div className="relative flex w-full flex-col lg:w-[calc(100%-115px)] agent-turn">
                         <h2 className="text-white font-semibold">ChatGPT</h2>
-                        <h3 key={i}>
-                          {message.content && (
-                            <Typewriter
-                              words={message.content.split()}
-                              typeSpeed={3}
-                              cursor
-                              cursorStyle="_"
-                            />
-                          )}
-                        </h3>
+
+                        {message.content && (
+                          <Typewriter text={message.content} key={i} />
+                        )}
                       </div>
                     </div>
                   )}
