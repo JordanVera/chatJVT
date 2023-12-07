@@ -10,7 +10,7 @@ const Answer = ({ loading, chats, selectedChat, messages, setMessages }) => {
   }
 
   return (
-    <div id="infiniteScroll" className="max-w-[768px]  mx-auto ">
+    <div id="infiniteScroll" className="max-w-[768px] mx-auto ">
       {!messages || messages.length === 0 ? (
         <WelcomeMessage />
       ) : (

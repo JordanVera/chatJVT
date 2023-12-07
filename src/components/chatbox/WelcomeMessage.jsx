@@ -2,14 +2,8 @@ import { Avatar } from '@mui/material';
 
 const WelcomeMessage = () => {
   return (
-    <div
-      id="welcomeMessage"
-      className="flex flex-col items-center justify-between h-full"
-    >
-      <div className="mb-3"></div>
-
-      <div className="flex flex-col items-center">
-        {' '}
+    <div className="flex flex-col items-center justify-center h-[calc(100vh-150px)]">
+      <div className="flex flex-col items-center h-full justify-center">
         <div className="mb-3">
           <Avatar
             alt="Remy Sharp"
@@ -45,7 +39,10 @@ const WelcomeMessage = () => {
         </h2>
       </div>
 
-      <div id="suggestedPrompts" className="w-full mb-3 space-y-2">
+      <div
+        id="suggestedPrompts"
+        className="w-full mb-3 space-y-2 flex-grow flex flex-col justify-end"
+      >
         <div className="flex flex-row w-full space-x-2">
           <div className="border border-gray-500 w-full p-4 rounded-2xl">
             <h4 className="text-white text-sm">Help me debug</h4>
