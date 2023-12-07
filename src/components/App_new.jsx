@@ -3,7 +3,7 @@ import Answer from '../components/chatbox/Answer.jsx';
 import Prompt from './chatbox/Prompt.jsx';
 import Navigation from './Navigation/Navigation.jsx';
 import Topbar from './chatbox/Topbar.jsx';
-import Typewriter from './chatbox/Typewriter.jsx';
+
 import MobileDrawer from './Navigation/MobileDrawer.jsx';
 import RegisterOrLoginModal from './RegisterOrLoginModal.jsx';
 import { Button, IconButton, Box } from '@mui/material';
@@ -47,7 +47,6 @@ function App_New() {
 
   return (
     <div className="relative z-0 flex h-full w-full overflow-hidden">
-      {/* Sidebar */}
       <div
         id="sidebar"
         className={`dark flex-shrink-0 overflow-x-hidden bg-gray-900 gizmo:bg-black transition-width ${
@@ -81,24 +80,9 @@ function App_New() {
           openDrawer.left ? 'w-[calc(100vw-260px)]' : 'w-full'
         }`}
       >
-        {/* Topbar */}
         <Topbar messages={messages} selectedChat={selectedChat} />
 
-        <div className="flex-grow relative">
-          {/* IconButton added for the sidebar toggle */}
-          <IconButton
-            style={{
-              position: 'absolute',
-              left: 0,
-              top: '50%',
-              transform: 'translateY(-55%)',
-              marginLeft: 10,
-            }}
-            onClick={toggleDrawer}
-          >
-            {openDrawer.left ? <ArrowBackIosIcon /> : <ArrowForwardIosIcon />}
-          </IconButton>
-
+        <div className="flex-grow relative overflow-hidden">
           <Answer
             loading={loading}
             selectedChat={selectedChat}
@@ -108,8 +92,7 @@ function App_New() {
           />
         </div>
 
-        {/* Prompt Section */}
-        <div className="mt-auto">
+        <div className="mt-auto sticky">
           <Prompt
             messages={messages[selectedChat]}
             setMessages={_setMessages}

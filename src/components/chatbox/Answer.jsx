@@ -11,15 +11,14 @@ const Answer = ({ loading, chats, selectedChat, messages, setMessages }) => {
   }
 
   return (
-    <div id="infiniteScroll" className="max-w-[768px] h-full mx-auto">
+    <div
+      id="infiniteScroll"
+      className="max-w-[768px] h-full mx-auto overflow-y-auto"
+    >
       {!messages || messages.length === 0 ? (
         <WelcomeMessage />
       ) : (
-        <InfiniteScroll
-          dataLength={messages.length}
-          hasMore={true}
-          id="answers"
-        >
+        <div dataLength={messages.length} hasMore={true} id="answers">
           {Array.isArray(messages)
             ? messages?.map((message, i) => (
                 <div className="responses " key={i}>
@@ -94,7 +93,7 @@ const Answer = ({ loading, chats, selectedChat, messages, setMessages }) => {
             : null}
 
           {loading && <SpinnerCustom />}
-        </InfiniteScroll>
+        </div>
       )}
     </div>
   );
