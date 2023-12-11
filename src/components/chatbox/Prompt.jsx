@@ -76,7 +76,7 @@ const Prompt = ({
   return (
     <form
       onSubmit={handleSubmit(onSubmit, onError)}
-      className="max-w-[768px] mx-auto"
+      className="max-w-[768px] mx-auto px-4"
     >
       <div className="relative flex flex-col items-stretch">
         <div className="relative flex w-full items-center md:flex-col">
