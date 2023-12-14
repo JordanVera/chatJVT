@@ -127,6 +127,37 @@ a {
   }
 }
 
+#sidebar-button {
+  opacity: .25;
+
+  &:hover {
+    opacity: 1;
+  }
+}
+
+.sidebar-button-1,
+.sidebar-button-2 {
+  transition: all 0.2s ease-in-out;
+}
+
+.sidebar-button-1 {
+  transform: translateY(0.15rem) rotate(0deg) translateZ(0px);
+  background-color: #fff !important;
+
+  &:hover {
+    transform: translateY(0.15rem) rotate(15deg) translateZ(0px) !important;
+  }
+}
+
+.sidebar-button-2 {
+  transform: translateY(-0.15rem) rotate(0deg) translateZ(0px);
+  background-color: #fff !important;
+
+  &:hover {
+    transform: translateY(0.15rem) rotate(-15deg) translateZ(0px) !important;
+  }
+}
+
 @media screen and (max-width: 600px) {
   .container {
     height: calc(100vh - 56px);

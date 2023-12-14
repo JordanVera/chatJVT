@@ -7,9 +7,6 @@ import Topbar from './chatbox/Topbar.jsx';
 import MobileDrawer from './Navigation/MobileDrawer.jsx';
 import RegisterOrLoginModal from './RegisterOrLoginModal.jsx';
 import { Button, IconButton, Box } from '@mui/material';
-import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
-import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
-import MenuIcon from '@mui/icons-material/Menu';
 
 function App() {
   const [loading, setLoading] = useState(false);
@@ -93,45 +90,20 @@ function App() {
             }}
           />
 
-          <button onClick={toggleDrawer} className="">
+          <button
+            onClick={toggleDrawer}
+            className="fixed top-[42%] transform translate-y-1/2"
+          >
             <span className="" data-state="closed">
               <div
                 className="flex h-[72px] w-8 items-center justify-center"
-                style={{ opacity: 0.25 }}
+                id="sidebar-button"
               >
                 <div className="flex h-6 w-6 flex-col items-center">
-                  <div
-                    className="h-3 w-1 rounded-full bg-white"
-                    style={{
-                      transform:
-                        'translateY(0.15rem) rotate(0deg) translateZ(0px)',
-                    }}
-                  ></div>
-                  <div
-                    className="h-3 w-1 rounded-full bg-white"
-                    style={{
-                      transform:
-                        'translateY(-0.15rem) rotate(0deg) translateZ(0px)',
-                    }}
-                  ></div>
+                  <div className="h-3 w-1 rounded-full sidebar-button-1"></div>
+                  <div className="h-3 w-1 rounded-full sidebar-button-2"></div>
                 </div>
               </div>
-              <span
-                style={{
-                  position: 'absolute',
-                  border: '0px',
-                  width: '1px',
-                  height: '1px',
-                  padding: '0px',
-                  margin: '-1px',
-                  overflow: 'hidden',
-                  clip: 'rect(0px, 0px, 0px, 0px)',
-                  whiteSpace: 'nowrap',
-                  overflowWrap: 'normal',
-                }}
-              >
-                Close sidebar
-              </span>
             </span>
           </button>
           {/* {openDrawer.left ? <ArrowBackIosIcon /> : <ArrowForwardIosIcon />} */}

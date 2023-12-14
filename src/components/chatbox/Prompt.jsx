@@ -1,13 +1,6 @@
 import { useState, useEffect, useCallback } from 'react';
 import axios from 'axios';
 import { useForm, useFormContext } from 'react-hook-form';
-import {
-  TextField,
-  FormControl,
-  InputAdornment,
-  IconButton,
-} from '@mui/material';
-import SendIcon from '@mui/icons-material/Send';
 import { url } from '../../config';
 
 const Prompt = ({
@@ -65,10 +58,8 @@ const Prompt = ({
   const handleKeyDown = (event) => {
     // Check if the pressed key is Enter (key code 13)
     if (event.key === 'Enter' && !event.shiftKey) {
-      // Prevent the default behavior of the Enter key (e.g., new line in textarea)
       event.preventDefault();
 
-      // Trigger the form submission
       formContext.handleSubmit(onSubmit, onError)();
     }
   };
@@ -128,20 +119,5 @@ const Prompt = ({
     </form>
   );
 };
-
-//   <input
-// disabled={loading}
-// type="text"
-// placeholder="Send a message..."
-// className="w-full border rounded-md p-2"
-// {...register('prompt', { required: true })}
-// />
-// <button
-// type="submit"
-// disabled={loading}
-// className="submitMessageBtn bg-blue-500 text-white rounded-md p-2 ml-2"
-// >
-// Send
-// </button>
 
 export default Prompt;
