@@ -1,6 +1,11 @@
 import { useState } from 'react';
 
-const SidebarButton = ({ toggleDrawer, isHovered, setIsHovered }) => {
+const SidebarButton = ({
+  toggleDrawer,
+  isHovered,
+  setIsHovered,
+  isDrawerOpen,
+}) => {
   const handleMouseEnter = () => {
     setIsHovered(true);
   };

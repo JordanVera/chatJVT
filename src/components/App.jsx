@@ -93,6 +93,7 @@ function App() {
           <SidebarButton
             toggleDrawer={toggleDrawer}
             isHovered={isHovered}
+            isDrawerOpen={openDrawer.left}
             setIsHovered={setIsHovered}
           />
           {/* {openDrawer.left ? <ArrowBackIosIcon /> : <ArrowForwardIosIcon />} */}
