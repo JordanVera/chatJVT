@@ -2,11 +2,11 @@ import { useState, useEffect } from 'react';
 import Answer from './chatbox/Answer.jsx';
 import Prompt from './chatbox/Prompt.jsx';
 import Navigation from './Navigation/Navigation.jsx';
+import SidebarButton from './Navigation/SidebarButton.jsx';
 import Topbar from './chatbox/Topbar.jsx';
 
 import MobileDrawer from './Navigation/MobileDrawer.jsx';
 import RegisterOrLoginModal from './RegisterOrLoginModal.jsx';
-import { Button, IconButton, Box } from '@mui/material';
 
 function App() {
   const [loading, setLoading] = useState(false);
@@ -14,7 +14,6 @@ function App() {
 
   const [chats, setChats] = useState(['My First Chat']);
   const [selectedChat, setSelectedChat] = useState(0);
-  const [open, setOpen] = useState(false);
   const [modalOpen, setModalOpen] = useState(false);
 
   const [openDrawer, setOpenDrawer] = useState({
@@ -90,22 +89,7 @@ function App() {
             }}
           />
 
-          <button
-            onClick={toggleDrawer}
-            className="fixed top-[42%] transform translate-y-1/2"
-          >
-            <span className="" data-state="closed">
-              <div
-                className="flex h-[72px] w-8 items-center justify-center"
-                id="sidebar-button"
-              >
-                <div className="flex h-6 w-6 flex-col items-center">
-                  <div className="h-3 w-1 rounded-full sidebar-button-1"></div>
-                  <div className="h-3 w-1 rounded-full sidebar-button-2"></div>
-                </div>
-              </div>
-            </span>
-          </button>
+          <SidebarButton toggleDrawer={toggleDrawer} />
           {/* {openDrawer.left ? <ArrowBackIosIcon /> : <ArrowForwardIosIcon />} */}
 
           <Answer

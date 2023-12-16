@@ -136,26 +136,32 @@ a {
 }
 
 .sidebar-button-1,
-.sidebar-button-2 {
+.sidebar-button-2,
+.sidebar-button-3,
+.sidebar-button-4 {
   transition: all 0.2s ease-in-out;
 }
 
 .sidebar-button-1 {
   transform: translateY(0.15rem) rotate(0deg) translateZ(0px);
   background-color: #fff !important;
-
-  &:hover {
-    transform: translateY(0.15rem) rotate(15deg) translateZ(0px) !important;
-  }
 }
 
 .sidebar-button-2 {
   transform: translateY(-0.15rem) rotate(0deg) translateZ(0px);
   background-color: #fff !important;
+}
 
-  &:hover {
-    transform: translateY(0.15rem) rotate(-15deg) translateZ(0px) !important;
-  }
+.sidebar-button-3 {
+  margin-bottom: -4px;
+  transform: translateY(0.15rem) rotate(15deg) translateZ(0px) !important;
+  background-color: #fff !important;
+}
+
+.sidebar-button-4 {
+  transform: translateY(0.15rem) rotate(-15deg) translateZ(0px) !important;
+
+  background-color: #fff !important;
 }
 
 @media screen and (max-width: 600px) {
