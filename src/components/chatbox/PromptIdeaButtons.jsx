@@ -76,8 +76,10 @@ const PromptIdeaButtons = ({ setMessages, messages, setLoading }) => {
               <h5 className="text-gray-500 text-xs">{item.subtitle}</h5>
             </div>
             {hoveredButton === index && (
-              <button className="px-2 bg-gray-900 rounded-full h-8 w-8 pb-[3px]">
-                <ArrowUpwardIcon style={{ height: 13, width: 13 }} />
+              <button className="bg-gray-900 rounded-lg h-6 w-6 mt-1.5">
+                <ArrowUpwardIcon
+                  style={{ height: 13, width: 13, marginBottom: 3 }}
+                />
               </button>
             )}
           </button>
@@ -98,8 +100,10 @@ const PromptIdeaButtons = ({ setMessages, messages, setLoading }) => {
               <h5 className="text-gray-500 text-xs">{item.subtitle}</h5>
             </div>
             {hoveredButton === index + 2 && (
-              <button className="mt-1 bg-gray-900 rounded-full h-8 w-8 pb-[3px]">
-                <ArrowUpwardIcon style={{ height: 13, width: 13 }} />
+              <button className="bg-gray-900 rounded-lg h-6 w-6 mt-1.5">
+                <ArrowUpwardIcon
+                  style={{ height: 13, width: 13, marginBottom: 3 }}
+                />
               </button>
             )}
           </button>

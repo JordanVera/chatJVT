@@ -4,7 +4,7 @@ const Topbar = ({ messages, selectedChat }) => {
       <button className="hover:bg-black/10 rounded-xl py-2 ">
         <div className="text-white text-lg font-bold px-3 flex flex-row items-center">
           <div>
-            ChatGPT <span className="text-gray-400 font-medium ">3.5</span>
+            JordanGPT <span className="text-gray-400 font-medium ">3.5</span>
           </div>
 
           <svg
@@ -27,7 +27,7 @@ const Topbar = ({ messages, selectedChat }) => {
       <div className="flex gap-2 pr-1">
         {/* Send Chat to someone BUTTON */}
         {messages[selectedChat].length > 0 ? (
-          <button className="relative flex h-9 w-9 items-center justify-center whitespace-nowrap rounded-lg border border-zinc-600 focus:ring-0 ">
+          <button className="relative flex h-9 w-9 items-center justify-center whitespace-nowrap rounded-lg border border-gray-600 focus:ring-0 ">
             <div className="flex w-full gap-2 items-center justify-center">
               <svg
                 width="16"

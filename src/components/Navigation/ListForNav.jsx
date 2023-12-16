@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { List, Divider, Avatar } from '@mui/material';
+import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
 
 const ListForNav = ({ messages, newChat, setSelectedChat, selectedChat }) => {
   useEffect(() => {
@@ -18,19 +19,27 @@ const ListForNav = ({ messages, newChat, setSelectedChat, selectedChat }) => {
           const title = messageArray[0]?.content;
 
           return (
-            <div key={arrayIndex}>
+            <button
+              onClick={() => setSelectedChat(arrayIndex)}
+              key={arrayIndex}
+              className={`w-full flex flex-row justify-between items-center rounded-lg hover:bg-gray-900 ${
+                selectedChat === arrayIndex ? 'bg-gray-900' : ''
+              }`}
+            >
               {title && (
-                <h5
-                  className={`text-white truncate p-2 rounded-lg text-sm hover:bg-zinc-800 ${
-                    selectedChat === arrayIndex ? 'bg-zinc-800' : ''
-                  }`}
-                >
-                  <button onClick={() => setSelectedChat(arrayIndex)}>
+                <>
+                  <h5 className={`text-white truncate p-2  text-sm`}>
                     {title}
-                  </button>
-                </h5>
+                  </h5>
+
+                  {selectedChat === arrayIndex ? (
+                    <MoreHorizIcon style={{ height: 20 }} />
+                  ) : (
+                    <div className="w-6"></div>
+                  )}
+                </>
               )}
-            </div>
+            </button>
           );
         })}
       </div>
@@ -43,7 +52,7 @@ const ListForNav = ({ messages, newChat, setSelectedChat, selectedChat }) => {
         <div className="w-full pt-3.5 rounded-md">
           <button
             // className="group flex items-center gap-2 rounded-lg px-2 font-medium hover:bg-token-surface-primary rounded-md"
-            className="rounded-lg w-full hover:bg-zinc-800 py-1 mb-1.5"
+            className="rounded-lg w-full hover:bg-gray-900 py-1 mb-1.5"
           >
             <div
               onClick={() => {
@@ -80,7 +89,7 @@ const ListForNav = ({ messages, newChat, setSelectedChat, selectedChat }) => {
                 </svg>
               </Avatar>
               <h4 className="text-left grow text-white overflow-hidden text-ellipsis whitespace-nowrap text-sm text-token-text-primary">
-                New chat
+                JordanGPT
               </h4>
 
               <div className="flex gap-3">

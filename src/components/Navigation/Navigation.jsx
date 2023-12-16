@@ -1,4 +1,5 @@
-import { Drawer, Avatar } from '@mui/material';
+import { Avatar } from '@mui/material';
+import { Drawer } from '@material-tailwind/react';
 import ListForNav from './ListForNav';
 
 export default function Navigation({
@@ -21,10 +22,9 @@ export default function Navigation({
         open={openDrawer.left}
         onClose={() => toggleDrawer}
         variant="persistent"
+        className={` ${isHovered ? 'opacity-50' : ''} w-[260px] border-none`}
       >
-        <div
-          className={`flex flex-col h-full ${isHovered ? 'opacity-50' : ''}`}
-        >
+        <div className={`flex flex-col h-full`}>
           {/* ListForNav takes the remaining height */}
           <div className="flex-grow">
             <ListForNav
@@ -42,7 +42,7 @@ export default function Navigation({
           {/* Account info at the bottom */}
           <div id="accountInfo" className="bg-black p-3">
             <div className="w-full pt-3.5 rounded-md">
-              <button className="rounded-lg w-full hover:bg-zinc-800 py-1 mb-1.5">
+              <button className="rounded-lg w-full hover:bg-gray-900 py-1 mb-1.5">
                 <div
                   onClick={() => {
                     setSelectedChat((prev) => prev + 1);
@@ -91,7 +91,7 @@ export default function Navigation({
               </button>
             </div>
             <div className="w-full rounded-md">
-              <button className="rounded-lg w-full hover:bg-zinc-800 py-1 mb-1.5">
+              <button className="rounded-lg w-full hover:bg-gray-900 py-1 mb-1.5">
                 <div
                   onClick={() => {
                     setSelectedChat((prev) => prev + 1);

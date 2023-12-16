@@ -15,7 +15,7 @@ const ChatList = ({ chats, setSelectedChat }) => {
       {chats.map((title, i) => (
         <h5
           key={i}
-          className="text-white truncate p-2 rounded-lg text-sm hover:bg-zinc-800"
+          className="text-white truncate p-2 rounded-lg text-sm hover:bg-gray-900"
         >
           <button onClick={() => setSelectedChat(i)}>{title}</button>
         </h5>

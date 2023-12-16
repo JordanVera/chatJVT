@@ -45,7 +45,7 @@ function App() {
     <div className="relative z-0 flex h-full w-full overflow-hidden">
       <div
         id="sidebar"
-        className={`dark flex-shrink-0 overflow-x-hidden bg-gray-900 gizmo:bg-black transition-width ${
+        className={`dark flex-shrink-0 overflow-x-hidden gizmo:bg-black transition-width ${
           openDrawer.left ? 'w-[260px]' : 'w-0'
         }`}
       >
