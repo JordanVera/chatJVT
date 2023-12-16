@@ -56,11 +56,9 @@ const Prompt = ({
   };
 
   const handleKeyDown = (event) => {
-    // Check if the pressed key is Enter (key code 13)
     if (event.key === 'Enter' && !event.shiftKey) {
-      event.preventDefault();
-
-      formContext.handleSubmit(onSubmit, onError)();
+      event.preventDefault(); // Prevent the default behavior of Enter in textarea
+      handleSubmit(onSubmit, onError)(); // Manually trigger the form submission
     }
   };
 
