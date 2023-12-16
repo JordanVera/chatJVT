@@ -91,6 +91,7 @@ const PromptIdeaButtons = ({ setMessages, messages, setLoading }) => {
             className="border border-gray-500 w-full p-4 rounded-2xl text-left hover:bg-[#40414F] relative flex flex-row justify-between"
             onMouseEnter={() => handleButtonHover(index + 2)}
             onMouseLeave={handleButtonLeave}
+            onClick={() => onSubmit(`${item.title} ${item.subtitle}`)}
           >
             <div>
               <h4 className="text-white text-sm font-bold">{item.title}</h4>
