@@ -2,6 +2,7 @@ import { Drawer, Avatar } from '@mui/material';
 import ListForNav from './ListForNav';
 
 export default function Navigation({
+  isHovered,
   messages,
   setMesssages,
   chats,
@@ -21,7 +22,9 @@ export default function Navigation({
         onClose={() => toggleDrawer}
         variant="persistent"
       >
-        <div className="flex flex-col h-full">
+        <div
+          className={`flex flex-col h-full ${isHovered ? 'opacity-50' : ''}`}
+        >
           {/* ListForNav takes the remaining height */}
           <div className="flex-grow">
             <ListForNav

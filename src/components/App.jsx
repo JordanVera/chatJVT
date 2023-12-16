@@ -11,7 +11,7 @@ import RegisterOrLoginModal from './RegisterOrLoginModal.jsx';
 function App() {
   const [loading, setLoading] = useState(false);
   const [messages, setMessages] = useState([[]]);
-
+  const [isHovered, setIsHovered] = useState(false);
   const [chats, setChats] = useState(['My First Chat']);
   const [selectedChat, setSelectedChat] = useState(0);
   const [modalOpen, setModalOpen] = useState(false);
@@ -54,6 +54,7 @@ function App() {
             <div className="scrollbar-trigger relative h-full w-full flex-1 items-start border-white/20">
               <div className="flex h-full w-full flex-col p-2 gizmo:px-3 gizmo:pb-3.5 gizmo:pt-0">
                 <Navigation
+                  isHovered={isHovered}
                   messages={messages}
                   setMessages={setMessages}
                   chats={chats}
@@ -89,7 +90,11 @@ function App() {
             }}
           />
 
-          <SidebarButton toggleDrawer={toggleDrawer} />
+          <SidebarButton
+            toggleDrawer={toggleDrawer}
+            isHovered={isHovered}
+            setIsHovered={setIsHovered}
+          />
           {/* {openDrawer.left ? <ArrowBackIosIcon /> : <ArrowForwardIosIcon />} */}
 
           <Answer
