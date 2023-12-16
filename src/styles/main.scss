@@ -165,6 +165,19 @@ a {
   background-color: #fff !important;
 }
 
+.sidebar-button-5 {
+
+  transform: translateY(0.15rem) rotate(-15deg) translateZ(0px) !important;
+  background-color: #fff !important;
+}
+
+.sidebar-button-6 {
+
+  transform: translateY(-0.15rem) rotate(15deg) translateZ(0px) !important;
+
+  background-color: #fff !important;
+}
+
 @media screen and (max-width: 600px) {
   .container {
     height: calc(100vh - 56px);
