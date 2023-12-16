@@ -1,7 +1,9 @@
 import { useState } from 'react';
 import ArrowUpwardIcon from '@mui/icons-material/ArrowUpward';
+import axios from 'axios';
+import { url } from '../../config';
 
-const PromptIdeaButtons = ({ setMessages }) => {
+const PromptIdeaButtons = ({ setMessages, messages, setLoading }) => {
   const data = [
     { title: 'Help me debug', subtitle: 'a linked list problem' },
     {
@@ -25,6 +27,36 @@ const PromptIdeaButtons = ({ setMessages }) => {
     setHoveredButton(null);
   };
 
+  const onSubmit = async (msg) => {
+    try {
+      const promptMessage = { role: 'user', content: msg };
+
+      console.log('ON SUBMIT TRIG');
+      console.log(promptMessage);
+
+      setMessages((prevMessages) => [...prevMessages, promptMessage]);
+
+      const headers = {
+        'Content-Type': 'Application/json',
+        'X-RapidAPI-Key': import.meta.env.OPENAI_API_KEY,
+      };
+
+      setLoading(true);
+
+      const response = await axios.post(
+        `${url}/chat`,
+        { messages: [...messages, promptMessage] },
+        { headers }
+      );
+      const ans = response.data.chatGptAnswer;
+
+      // Update messages with the API response
+      setMessages((prevMessages) => [...prevMessages, ans]);
+    } finally {
+      setLoading(false);
+    }
+  };
+
   return (
     <div
       id="suggestedPrompts"
@@ -37,11 +69,7 @@ const PromptIdeaButtons = ({ setMessages }) => {
             className="border border-gray-500 w-full p-4 rounded-2xl mx-2 sm:mx-0 text-left hover:bg-[#40414F] relative flex flex-row justify-between"
             onMouseEnter={() => handleButtonHover(index)}
             onMouseLeave={handleButtonLeave}
-            onClick={() =>
-              setMessages([
-                { role: 'user', content: `${item.title} ${item.subtitle}` },
-              ])
-            }
+            onClick={() => onSubmit(`${item.title} ${item.subtitle}`)}
           >
             <div>
               <h4 className="text-white text-sm font-bold">{item.title}</h4>

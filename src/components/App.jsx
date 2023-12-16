@@ -99,6 +99,7 @@ function App() {
 
           <Answer
             loading={loading}
+            setLoading={setLoading}
             selectedChat={selectedChat}
             chats={chats}
             messages={messages[selectedChat]}

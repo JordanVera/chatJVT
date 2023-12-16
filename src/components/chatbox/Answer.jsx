@@ -4,7 +4,14 @@ import Typewriter from './Typewriter.jsx';
 import { Avatar } from '@mui/material';
 import WelcomeMessage from './WelcomeMessage.jsx';
 
-const Answer = ({ loading, chats, selectedChat, messages, setMessages }) => {
+const Answer = ({
+  loading,
+  setLoading,
+  chats,
+  selectedChat,
+  messages,
+  setMessages,
+}) => {
   function capitalizeFirstLetter(string) {
     return string.charAt(0).toUpperCase() + string.slice(1);
   }
@@ -12,7 +19,11 @@ const Answer = ({ loading, chats, selectedChat, messages, setMessages }) => {
   return (
     <div id="infiniteScroll" className="max-w-[768px] mx-auto ">
       {!messages || messages.length === 0 ? (
-        <WelcomeMessage setMessages={setMessages} />
+        <WelcomeMessage
+          setMessages={setMessages}
+          messages={messages}
+          setLoading={setLoading}
+        />
       ) : (
         <div dataLength={messages.length} hasMore={true} id="answers">
           {Array.isArray(messages)

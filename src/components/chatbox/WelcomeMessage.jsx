@@ -1,7 +1,7 @@
 import { Avatar } from '@mui/material';
 import PromptIdeaButtons from './PromptIdeaButtons';
 
-const WelcomeMessage = ({ setMessages }) => {
+const WelcomeMessage = ({ setMessages, messages, setLoading }) => {
   return (
     <div className="flex flex-col items-center justify-center h-[calc(100vh-150px)]">
       <div className="flex flex-col items-center h-full justify-center mb-12">
@@ -40,7 +40,11 @@ const WelcomeMessage = ({ setMessages }) => {
         </h2>
       </div>
 
-      <PromptIdeaButtons setMessages={setMessages} />
+      <PromptIdeaButtons
+        setMessages={setMessages}
+        messages={messages}
+        setLoading={setLoading}
+      />
     </div>
   );
 };
