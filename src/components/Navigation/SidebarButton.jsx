@@ -43,7 +43,7 @@ const SidebarButton = ({
       ) : (
         <span className="" data-state="closed">
           {/* Normal button */}
-          <div className="flex h-[72px] w-8 items-center justify-center">
+          <div className="flex h-[72px] w-8 items-center justify-center opacity-25">
             <div className="flex h-6 w-6 flex-col items-center">
               <div className="h-3 w-1 rounded-full sidebar-button-1"></div>
               <div className="h-3 w-1 rounded-full sidebar-button-2"></div>
