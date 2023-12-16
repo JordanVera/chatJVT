@@ -23,7 +23,7 @@ const SidebarButton = ({
     >
       {!isDrawerOpen ? (
         <span className="" data-state="closed">
-          <div className="flex h-[72px] w-8 items-center justify-center">
+          <div className="flex h-[72px] w-8 items-center justify-center opacity-25 hover:opacity-100 transition-opacity">
             <div className="flex h-6 w-6 flex-col items-center">
               <div className="h-3 w-1 rounded-full sidebar-button-5"></div>
               <div className="h-3 w-1 rounded-full sidebar-button-6"></div>
