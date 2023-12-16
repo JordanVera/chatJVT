@@ -1,4 +1,5 @@
 import { Avatar } from '@mui/material';
+import PromptIdeaButtons from './PromptIdeaButtons';
 
 const WelcomeMessage = () => {
   return (
@@ -39,32 +40,7 @@ const WelcomeMessage = () => {
         </h2>
       </div>
 
-      <div
-        id="suggestedPrompts"
-        className="w-full mb-3 px-6 space-y-2 flex-grow flex flex-col justify-end"
-      >
-        <div className="flex flex-col sm:flex-row w-full sm:space-x-2 ">
-          <div className="border border-gray-500 w-full p-4 rounded-2xl mx-2 sm:mx-0">
-            <h4 className="text-white text-sm font-bold">Help me debug</h4>
-            <h5 className="text-gray-500 text-xs">a linked list problem</h5>
-          </div>
-
-          <div className="border border-gray-500 w-full p-4 rounded-2xl mx-2 sm:mx-0">
-            <h4 className="text-white text-sm font-bold">Help me debug</h4>
-            <h5 className="text-gray-500 text-xs">a linked list problem</h5>
-          </div>
-        </div>
-        <div className="hidden sm:block sm:flex flex-row w-full space-x-2 ">
-          <div className="border border-gray-500 w-full p-4 rounded-2xl">
-            <h4 className="text-white text-sm font-bold">Help me debug</h4>
-            <h5 className="text-gray-500 text-xs">a linked list problem</h5>
-          </div>
-          <div className="border border-gray-500 w-full p-4 rounded-2xl">
-            <h4 className="text-white text-sm font-bold">Help me debug</h4>
-            <h5 className="text-gray-500 text-xs">a linked list problem</h5>
-          </div>
-        </div>
-      </div>
+      <PromptIdeaButtons />
     </div>
   );
 };
