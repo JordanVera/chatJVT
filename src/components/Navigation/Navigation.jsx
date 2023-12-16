@@ -22,7 +22,7 @@ export default function Navigation({
         open={openDrawer.left}
         onClose={() => toggleDrawer}
         variant="persistent"
-        className={` ${isHovered ? 'opacity-50' : ''} w-[260px] border-none`}
+        className={` ${isHovered ? 'opacity-50' : ''}  w-[260px] border-none`}
       >
         <div className={`flex flex-col h-full`}>
           {/* ListForNav takes the remaining height */}
