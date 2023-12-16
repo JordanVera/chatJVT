@@ -1,8 +1,7 @@
 import { useState } from 'react';
-import { IconButton } from '@mui/material';
 import ArrowUpwardIcon from '@mui/icons-material/ArrowUpward';
 
-const PromptIdeaButtons = () => {
+const PromptIdeaButtons = ({ setMessages }) => {
   const data = [
     { title: 'Help me debug', subtitle: 'a linked list problem' },
     {
@@ -38,6 +37,11 @@ const PromptIdeaButtons = () => {
             className="border border-gray-500 w-full p-4 rounded-2xl mx-2 sm:mx-0 text-left hover:bg-[#40414F] relative flex flex-row justify-between"
             onMouseEnter={() => handleButtonHover(index)}
             onMouseLeave={handleButtonLeave}
+            onClick={() =>
+              setMessages([
+                { role: 'user', content: `${item.title} ${item.subtitle}` },
+              ])
+            }
           >
             <div>
               <h4 className="text-white text-sm font-bold">{item.title}</h4>

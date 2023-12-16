@@ -12,7 +12,7 @@ const Answer = ({ loading, chats, selectedChat, messages, setMessages }) => {
   return (
     <div id="infiniteScroll" className="max-w-[768px] mx-auto ">
       {!messages || messages.length === 0 ? (
-        <WelcomeMessage />
+        <WelcomeMessage setMessages={setMessages} />
       ) : (
         <div dataLength={messages.length} hasMore={true} id="answers">
           {Array.isArray(messages)
