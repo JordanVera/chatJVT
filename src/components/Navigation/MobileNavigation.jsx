@@ -1,46 +1,47 @@
-import * as React from 'react';
-import AppBar from '@mui/material/AppBar';
-import Box from '@mui/material/Box';
-import Toolbar from '@mui/material/Toolbar';
-import Typography from '@mui/material/Typography';
-import Button from '@mui/material/Button';
-import IconButton from '@mui/material/IconButton';
-import MenuIcon from '@mui/icons-material/Menu';
-import AddIcon from '@mui/icons-material/Add';
+import {
+  Drawer,
+  Button,
+  Typography,
+  IconButton,
+} from '@material-tailwind/react';
+import ListForNav from './ListForNav';
+import AccountInfo from './AccountInfo';
 
-export default function ButtonAppBar({ open, setOpen, newChat, setModalOpen }) {
+export default function MobileNavigation({
+  openMobileDrawer,
+  setOpenMobileDrawer,
+  messages,
+  setMessages,
+  chats,
+  selectedChat,
+  setSelectedChat,
+  newChat,
+  setModalOpen,
+}) {
+  const openDrawer = () => setOpenMobileDrawer(true);
+  const closeDrawer = () => setOpenMobileDrawer(false);
+
   return (
-    <Box sx={{ flexGrow: 1 }}>
-      <AppBar position="static" id="mobileNavigation">
-        <Toolbar>
-          <IconButton onClick={() => setOpen(!open)}>
-            <MenuIcon
-              className="navIcon"
-              size="large"
-              edge="start"
-              aria-label="menu"
-            />
-          </IconButton>
-          <Typography
-            variant="h6"
-            component="div"
-            sx={{ flexGrow: 1 }}
-          ></Typography>
-          <IconButton
-            color="inherit"
-            onClick={() => {
-              newChat(window.prompt('Set Title for CHat'));
-            }}
-          >
-            <AddIcon
-              className="navIcon"
-              size="large"
-              edge="start"
-              aria-label="new_chat"
-            />
-          </IconButton>
-        </Toolbar>
-      </AppBar>
-    </Box>
+    <Drawer
+      open={openMobileDrawer}
+      onClose={closeDrawer}
+      className="p-1.5 bg-black"
+    >
+      <div className={`flex flex-col h-full`}>
+        <ListForNav
+          newChat={newChat}
+          messages={messages}
+          setMessages={setMessages}
+          chats={chats}
+          selectedChat={selectedChat}
+          setSelectedChat={setSelectedChat}
+          setModalOpen={setModalOpen}
+          className="black-bg"
+        />
+
+        {/* Account info at the bottom */}
+        <AccountInfo setSelectedChat={setSelectedChat} newChat={newChat} />
+      </div>
+    </Drawer>
   );
 }

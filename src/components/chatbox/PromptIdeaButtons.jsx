@@ -70,7 +70,9 @@ const PromptIdeaButtons = ({ setMessages, messages, setLoading }) => {
         {data.slice(0, 2).map((item, index) => (
           <button
             key={index}
-            className="border border-[#7a7a87] w-full p-4 rounded-2xl mx-2 sm:mx-0 text-left hover:bg-[#40414F] relative flex flex-row justify-between"
+            className={`border border-[#7a7a87] w-full px-4 py-3 rounded-2xl mx-2 sm:mx-0 text-left hover:bg-[#40414F] relative flex flex-row justify-between ${
+              index === 0 ? 'mb-3 sm:mb-0' : ''
+            }`}
             onMouseEnter={() => handleButtonHover(index)}
             onMouseLeave={handleButtonLeave}
             onClick={() => onSubmit(`${item.title} ${item.subtitle}`)}
@@ -94,7 +96,7 @@ const PromptIdeaButtons = ({ setMessages, messages, setLoading }) => {
         {data.slice(2, 4).map((item, index) => (
           <button
             key={index}
-            className="border border-[#7a7a87] w-full p-4 rounded-2xl text-left hover:bg-[#40414F] relative flex flex-row justify-between"
+            className="border border-[#7a7a87] w-full px-4 py-3 rounded-2xl text-left hover:bg-[#40414F] relative flex flex-row justify-between"
             onMouseEnter={() => handleButtonHover(index + 2)}
             onMouseLeave={handleButtonLeave}
             onClick={() => onSubmit(`${item.title} ${item.subtitle}`)}

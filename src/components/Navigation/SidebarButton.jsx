@@ -17,7 +17,7 @@ const SidebarButton = ({
   return (
     <button
       onClick={toggleDrawer}
-      className="fixed top-[42%] transform translate-y-1/2"
+      className="fixed top-[42%] transform translate-y-1/2 hidden sm:block"
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >

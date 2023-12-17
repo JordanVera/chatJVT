@@ -5,8 +5,8 @@ import Navigation from './Navigation/Navigation.jsx';
 import SidebarButton from './Navigation/SidebarButton.jsx';
 import Topbar from './chatbox/Topbar.jsx';
 
-import MobileDrawer from './Navigation/MobileDrawer.jsx';
 import RegisterOrLoginModal from './RegisterOrLoginModal.jsx';
+import MobileNavigation from './Navigation/MobileNavigation.jsx';
 
 function App() {
   const [loading, setLoading] = useState(false);
@@ -17,6 +17,10 @@ function App() {
   const [modalOpen, setModalOpen] = useState(false);
 
   const [openDrawer, setOpenDrawer] = useState({
+    left: true,
+  });
+
+  const [openMobileDrawer, setOpenMobileDrawer] = useState({
     left: true,
   });
 
@@ -34,6 +38,9 @@ function App() {
 
   const toggleDrawer = () => {
     setOpenDrawer({ ...openDrawer, left: !openDrawer.left });
+  };
+  const toggleMobileDrawer = () => {
+    setOpenMobileDrawer({ ...openDrawer, left: !openDrawer.left });
   };
 
   const newChat = (title) => {
@@ -81,6 +88,7 @@ function App() {
           <Topbar
             messages={messages}
             selectedChat={selectedChat}
+            setOpenMobileDrawer={setOpenMobileDrawer}
             style={{
               position: 'absolute',
               left: 0,
@@ -118,6 +126,16 @@ function App() {
           />
         </div>
       </div>
+
+      <MobileNavigation
+        openMobileDrawer={openMobileDrawer}
+        setOpenMobileDrawer={setOpenMobileDrawer}
+        messages={messages}
+        setMessages={setMessages}
+        chats={chats}
+        selectedChat={selectedChat}
+        setSelectedChat={setSelectedChat}
+      />
     </div>
   );
 }

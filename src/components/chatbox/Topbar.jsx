@@ -4,11 +4,51 @@ import {
   PopoverContent,
 } from '@material-tailwind/react';
 import LaptopIcon from '@mui/icons-material/Laptop';
+import MobileNavigation from '../Navigation/MobileNavigation.jsx';
 
-const Topbar = ({ messages, selectedChat }) => {
+const Topbar = ({ messages, selectedChat, setOpenMobileDrawer }) => {
   return (
-    <div className="flex flex-row items-center justify-between bg-[#34354299] h-[56px] p-2 mb-1.5 sticky top-0 z-50">
-      <button className="hover:bg-black/10 rounded-xl py-2 ">
+    <div className="flex flex-row items-center justify-between bg-[#34354299] h-[45px] sm:h-[56px] p-2 mb-1.5 sticky top-0 z-50">
+      {/* <MobileNavigation /> */}
+      <div className="flex flex-row justify-between  sm:hidden w-full">
+        <button className="sm:hidden" onClick={() => setOpenMobileDrawer(true)}>
+          <svg
+            width="18"
+            height="18"
+            viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            className="icon-md"
+          >
+            <path
+              fillRule="evenodd"
+              clipRule="evenodd"
+              d="M3 8C3 7.44772 3.44772 7 4 7H20C20.5523 7 21 7.44772 21 8C21 8.55228 20.5523 9 20 9H4C3.44772 9 3 8.55228 3 8ZM3 16C3 15.4477 3.44772 15 4 15H14C14.5523 15 15 15.4477 15 16C15 16.5523 14.5523 17 14 17H4C3.44772 17 3 16.5523 3 16Z"
+              fill="currentColor"
+            ></path>
+          </svg>
+        </button>
+        <button>
+          <svg
+            width="18"
+            height="18"
+            viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            className="icon-md"
+          >
+            <path
+              fillRule="evenodd"
+              clipRule="evenodd"
+              d="M16.7929 2.79289C18.0118 1.57394 19.9882 1.57394 21.2071 2.79289C22.4261 4.01184 22.4261 5.98815 21.2071 7.20711L12.7071 15.7071C12.5196 15.8946 12.2652 16 12 16H9C8.44772 16 8 15.5523 8 15V12C8 11.7348 8.10536 11.4804 8.29289 11.2929L16.7929 2.79289ZM19.7929 4.20711C19.355 3.7692 18.645 3.7692 18.2071 4.2071L10 12.4142V14H11.5858L19.7929 5.79289C20.2308 5.35499 20.2308 4.64501 19.7929 4.20711ZM6 5C5.44772 5 5 5.44771 5 6V18C5 18.5523 5.44772 19 6 19H18C18.5523 19 19 18.5523 19 18V14C19 13.4477 19.4477 13 20 13C20.5523 13 21 13.4477 21 14V18C21 19.6569 19.6569 21 18 21H6C4.34315 21 3 19.6569 3 18V6C3 4.34314 4.34315 3 6 3H10C10.5523 3 11 3.44771 11 4C11 4.55228 10.5523 5 10 5H6Z"
+              fill="currentColor"
+            ></path>
+          </svg>
+        </button>
+      </div>
+
+      {/* Normal Screen Size Navigagtion */}
+      <button className="hover:bg-black/10 hidden sm:block rounded-xl py-2 ">
         <Popover placement="bottom-start">
           <PopoverHandler>
             <div className="text-white text-lg font-bold px-3 bg-transpa flex flex-row items-center">
@@ -101,7 +141,7 @@ const Topbar = ({ messages, selectedChat }) => {
       <div className="flex gap-2 pr-1">
         {/* Send Chat to someone BUTTON */}
         {messages[selectedChat]?.length > 0 ? (
-          <button className="relative flex h-9 w-9 items-center justify-center whitespace-nowrap rounded-lg border border-gray-600 focus:ring-0 ">
+          <button className="relative flex h-9 w-9 items-center justify-center hidden sm:block whitespace-nowrap rounded-lg border border-gray-600 focus:ring-0 ">
             <div className="flex w-full gap-2 items-center justify-center">
               <svg
                 width="16"

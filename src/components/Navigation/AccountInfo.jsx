@@ -42,14 +42,19 @@ const AccountInfo = ({ setSelectedChat, newChat }) => {
                   ></path>
                 </svg>
               </Avatar>
-              <div className="flex flex-col">
+              <a
+                href="https://openai.com/"
+                target="_blank"
+                rel="noreferrer"
+                className="flex flex-col"
+              >
                 <h4 className="text-left grow text-white overflow-hidden text-ellipsis whitespace-nowrap text-sm">
                   Upgrade
                 </h4>
                 <h5 className="text-xs text-token-text-secondary line-clamp-1 text-gray-300">
                   Get GPT-4, DALL·E, and more
                 </h5>
-              </div>
+              </a>
             </div>
           </button>
         </div>
