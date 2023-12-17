@@ -87,7 +87,7 @@ const Prompt = ({
               }}
               rows="1"
               onKeyDown={handleKeyDown}
-              placeholder="Message ChatGPT…"
+              placeholder="Message JordanGPT…"
               className={`m-0 w-full resize-none border-0 py-[10px] pr-10 focus:ring-0 focus-visible:ring-0 dark:bg-transparent bg-transparent placeholder-gray-500 md:py-3.5 md:pr-12 placeholder-black/50 dark:placeholder-white/50 pl-3 md:pl-4 ${
                 loading ? 'disabled' : ''
               }`}
@@ -144,7 +144,7 @@ const Prompt = ({
           </div>
         </div>
         <p className="relative px-2 py-2 text-center text-xs text-gray-600 dark:text-gray-300 md:px-[60px]">
-          ChatGPT can make mistakes. Consider checking important information.
+          JordanGPT can make mistakes. Consider checking important information.
         </p>
       </div>
     </form>

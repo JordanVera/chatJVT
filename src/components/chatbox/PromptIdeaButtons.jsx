@@ -70,14 +70,14 @@ const PromptIdeaButtons = ({ setMessages, messages, setLoading }) => {
         {data.slice(0, 2).map((item, index) => (
           <button
             key={index}
-            className="border border-gray-500 w-full p-4 rounded-2xl mx-2 sm:mx-0 text-left hover:bg-[#40414F] relative flex flex-row justify-between"
+            className="border border-[#7a7a87] w-full p-4 rounded-2xl mx-2 sm:mx-0 text-left hover:bg-[#40414F] relative flex flex-row justify-between"
             onMouseEnter={() => handleButtonHover(index)}
             onMouseLeave={handleButtonLeave}
             onClick={() => onSubmit(`${item.title} ${item.subtitle}`)}
           >
             <div>
-              <h4 className="text-white text-sm font-bold">{item.title}</h4>
-              <h5 className="text-gray-500 text-xs">{item.subtitle}</h5>
+              <h4 className="text-[#c5c5d2] text-sm font-bold">{item.title}</h4>
+              <h5 className="text-[#7a7a87] text-xs">{item.subtitle}</h5>
             </div>
             {hoveredButton === index && (
               <button className="bg-gray-900 rounded-lg h-6 w-6 mt-1.5">
@@ -94,14 +94,14 @@ const PromptIdeaButtons = ({ setMessages, messages, setLoading }) => {
         {data.slice(2, 4).map((item, index) => (
           <button
             key={index}
-            className="border border-gray-500 w-full p-4 rounded-2xl text-left hover:bg-[#40414F] relative flex flex-row justify-between"
+            className="border border-[#7a7a87] w-full p-4 rounded-2xl text-left hover:bg-[#40414F] relative flex flex-row justify-between"
             onMouseEnter={() => handleButtonHover(index + 2)}
             onMouseLeave={handleButtonLeave}
             onClick={() => onSubmit(`${item.title} ${item.subtitle}`)}
           >
             <div>
-              <h4 className="text-white text-sm font-bold">{item.title}</h4>
-              <h5 className="text-gray-500 text-xs">{item.subtitle}</h5>
+              <h4 className="text-[#c5c5d2] text-sm font-bold">{item.title}</h4>
+              <h5 className="text-[#7a7a87] text-xs">{item.subtitle}</h5>
             </div>
             {hoveredButton === index + 2 && (
               <button className="bg-gray-900 rounded-lg h-6 w-6 mt-1.5">

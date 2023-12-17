@@ -30,8 +30,13 @@ const Topbar = ({ messages, selectedChat }) => {
               </svg>
             </div>
           </PopoverHandler>
-          <PopoverContent className="mt-2 bg-gray-900 border-none w-80 ">
-            <div className="flex flex-row items-center mb-4">
+          <PopoverContent className=" p-0 bg-gray-900 border-none w-80 ">
+            <a
+              href="https://openai.com/"
+              target="_blank"
+              rel="noreferrer"
+              className="py-3 px-2 flex flex-row text-left items-center hover:bg-gray-800"
+            >
               <svg
                 width="20"
                 height="20"
@@ -66,8 +71,13 @@ const Topbar = ({ messages, selectedChat }) => {
                   .
                 </p>
               </div>
-            </div>
-            <div className="flex flex-row items-center">
+            </a>
+            <a
+              href="https://www.jordanvera.com"
+              target="_blank"
+              rel="noreferrer"
+              className="flex flex-row items-center hover:bg-gray-800 px-2 py-3"
+            >
               <LaptopIcon className="text-white mr-3" />
               <div>
                 <h4 className="text-white font-bold">My Portfolio</h4>
@@ -84,7 +94,7 @@ const Topbar = ({ messages, selectedChat }) => {
                   website to see more projects.
                 </p>
               </div>
-            </div>
+            </a>
           </PopoverContent>
         </Popover>
       </button>
