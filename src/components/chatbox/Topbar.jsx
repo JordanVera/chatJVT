@@ -90,7 +90,7 @@ const Topbar = ({ messages, selectedChat }) => {
       </button>
       <div className="flex gap-2 pr-1">
         {/* Send Chat to someone BUTTON */}
-        {messages[selectedChat].length > 0 ? (
+        {messages[selectedChat]?.length > 0 ? (
           <button className="relative flex h-9 w-9 items-center justify-center whitespace-nowrap rounded-lg border border-gray-600 focus:ring-0 ">
             <div className="flex w-full gap-2 items-center justify-center">
               <svg

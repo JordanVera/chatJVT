@@ -8,6 +8,7 @@ const Prompt = ({
   setLoading,
   setMessages,
   messages,
+  selectedChat,
   open,
   setOpen,
   newChat,
@@ -28,7 +29,9 @@ const Prompt = ({
       console.log('ON SUBMIT TRIG');
       console.log(promptMessage);
 
-      setMessages((prevMessages) => [...prevMessages, promptMessage]);
+      setMessages((prevMessages) =>
+        prevMessages ? [...prevMessages, promptMessage] : [promptMessage]
+      );
 
       const headers = {
         'Content-Type': 'Application/json',
@@ -39,13 +42,15 @@ const Prompt = ({
 
       const response = await axios.post(
         `${url}/chat`,
-        { messages: [...messages, promptMessage] },
+        { messages: messages ? [...messages, promptMessage] : [promptMessage] },
         { headers }
       );
       const ans = response.data.chatGptAnswer;
 
       // Update messages with the API response
-      setMessages((prevMessages) => [...prevMessages, ans]);
+      setMessages((prevMessages) =>
+        prevMessages ? [...prevMessages, ans] : [ans]
+      );
     } finally {
       setLoading(false);
     }

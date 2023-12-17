@@ -110,7 +110,7 @@ function App() {
 
         <div className="mt-auto sticky">
           <Prompt
-            messages={messages[selectedChat]}
+            messages={messages}
             setMessages={_setMessages}
             setLoading={setLoading}
             loading={loading}

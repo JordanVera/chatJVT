@@ -1,16 +1,39 @@
 import React, { useEffect } from 'react';
-import { List, Divider, Avatar } from '@mui/material';
+import { Divider, Avatar } from '@mui/material';
 import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
 
-const ListForNav = ({ messages, newChat, setSelectedChat, selectedChat }) => {
+import {
+  Popover,
+  PopoverHandler,
+  PopoverContent,
+  Button,
+  Dialog,
+  DialogHeader,
+  DialogBody,
+  DialogFooter,
+} from '@material-tailwind/react';
+
+const ListForNav = ({
+  messages,
+  setMessages,
+  newChat,
+  setSelectedChat,
+  selectedChat,
+}) => {
   useEffect(() => {
     console.log('_____________M__________________');
     console.log(messages);
-  }, [messages]);
+    console.log('_____________SELECTED CHAT__________________');
+    console.log(selectedChat);
+  }, [messages, selectedChat]);
 
   const renderTitles = () => {
+    const [open, setOpen] = React.useState(false);
+
+    const handleOpen = () => setOpen(!open);
+
     return (
-      <div id="chatList" className="mt-[20px]">
+      <div id="chatList" className="mt-[20px] flex-grow">
         <h3 className="p-2 text-xs text-gray-500 font-medium text-ellipsis overflow-hidden break-all ">
           Today
         </h3>
@@ -33,10 +56,88 @@ const ListForNav = ({ messages, newChat, setSelectedChat, selectedChat }) => {
                   </h5>
 
                   {selectedChat === arrayIndex ? (
-                    <MoreHorizIcon style={{ height: 20 }} />
+                    <Popover placement="bottom-start">
+                      <PopoverHandler>
+                        <button>
+                          <MoreHorizIcon style={{ height: 20 }} />
+                        </button>
+                      </PopoverHandler>
+                      <PopoverContent className="mt-2 border border-gray-800 bg-gray-900 w-40 flex flex-col">
+                        {/* Delete chat button */}
+                        <button
+                          onClick={handleOpen}
+                          className="text-red-500 text-left flex flex-row"
+                        >
+                          <svg
+                            width="18"
+                            height="18"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            xmlns="http://www.w3.org/2000/svg"
+                            className="icon-md mr-2"
+                          >
+                            <path
+                              fill-rule="evenodd"
+                              clip-rule="evenodd"
+                              d="M10.5555 4C10.099 4 9.70052 4.30906 9.58693 4.75114L9.29382 5.8919H14.715L14.4219 4.75114C14.3083 4.30906 13.9098 4 13.4533 4H10.5555ZM16.7799 5.8919L16.3589 4.25342C16.0182 2.92719 14.8226 2 13.4533 2H10.5555C9.18616 2 7.99062 2.92719 7.64985 4.25342L7.22886 5.8919H4C3.44772 5.8919 3 6.33961 3 6.8919C3 7.44418 3.44772 7.8919 4 7.8919H4.10069L5.31544 19.3172C5.47763 20.8427 6.76455 22 8.29863 22H15.7014C17.2354 22 18.5224 20.8427 18.6846 19.3172L19.8993 7.8919H20C20.5523 7.8919 21 7.44418 21 6.8919C21 6.33961 20.5523 5.8919 20 5.8919H16.7799ZM17.888 7.8919H6.11196L7.30423 19.1057C7.3583 19.6142 7.78727 20 8.29863 20H15.7014C16.2127 20 16.6417 19.6142 16.6958 19.1057L17.888 7.8919ZM10 10C10.5523 10 11 10.4477 11 11V16C11 16.5523 10.5523 17 10 17C9.44772 17 9 16.5523 9 16V11C9 10.4477 9.44772 10 10 10ZM14 10C14.5523 10 15 10.4477 15 11V16C15 16.5523 14.5523 17 14 17C13.4477 17 13 16.5523 13 16V11C13 10.4477 13.4477 10 14 10Z"
+                              fill="currentColor"
+                            ></path>
+                          </svg>
+                          <p>Delete chat</p>
+                        </button>
+                      </PopoverContent>
+                    </Popover>
                   ) : (
                     <div className="w-6"></div>
                   )}
+
+                  {/* Delete chat modal */}
+                  {messages[selectedChat] &&
+                    messages[selectedChat].length > 0 && (
+                      <Dialog
+                        open={open}
+                        handler={handleOpen}
+                        className="bg-[#202123]"
+                      >
+                        <DialogHeader className="text-white text-xl font-normal border-b border-gray-800">
+                          Delete Chat?
+                        </DialogHeader>
+                        <DialogBody className="text-white">
+                          This will delete the chat{' '}
+                          <span className="font-bold">
+                            {messages[selectedChat][0]?.content}
+                          </span>
+                          .
+                        </DialogBody>
+                        <DialogFooter>
+                          <Button
+                            variant="outlined"
+                            onClick={handleOpen}
+                            className="mx-1 px-3 py-3 text-white border-gray-500 border bg-gray-700"
+                          >
+                            Cancel
+                          </Button>
+                          <Button
+                            variant="gradient"
+                            color="red"
+                            className="mx-1 px-3 py-3"
+                            onClick={() => {
+                              console.log('trigg');
+
+                              setMessages((prevMessages) => {
+                                const updatedMessages = [...prevMessages];
+                                updatedMessages.splice(selectedChat, 1);
+                                return updatedMessages;
+                              });
+
+                              setOpen(false);
+                            }}
+                          >
+                            Delete
+                          </Button>
+                        </DialogFooter>
+                      </Dialog>
+                    )}
                 </>
               )}
             </button>
@@ -122,7 +223,6 @@ const ListForNav = ({ messages, newChat, setSelectedChat, selectedChat }) => {
 
         <p className="text-white text-2xl">{messages[0]?.content}</p>
       </nav>
-      <Divider />
       <nav aria-label="secondary mailbox folders"></nav>
     </div>
   );
