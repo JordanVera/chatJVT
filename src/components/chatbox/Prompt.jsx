@@ -50,6 +50,10 @@ const Prompt = ({
       setMessages((prevMessages) =>
         prevMessages ? [...prevMessages, ans] : [ans]
       );
+    } catch (error) {
+      console.log('________+ERROR+________');
+
+      console.log(error);
     } finally {
       setLoading(false);
     }
