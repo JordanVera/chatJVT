@@ -20,12 +20,12 @@ const ListForNav = ({
   setSelectedChat,
   selectedChat,
 }) => {
-  useEffect(() => {
-    console.log('_____________M__________________');
-    console.log(messages);
-    console.log('_____________SELECTED CHAT__________________');
-    console.log(selectedChat);
-  }, [messages, selectedChat]);
+  // useEffect(() => {
+  //   console.log('_____________M__________________');
+  //   console.log(messages);
+  //   console.log('_____________SELECTED CHAT__________________');
+  //   console.log(selectedChat);
+  // }, [messages, selectedChat]);
 
   const renderTitles = () => {
     const [open, setOpen] = React.useState(false);
@@ -221,7 +221,7 @@ const ListForNav = ({
 
         {renderTitles()}
 
-        <p className="text-white text-2xl">{messages[0]?.content}</p>
+        {/* <p className="text-white text-2xl">{messages[0]?.content}</p> */}
       </nav>
       <nav aria-label="secondary mailbox folders"></nav>
     </div>

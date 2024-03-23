@@ -6,10 +6,17 @@ import {
 import LaptopIcon from '@mui/icons-material/Laptop';
 import MobileNavigation from '../Navigation/MobileNavigation.jsx';
 
-const Topbar = ({ messages, selectedChat, setOpenMobileDrawer }) => {
+const Topbar = ({
+  messages,
+  selectedChat,
+  setOpenMobileDrawer,
+  setSelectedChat,
+  newChat,
+}) => {
   return (
     <div className="flex flex-row items-center justify-between bg-[#34354299] h-[45px] sm:h-[56px] p-2 mb-1.5 sticky top-0 z-50">
       {/* <MobileNavigation /> */}
+
       <div className="flex flex-row justify-between  sm:hidden w-full">
         <button className="sm:hidden" onClick={() => setOpenMobileDrawer(true)}>
           <svg
@@ -28,7 +35,12 @@ const Topbar = ({ messages, selectedChat, setOpenMobileDrawer }) => {
             ></path>
           </svg>
         </button>
-        <button>
+        <button
+          onClick={() => {
+            setSelectedChat((prev) => prev + 1);
+            newChat('');
+          }}
+        >
           <svg
             width="18"
             height="18"

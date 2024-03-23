@@ -21,7 +21,7 @@ function App() {
   });
 
   const [openMobileDrawer, setOpenMobileDrawer] = useState({
-    left: true,
+    left: false,
   });
 
   const _setMessages = (newMessages) =>
@@ -49,10 +49,10 @@ function App() {
   };
 
   return (
-    <div className="relative z-0 flex h-full w-full overflow-hidden">
+    <div className="relative z-0 flex h-full w-full overflow-hidden ">
       <div
         id="sidebar"
-        className={`dark flex-shrink-0 overflow-x-hidden gizmo:bg-black transition-width ${
+        className={`dark  hidden sm:block flex-shrink-0 overflow-x-hidden gizmo:bg-black transition-width ${
           openDrawer.left ? 'w-[260px]' : 'w-0'
         }`}
       >
@@ -80,14 +80,14 @@ function App() {
 
       <div
         id="chatbox"
-        className={`flex flex-col h-screen bg-[#343541] transition-width ${
-          openDrawer.left ? 'w-[calc(100vw-260px)]' : 'w-full'
-        }`}
+        className={`flex flex-col h-screen bg-[#343541] transition-width w-full`}
       >
         <div className="flex-grow relative overflow-y-auto">
           <Topbar
             messages={messages}
             selectedChat={selectedChat}
+            setSelectedChat={setSelectedChat}
+            newChat={newChat}
             setOpenMobileDrawer={setOpenMobileDrawer}
             style={{
               position: 'absolute',
@@ -127,15 +127,17 @@ function App() {
         </div>
       </div>
 
-      <MobileNavigation
-        openMobileDrawer={openMobileDrawer}
-        setOpenMobileDrawer={setOpenMobileDrawer}
-        messages={messages}
-        setMessages={setMessages}
-        chats={chats}
-        selectedChat={selectedChat}
-        setSelectedChat={setSelectedChat}
-      />
+      <div className="sm:hidden">
+        <MobileNavigation
+          openMobileDrawer={openMobileDrawer}
+          setOpenMobileDrawer={setOpenMobileDrawer}
+          messages={messages}
+          setMessages={setMessages}
+          chats={chats}
+          selectedChat={selectedChat}
+          setSelectedChat={setSelectedChat}
+        />
+      </div>
     </div>
   );
 }

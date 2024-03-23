@@ -16,18 +16,17 @@ const Prompt = ({
   const { register, handleSubmit } = useForm();
   const formContext = useFormContext();
 
-  // useEffect(() => {
-  //   console.log('_____________M__________________');
-  //   console.log(messages);
-  // }, [messages]);
+  useEffect(() => {
+    console.log('typeof messages', typeof messages);
+
+    console.log('_____________M__________________');
+    console.log(messages);
+  }, [messages]);
 
   const onSubmit = async (data) => {
     try {
       const { prompt } = data;
       const promptMessage = { role: 'user', content: prompt };
-
-      console.log('ON SUBMIT TRIG');
-      console.log(promptMessage);
 
       setMessages((prevMessages) =>
         prevMessages ? [...prevMessages, promptMessage] : [promptMessage]
@@ -35,14 +34,14 @@ const Prompt = ({
 
       const headers = {
         'Content-Type': 'Application/json',
-        'X-RapidAPI-Key': import.meta.env.OPENAI_API_KEY,
+        Authorization: `Bearer ${import.meta.env.OPENAI_API_KEY}`,
       };
 
       setLoading(true);
 
       const response = await axios.post(
         `${url}/chat`,
-        { messages: messages ? [...messages, promptMessage] : [promptMessage] },
+        { messages: [...messages, promptMessage] },
         { headers }
       );
       const ans = response.data.chatGptAnswer;
@@ -73,7 +72,7 @@ const Prompt = ({
       className="max-w-[768px] mx-auto px-4"
     >
       <div className="relative flex flex-col items-stretch">
-        <div className="relative flex w-full items-center md:flex-col">
+        <div className="relative flex w-full md:flex-col">
           <div className="overflow-hidden  flex flex-col w-full  flex-grow relative border border-gray-600 dark:text-white rounded-2xl bg-transparent">
             <textarea
               id="prompt-textarea"
@@ -81,7 +80,6 @@ const Prompt = ({
               data-id="request-NEW:1-9"
               {...register('prompt', { required: true })}
               style={{
-                maxHeight: '200px',
                 height: '52px',
                 overflowY: 'hidden',
               }}
@@ -119,7 +117,7 @@ const Prompt = ({
             ) : (
               <button
                 disabled=""
-                className="bg-[#494a55] absolute md:bottom-3 md:right-3 dark:hover:bg-gray-900 dark:disabled:hover:bg-transparent right-2 dark:disabled:bg-white disabled:bg-black disabled:opacity-10 disabled:text-gray-400 text-white p-0.5 rounded-lg  bottom-1.5 transition-colors"
+                className="bg-[#494a55] absolute md:bottom-3 md:right-3 dark:hover:bg-gray-900 dark:disabled:hover:bg-transparent right-2 dark:disabled:bg-white disabled:bg-black disabled:opacity-10 disabled:text-gray-400 text-white p-0.5 rounded-lg  bottom-3 transition-colors"
                 data-testid="send-button"
               >
                 <span className="" data-state="closed">
@@ -128,7 +126,7 @@ const Prompt = ({
                     height="24"
                     viewBox="0 0 24 24"
                     fillRule="none"
-                    className="text-white dark:text-gray-500"
+                    className="text-white"
                   >
                     <path
                       d="M7 11L12 6L17 11M12 18V7"

@@ -17,7 +17,7 @@ const Answer = ({
   }
 
   return (
-    <div id="infiniteScroll" className="max-w-[768px] mx-auto ">
+    <div id="infiniteScroll" className="max-w-[768px] px-4 mx-auto ">
       {!messages || messages.length === 0 ? (
         <WelcomeMessage
           setMessages={setMessages}

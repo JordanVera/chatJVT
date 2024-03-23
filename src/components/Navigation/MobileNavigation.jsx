@@ -25,7 +25,7 @@ export default function MobileNavigation({
     <Drawer
       open={openMobileDrawer}
       onClose={closeDrawer}
-      className="p-1.5 bg-black"
+      className="p-1.5 bg-black "
     >
       <div className={`flex flex-col h-full`}>
         <ListForNav
