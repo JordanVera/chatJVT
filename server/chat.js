@@ -7,13 +7,18 @@ const chat = async (req, res, next) => {
     // });
     // const openai = new OpenAIApi(configuration);
 
-    const openai = new OpenAI();
+    const openai = new OpenAI({
+      apiKey: process.env.OPENAI_API_KEY,
+    });
 
     const completion = await openai.chat.completions.create({
       model: 'gpt-3.5-turbo',
       messages: req.body.messages,
     });
-    const chatGptAnswer = completion.data.choices[0].message;
+
+    console.log(completion.choices);
+
+    const chatGptAnswer = completion.choices[0].message.content;
     console.log(chatGptAnswer);
 
     if (res.status === 503) {
@@ -28,7 +33,7 @@ const chat = async (req, res, next) => {
     if (error.status === 429) {
       return res.status(429).json({
         success: false,
-        chatGptAnswer: 'Rate limit exceeded. Please try again later.',
+        msg: 'Rate limit exceeded. Please try again later.',
       });
     }
     console.log('req');

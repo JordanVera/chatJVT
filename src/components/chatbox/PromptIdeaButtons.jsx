@@ -2,6 +2,7 @@ import { useState } from 'react';
 import ArrowUpwardIcon from '@mui/icons-material/ArrowUpward';
 import axios from 'axios';
 import { url } from '../../config';
+import { toast } from 'react-toastify';
 
 const PromptIdeaButtons = ({ setMessages, messages, setLoading }) => {
   const data = [
@@ -56,6 +57,15 @@ const PromptIdeaButtons = ({ setMessages, messages, setLoading }) => {
       setMessages((prevMessages) =>
         prevMessages ? [...prevMessages, ans] : [ans]
       );
+    } catch (error) {
+      console.log('________+ERROR+________');
+
+      toast.error(error.response.data.msg, {
+        position: 'bottom-right',
+        theme: 'dark',
+      });
+
+      console.log(error);
     } finally {
       setLoading(false);
     }

@@ -10,7 +10,7 @@ import MobileNavigation from './Navigation/MobileNavigation.jsx';
 
 function App() {
   const [loading, setLoading] = useState(false);
-  const [messages, setMessages] = useState([[]]);
+  const [messages, setMessages] = useState([]);
   const [isHovered, setIsHovered] = useState(false);
   const [chats, setChats] = useState(['My First Chat']);
   const [selectedChat, setSelectedChat] = useState(0);

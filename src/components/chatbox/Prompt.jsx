@@ -31,9 +31,10 @@ const Prompt = ({
       const { prompt } = data;
       const promptMessage = { role: 'user', content: prompt };
 
-      setMessages((prevMessages) =>
-        prevMessages ? [...prevMessages, promptMessage] : [promptMessage]
-      );
+      const newMessages = messages
+        ? [...messages, promptMessage]
+        : [promptMessage];
+      setMessages(newMessages);
 
       const headers = {
         'Content-Type': 'Application/json',
@@ -44,10 +45,10 @@ const Prompt = ({
 
       const response = await axios.post(
         `${url}/chat`,
-        { messages: [...messages, promptMessage] },
+        { messages: newMessages },
         { headers }
       );
-      const ans = response.data.chatGptAnswer;
+      const ans = { content: response.data.chatGptAnswer, role: 'chat' };
 
       console.log({ ans });
 
@@ -58,7 +59,7 @@ const Prompt = ({
     } catch (error) {
       console.log('________+ERROR+________');
 
-      toast.error(error.response.data.chatGptAnswer, {
+      toast.error(error.response.data.msg, {
         position: 'bottom-right',
         theme: 'dark',
       });
