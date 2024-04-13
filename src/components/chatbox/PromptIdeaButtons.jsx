@@ -112,7 +112,7 @@ const PromptIdeaButtons = ({ setMessages, messages, setLoading }) => {
             onClick={() => onSubmit(`${item.title} ${item.subtitle}`)}
           >
             <div>
-              <h4 className="text-[#c5c5d2] text-sm font-bold">{item.title}</h4>
+              <h4 className="text-white text-sm font-bold">{item.title}</h4>
               <h5 className="text-[#7a7a87] text-xs">{item.subtitle}</h5>
             </div>
             {hoveredButton === index + 2 && (
