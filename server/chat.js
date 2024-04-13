@@ -16,7 +16,8 @@ const chat = async (req, res, next) => {
       messages: req.body.messages,
     });
 
-    // console.log(completion.choices);
+    console.log('COMPLETION');
+    console.log(completion.choices);
 
     const chatGptAnswer = completion.choices[0].message.content;
     // console.log(chatGptAnswer);
