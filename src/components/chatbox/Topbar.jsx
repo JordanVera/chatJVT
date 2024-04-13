@@ -85,7 +85,7 @@ const Topbar = ({
               </svg>
             </div>
           </PopoverHandler>
-          <PopoverContent className=" p-0 bg-gray-900 border-none w-80 ">
+          <PopoverContent className=" p-0 bg-[#171717] border-none w-80 ">
             <a
               href="https://openai.com/"
               target="_blank"
