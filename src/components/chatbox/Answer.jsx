@@ -25,7 +25,7 @@ const Answer = ({
           setLoading={setLoading}
         />
       ) : (
-        <div dataLength={messages.length} hasMore={true} id="answers">
+        <div datalength={messages.length} hasmore={true} id="answers">
           {Array.isArray(messages)
             ? messages?.map((message, i) => (
                 <div className="responses " key={i}>

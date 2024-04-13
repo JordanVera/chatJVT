@@ -3,6 +3,9 @@ import axios from 'axios';
 import { useForm, useFormContext } from 'react-hook-form';
 import { url } from '../../config';
 
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 const Prompt = ({
   loading,
   setLoading,
@@ -46,12 +49,19 @@ const Prompt = ({
       );
       const ans = response.data.chatGptAnswer;
 
+      console.log({ ans });
+
       // Update messages with the API response
       setMessages((prevMessages) =>
         prevMessages ? [...prevMessages, ans] : [ans]
       );
     } catch (error) {
       console.log('________+ERROR+________');
+
+      toast.error(error.response.data.chatGptAnswer, {
+        position: 'bottom-right',
+        theme: 'dark',
+      });
 
       console.log(error);
     } finally {
