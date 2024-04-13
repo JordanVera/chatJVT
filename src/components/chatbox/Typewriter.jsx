@@ -27,7 +27,14 @@ const Typewriter = ({ text }) => {
     };
   }, [text]);
 
-  return <h3 className="text-white">{displayedText}</h3>;
+  return (
+    <p
+      className="text-white"
+      dangerouslySetInnerHTML={{
+        __html: displayedText.replace(/\n/g, '<br />'),
+      }}
+    />
+  );
 };
 
 export default Typewriter;

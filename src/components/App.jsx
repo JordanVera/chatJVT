@@ -80,7 +80,7 @@ function App() {
 
       <div
         id="chatbox"
-        className={`flex flex-col h-screen bg-[#343541] transition-width w-full`}
+        className={`flex flex-col h-screen bg-[#212121] transition-width w-full`}
       >
         <div className="flex-grow relative overflow-y-auto">
           <Topbar

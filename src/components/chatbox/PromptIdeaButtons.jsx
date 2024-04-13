@@ -51,7 +51,7 @@ const PromptIdeaButtons = ({ setMessages, messages, setLoading }) => {
         { messages: messages ? [...messages, promptMessage] : [promptMessage] },
         { headers }
       );
-      const ans = response.data.chatGptAnswer;
+      const ans = { content: response.data.chatGptAnswer, role: 'assistant' };
 
       // Update messages with the API response
       setMessages((prevMessages) =>
@@ -80,7 +80,7 @@ const PromptIdeaButtons = ({ setMessages, messages, setLoading }) => {
         {data.slice(0, 2).map((item, index) => (
           <button
             key={index}
-            className={`border border-[#7a7a87] w-full px-4 py-3 rounded-2xl mx-2 sm:mx-0 text-left hover:bg-[#40414F] relative flex flex-row justify-between ${
+            className={`border border-gray-800 w-full px-4 py-3 rounded-2xl mx-2 sm:mx-0 text-left hover:bg-gray-800 hover:bg-opacity-50 relative flex flex-row justify-between ${
               index === 0 ? 'mb-3 sm:mb-0' : ''
             }`}
             onMouseEnter={() => handleButtonHover(index)}
@@ -88,7 +88,7 @@ const PromptIdeaButtons = ({ setMessages, messages, setLoading }) => {
             onClick={() => onSubmit(`${item.title} ${item.subtitle}`)}
           >
             <div>
-              <h4 className="text-[#c5c5d2] text-sm font-bold">{item.title}</h4>
+              <h4 className="text-white text-sm font-bold">{item.title}</h4>
               <h5 className="text-[#7a7a87] text-xs">{item.subtitle}</h5>
             </div>
             {hoveredButton === index && (
@@ -106,7 +106,7 @@ const PromptIdeaButtons = ({ setMessages, messages, setLoading }) => {
         {data.slice(2, 4).map((item, index) => (
           <button
             key={index}
-            className="border border-[#7a7a87] w-full px-4 py-3 rounded-2xl text-left hover:bg-[#40414F] relative flex flex-row justify-between"
+            className="border border-gray-800 w-full px-4 py-3 rounded-2xl text-left hover:bg-gray-800 hover:bg-opacity-50 relative flex flex-row justify-between"
             onMouseEnter={() => handleButtonHover(index + 2)}
             onMouseLeave={handleButtonLeave}
             onClick={() => onSubmit(`${item.title} ${item.subtitle}`)}

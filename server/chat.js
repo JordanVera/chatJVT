@@ -16,10 +16,11 @@ const chat = async (req, res, next) => {
       messages: req.body.messages,
     });
 
+    console.log('COMPLETION');
     console.log(completion.choices);
 
     const chatGptAnswer = completion.choices[0].message.content;
-    console.log(chatGptAnswer);
+    // console.log(chatGptAnswer);
 
     if (res.status === 503) {
       return res.status(503).json({

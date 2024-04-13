@@ -88,7 +88,7 @@ const Prompt = ({
     >
       <div className="relative flex flex-col items-stretch">
         <div className="relative flex w-full md:flex-col">
-          <div className="overflow-hidden  flex flex-col w-full  flex-grow relative border border-gray-600 dark:text-white rounded-2xl bg-transparent">
+          <div className="overflow-hidden  flex flex-col w-full  flex-grow relative border border-gray-800 dark:text-white rounded-2xl bg-transparent">
             <textarea
               id="prompt-textarea"
               tabIndex="0"
@@ -101,7 +101,7 @@ const Prompt = ({
               rows="1"
               onKeyDown={handleKeyDown}
               placeholder="Message JordanGPT…"
-              className={`m-0 w-full resize-none border-0 py-[10px] pr-10 focus:ring-0 focus-visible:ring-0 dark:bg-transparent bg-transparent placeholder-gray-500 md:py-3.5 md:pr-12 placeholder-black/50 dark:placeholder-white/50 pl-3 md:pl-4 ${
+              className={`m-0 w-full resize-none border-0  py-[10px] pr-10 focus:ring-0 focus-visible:ring-0 dark:bg-transparent bg-transparent placeholder-gray-500 md:py-3.5 md:pr-12 placeholder-black/50 dark:placeholder-white/50 pl-3 md:pl-4 ${
                 loading ? 'disabled' : ''
               }`}
               disabled={loading}

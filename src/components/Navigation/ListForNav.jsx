@@ -33,7 +33,7 @@ const ListForNav = ({
     const handleOpen = () => setOpen(!open);
 
     return (
-      <div id="chatList" className="mt-[20px] flex-grow">
+      <div id="chatList" className="mt-[20px] flex-grow ">
         <h3 className="p-2 text-xs text-gray-500 font-medium text-ellipsis overflow-hidden break-all ">
           Today
         </h3>
@@ -148,7 +148,7 @@ const ListForNav = ({
   };
 
   return (
-    <div className="w-full h-full bg-black px-3">
+    <div className="w-full h-full bg-[#171717] px-3">
       <nav aria-label="main mailbox folders">
         <div className="w-full pt-3.5 rounded-md">
           <button

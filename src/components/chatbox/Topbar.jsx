@@ -14,7 +14,7 @@ const Topbar = ({
   newChat,
 }) => {
   return (
-    <div className="flex flex-row items-center justify-between bg-[#34354299] h-[45px] sm:h-[56px] p-2 mb-1.5 sticky top-0 z-50">
+    <div className="flex flex-row items-center justify-between bg-[#212121] h-[45px] sm:h-[56px] p-2 mb-1.5 sticky top-0 z-50">
       {/* <MobileNavigation /> */}
 
       <div className="flex flex-row justify-between  sm:hidden w-full">
@@ -64,7 +64,10 @@ const Topbar = ({
         <Popover placement="bottom-start">
           <PopoverHandler>
             <div className="text-white text-lg font-bold px-3 bg-transpa flex flex-row items-center">
-              JordanGPT <span className="text-gray-400 font-medium ">3.5</span>
+              <h3>
+                JordanGPT{' '}
+                <span className="text-gray-400 font-medium "> 3.5</span>
+              </h3>
               <svg
                 width="16"
                 height="17"

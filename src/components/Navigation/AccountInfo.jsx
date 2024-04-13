@@ -3,7 +3,7 @@ import { Avatar } from '@mui/material';
 const AccountInfo = ({ setSelectedChat, newChat }) => {
   return (
     <>
-      <div id="accountInfo" className="bg-black p-3">
+      <div id="accountInfo" className="p-3">
         <div className="w-full pt-3.5 rounded-md">
           <button className="rounded-lg w-full hover:bg-gray-900 py-1 mb-1.5">
             <div
@@ -11,7 +11,7 @@ const AccountInfo = ({ setSelectedChat, newChat }) => {
                 setSelectedChat((prev) => prev + 1);
                 newChat('');
               }}
-              className="group py-0 flex p-0 items-center gap-2 rounded-lg px-2 font-medium hover:bg-token-surface-primary rounded-md"
+              className="group py-0 flex p-0 items-center gap-2  px-2 font-medium hover:bg-token-surface-primary rounded-md"
             >
               <Avatar
                 alt="Vera"

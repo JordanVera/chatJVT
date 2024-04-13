@@ -23,7 +23,7 @@ export default function Navigation({
       variant="persistent"
       className={` ${isHovered ? 'opacity-50' : ''}  w-[260px] border-none`}
     >
-      <div className={`flex flex-col h-full`}>
+      <div className={`flex flex-col h-full bg-[#171717] `}>
         <ListForNav
           newChat={newChat}
           messages={messages}
