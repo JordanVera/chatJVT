@@ -1,5 +1,15 @@
 import request from 'supertest';
 import app from '../index';
+import mongoose from 'mongoose';
+
+beforeEach(async () => {
+  await mongoose.connect(process.env.MONGODB_URI);
+});
+
+/* Closing database connection after each test. */
+afterEach(async () => {
+  await mongoose.connection.close();
+});
 
 describe('POST /chat', () => {
   it('should return a successful response when chat is submitted', async () => {
