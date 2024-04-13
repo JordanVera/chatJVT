@@ -32,7 +32,7 @@ const Prompt = ({
       const promptMessage = { role: 'user', content: prompt };
 
       const newMessages = messages
-        ? [...messages, promptMessage]
+        ? [...messages[selectedChat], promptMessage]
         : [promptMessage];
       setMessages(newMessages);
 
@@ -48,7 +48,7 @@ const Prompt = ({
         { messages: newMessages },
         { headers }
       );
-      const ans = { content: response.data.chatGptAnswer, role: 'chat' };
+      const ans = { content: response.data.chatGptAnswer, role: 'assistant' };
 
       console.log({ ans });
 
