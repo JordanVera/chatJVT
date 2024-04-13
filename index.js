@@ -14,7 +14,7 @@ import initilizePassport from './server/passportConfig.js';
 import MongoStore from 'connect-mongo';
 import helmet from 'helmet';
 
-const app = express();
+export const app = express();
 
 dotenv.config();
 
