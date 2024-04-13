@@ -51,7 +51,7 @@ const PromptIdeaButtons = ({ setMessages, messages, setLoading }) => {
         { messages: messages ? [...messages, promptMessage] : [promptMessage] },
         { headers }
       );
-      const ans = response.data.chatGptAnswer;
+      const ans = { content: response.data.chatGptAnswer, role: 'assistant' };
 
       // Update messages with the API response
       setMessages((prevMessages) =>
